@@ -1,0 +1,4 @@
+İkonlar Lucide/Feather tarzı çizgi ikonlardan uyarlanmış SVG çalışmalarıdır. Lucide ISC lisansı: https://lucide.dev/license
+Copyright (c) 2026 Lucide Icons and Contributors
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
