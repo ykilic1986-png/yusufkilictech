@@ -168,6 +168,15 @@ body.detail-open{overflow:hidden}
 @media(max-width:900px){.hero-building .hero-intro-video{min-height:350px;height:350px}}
 @media(max-width:560px){.hero-building .hero-intro-video{min-height:245px;height:245px}}
 @media(prefers-reduced-motion:reduce){.hero-building .hero-intro-video{display:none}.hero-building{background:#071c37 url('yk-otomasyon-hero-poster.jpg') center/cover no-repeat}}
+</style><style id="yk-hero-video-full-frame-fix">
+/* Show the entire 16:9 frame: no clipping and no white gradient over text. */
+.hero-building{background:#071c37!important;overflow:hidden!important;}
+.hero-building::before,.hero-building::after{display:none!important;content:none!important;}
+.hero-building .hero-intro-video{display:block!important;width:100%!important;height:100%!important;min-height:0!important;max-height:100%!important;object-fit:contain!important;object-position:center center!important;background:#071c37!important;}
+@media(min-width:901px){.hero-building{height:520px!important;min-height:520px!important;}}
+@media(min-width:561px) and (max-width:900px){.hero-building{height:350px!important;min-height:350px!important;}}
+@media(max-width:560px){.hero-building{height:auto!important;min-height:0!important;aspect-ratio:16/9;}.hero-building .hero-intro-video{height:100%!important;}}
+@media(prefers-reduced-motion:reduce){.hero-building .hero-intro-video{display:none!important;}.hero-building{background:#071c37 url('yk-otomasyon-hero-poster.jpg') center/contain no-repeat!important;}}
 </style></head><body>
 <div class="top-contact-bar"><div class="top-contact-inner"><span data-en="◷ Monday - Friday 08:00-18:00" data-tr="◷ Pazartesi - Cuma 08:00-18:00">◷ Pazartesi - Cuma 08:00-18:00</span><div class="top-contact-links"><a aria-label="Telefon: 0501 577 22 49" href="tel:+905015772249">☎ 0501 577 22 49</a><a aria-label="E-posta: info@ykotomasyon.com.tr" href="mailto:info@ykotomasyon.com.tr">✉ info@ykotomasyon.com.tr</a></div></div></div>
 <header><div class="wrap bar"><a class="logo" href="#anasayfa"><img alt="YK Otomasyon ve Mühendislik Hizmetleri" src="yk-otomasyon-logo.png" style="width:min(390px,48vw);height:auto;display:block"/></a><button aria-label="Menu" class="menu" onclick="document.getElementById('nav').classList.toggle('open')" type="button">☰</button><nav id="nav"><a data-en="Home" data-tr="Ana Sayfa" href="#anasayfa">Ana Sayfa</a><a data-en="About" data-tr="Hakkımızda" href="#hakkimizda">Hakkımızda</a><a data-en="Services" data-tr="Hizmetler" href="#hizmetler">Hizmetler</a><a data-en="Brands" data-tr="Markalar" href="#urunler">Markalar</a><a data-en="Projects" data-tr="Projeler" href="#projeler">Projeler</a><a data-en="Contact" data-tr="İletişim" href="#iletisim">İletişim</a><a class="nav-quote" data-en="GET A QUOTE" data-tr="TEKLİF AL" href="#teklif">TEKLİF AL</a></nav><div class="actions"><button class="lang active" id="trBtn" onclick="setLang('tr')" type="button">TR</button><button class="lang" id="enBtn" onclick="setLang('en')" type="button">EN</button></div></div></header>
