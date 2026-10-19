@@ -177,7 +177,34 @@ body.detail-open{overflow:hidden}
 @media(min-width:561px) and (max-width:900px){.hero-building{height:350px!important;min-height:350px!important;}}
 @media(max-width:560px){.hero-building{height:auto!important;min-height:0!important;aspect-ratio:16/9;}.hero-building .hero-intro-video{height:100%!important;}}
 @media(prefers-reduced-motion:reduce){.hero-building .hero-intro-video{display:none!important;}.hero-building{background:#071c37 url('yk-otomasyon-hero-poster.jpg') center/contain no-repeat!important;}}
-</style></head><body>
+</style>
+<style id="yk-hero-soft-edge-2026">
+/* Match the 16:9 video to its container, eliminating dark letterbox bars. */
+.hero .hero-grid .hero-building{
+  height:auto!important;min-height:0!important;aspect-ratio:16/9!important;
+  align-self:center!important;background:transparent!important;overflow:visible!important;
+  border-radius:16px!important;box-shadow:none!important;
+}
+.hero .hero-grid .hero-building::before,.hero .hero-grid .hero-building::after{display:none!important;content:none!important}
+.hero .hero-grid .hero-building .hero-intro-video{
+  display:block!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;
+  min-height:0!important;max-height:none!important;object-fit:contain!important;
+  background:transparent!important;border:0!important;border-radius:16px!important;
+  /* Gentle transition to the pale page background, without cropping text. */
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 11%,#000 97%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 9%,#000 92%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0%,#000 11%,#000 97%,transparent 100%),linear-gradient(to bottom,transparent 0%,#000 9%,#000 92%,transparent 100%);
+  mask-composite:intersect;
+}
+@media(max-width:900px){
+  .hero .hero-grid .hero-building{height:auto!important;min-height:0!important;width:100%!important;aspect-ratio:16/9!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .hero-grid .hero-building .hero-intro-video{display:none!important}
+  .hero .hero-grid .hero-building{background:transparent url('yk-otomasyon-hero-poster.jpg') center/contain no-repeat!important}
+}
+</style>
+</head><body>
 <div class="top-contact-bar"><div class="top-contact-inner"><span data-en="◷ Monday - Friday 08:00-18:00" data-tr="◷ Pazartesi - Cuma 08:00-18:00">◷ Pazartesi - Cuma 08:00-18:00</span><div class="top-contact-links"><a aria-label="Telefon: 0501 577 22 49" href="tel:+905015772249">☎ 0501 577 22 49</a><a aria-label="E-posta: info@ykotomasyon.com.tr" href="mailto:info@ykotomasyon.com.tr">✉ info@ykotomasyon.com.tr</a></div></div></div>
 <header><div class="wrap bar"><a class="logo" href="#anasayfa"><img alt="YK Otomasyon ve Mühendislik Hizmetleri" src="yk-otomasyon-logo.png" style="width:min(390px,48vw);height:auto;display:block"/></a><button aria-label="Menu" class="menu" onclick="document.getElementById('nav').classList.toggle('open')" type="button">☰</button><nav id="nav"><a data-en="Home" data-tr="Ana Sayfa" href="#anasayfa">Ana Sayfa</a><a data-en="About" data-tr="Hakkımızda" href="#hakkimizda">Hakkımızda</a><a data-en="Services" data-tr="Hizmetler" href="#hizmetler">Hizmetler</a><a data-en="Brands" data-tr="Markalar" href="#urunler">Markalar</a><a data-en="Projects" data-tr="Projeler" href="#projeler">Projeler</a><a data-en="Contact" data-tr="İletişim" href="#iletisim">İletişim</a><a class="nav-quote" data-en="GET A QUOTE" data-tr="TEKLİF AL" href="#teklif">TEKLİF AL</a></nav><div class="actions"><button class="lang active" id="trBtn" onclick="setLang('tr')" type="button">TR</button><button class="lang" id="enBtn" onclick="setLang('en')" type="button">EN</button></div></div></header>
 <main><div class="hero" id="anasayfa"><div class="wrap hero-grid"><div class="hero-copy"><h1 data-en="Industrial Automation and Digital Transformation" data-tr="Endüstriyel Otomasyon ve Dijital Dönüşüm">Endüstriyel Otomasyon ve Dijital Dönüşüm</h1><p data-en="We support your projects with an approach aligned with digital transformation and Industry 4.0 principles. By combining PLC, HMI/SCADA, industrial communications and IoT technologies, we aim to improve efficiency, reliability and sustainability in industrial processes." data-tr="Endüstriyel uygulamalarda dijital dönüşüm ve Endüstri 4.0 ilkelerini benimseyen yaklaşımımızla projelerinize destek oluyoruz. PLC, HMI/SCADA, endüstriyel haberleşme ve IoT teknolojilerini bir araya getirerek üretim süreçlerinde verimliliği, güvenilirliği ve sürdürülebilirliği artırmayı hedefliyoruz.">Endüstriyel uygulamalarda dijital dönüşüm ve Endüstri 4.0 ilkelerini benimseyen yaklaşımımızla projelerinize destek oluyoruz. PLC, HMI/SCADA, endüstriyel haberleşme ve IoT teknolojilerini bir araya getirerek üretim süreçlerinde verimliliği, güvenilirliği ve sürdürülebilirliği artırmayı hedefliyoruz.</p><div class="hero-buttons"><a class="btn" data-en="OUR SOLUTIONS →" data-tr="ÇÖZÜMLERİMİZ →" href="#hizmetler">ÇÖZÜMLERİMİZ →</a><a class="btn alt" data-en="OUR PROJECTS ↗" data-tr="PROJELERİMİZ ↗" href="#projeler">PROJELERİMİZ ↗</a></div></div><div class="hero-building"><video class="hero-intro-video" autoplay muted loop playsinline preload="metadata" poster="yk-otomasyon-hero-poster.jpg" aria-label="YK Otomasyon PLC, SCADA, AC sürücü, endüstriyel router ve kolaboratif robot tanıtım videosu"><source src="yk-otomasyon-hero-tanitim.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video></div></div>
