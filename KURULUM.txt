@@ -1,0 +1,7 @@
+YK OTOMASYON - DUZELTILMIS WEB SITESI
+
+ZIP icindeki dosyalari GitHub Pages ana dizinine yukleyin. index.html, blog.html ve akademi.html dosyalarini degistirin. Diger dosyalari silmeyin.
+
+Duzenleme: Uc sayfada tutarli masaustu ve mobil ust menu; esit aralik, ayni yukseklik, mobil hamburger menu.
+
+Forum ve uye kaydi henuz aktif degildir.
