@@ -1,7 +1,3 @@
-YK OTOMASYON - Bizden Haberler iki video güncellemesi
+YK OTOMASYON - Otomatik Dongulu Video Haberler
 
-ZIP içindeki tüm dosyaları mevcut sitenizin index.html dosyasının bulunduğu ana klasöre yükleyin. Özellikle haberler.html, yk-robotik-uretim.mp4 ve yk-kablosuz-haberlesme.mp4 dosyaları aynı klasörde olmalıdır.
-
-Haberler: /haberler.html#robotik-uretim ve /haberler.html#kablosuz-haberlesme
-
-Mevcut diğer dosyaları silmeyin. Tarayıcıda Ctrl+F5 ile yenileyin.
+Tum dosyalari web sitenizin ana klasorune yukleyin. haberler.html icindeki iki video otomatik, sessiz, dongude ve kontrol dugmeleri olmadan oynar. Tarayici enerji tasarrufu / otomatik oynatma politikalarina gore davranis degisebilir.
