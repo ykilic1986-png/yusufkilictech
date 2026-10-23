@@ -1,1 +1,7 @@
-ZIP icindeki dosyalari GitHub web sitesi ana klasorune yukleyin. index.html, blog.html ve akademi.html dosyalarini degistirin. WhatsApp ikonu sag ustte, numara gorunmeden calisir. Ust menu kaydirirken sabit kalir.
+YK OTOMASYON - Bizden Haberler iki video güncellemesi
+
+ZIP içindeki tüm dosyaları mevcut sitenizin index.html dosyasının bulunduğu ana klasöre yükleyin. Özellikle haberler.html, yk-robotik-uretim.mp4 ve yk-kablosuz-haberlesme.mp4 dosyaları aynı klasörde olmalıdır.
+
+Haberler: /haberler.html#robotik-uretim ve /haberler.html#kablosuz-haberlesme
+
+Mevcut diğer dosyaları silmeyin. Tarayıcıda Ctrl+F5 ile yenileyin.
