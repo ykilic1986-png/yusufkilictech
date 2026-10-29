@@ -1,0 +1,10 @@
+YK OTOMASYON SEO KURULUM
+
+1. Bu klasordeki tum dosyalari web sitesinin kok dizinine yukleyin.
+2. https://www.ykotomasyon.com.tr/robots.txt ve /sitemap.xml adreslerini kontrol edin.
+3. Google Search Console icinde alan adini dogrulayin ve sitemap.xml gonderin.
+4. URL Denetimi ile ana sayfa ve cotrust.html icin indeksleme isteyin.
+5. Tek bir ana adres secin (www veya www olmayan) ve digerini 301 yonlendirin. Bu pakette canonical www olarak ayarlandi. Hostingde www adresinin calistigini dogrulayin.
+6. Search Console Performans raporunda sorgulari ve tiklamalari izleyin.
+
+NOT: SEO ayarlari arama sonuclarinda gorunmeyi veya siralamayi garanti etmez. Google indeksleme karari kendisine aittir.

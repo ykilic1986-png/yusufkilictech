@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.ykotomasyon.com.tr/sitemap.xml
