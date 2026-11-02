@@ -1,0 +1,5 @@
+YK OTOMASYON ÇOK SAYFALI WEB SİTESİ
+
+ZIP içindeki tüm dosyaları sitenizin kök dizinine yükleyin; mevcut dosyaların yedeğini alın. index.html ana sayfadır. Hakkımızda, Hizmetler, Projeler ve İletişim ayrı HTML sayfalarıdır. Markalar, COTRUST, Blog, Akademi ve Haberler sayfaları korunmuştur. sitemap.xml güncellenmiştir.
+
+Not: Bu paket canlı sunucuya yüklenmemiştir.
