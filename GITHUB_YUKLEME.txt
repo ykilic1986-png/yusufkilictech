@@ -1,0 +1,6 @@
+YK OTOMASYON - TAM SITE + TURKO PORTAL
+
+ZIP dosyasinin tum icerigini GitHub deposunun ana dizinine yukleyin. Eski dosyalari ayni isimlerle degistirin; diger dosyalari silmeyin.
+GitHub Pages ana sayfasi index.html, TURKO PORTAL turko-portal.html, Cloud demo turko-connect/index.html.
+Videolar: turko-studio-demo.mp4 ve turko-connect-demo.mp4.
+Cloud PLC baglantisi ve verileri simule edilmistir.
