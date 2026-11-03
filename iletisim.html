@@ -386,10 +386,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElemen
 </script><script>document.querySelectorAll('.yk-nav-dropdown>button').forEach(b=>b.addEventListener('click',()=>{let p=b.parentElement;document.querySelectorAll('.yk-nav-dropdown').forEach(d=>{if(d!==p)d.classList.remove('open')});p.classList.toggle('open')}));document.addEventListener('click',e=>{if(!e.target.closest('.yk-nav-dropdown'))document.querySelectorAll('.yk-nav-dropdown').forEach(d=>d.classList.remove('open'))});</script><section id="yk-talep-formu" style="max-width:760px;margin:36px auto;padding:28px;border:1px solid #dce4eb;border-radius:16px;background:#fff;color:#14283c;box-shadow:0 6px 28px #102b4510">
 <h2 style="margin-top:0">Teklif ve Teknik Destek Talebi</h2>
 <p>Talebinizi iletin, YK Otomasyon ekibi e-posta üzerinden sizinle iletişime geçsin.</p>
-<form action="https://formsubmit.co/info@ykotomasyon.com.tr" method="POST" style="display:grid;gap:13px">
-<input type="hidden" name="_subject" value="YK Otomasyon Web Sitesi - Yeni Müşteri Talebi">
-<input type="hidden" name="_captcha" value="true">
+<form action="https://formsubmit.co/info@ykotomasyon.com.tr" method="POST" accept-charset="UTF-8" style="display:grid;gap:13px">
+<input type="hidden" name="_subject" value="YK OTOMASYON - Web Sitesinden Yeni İletişim Talebi">
+<input type="hidden" name="_honey" style="display:none">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_autoresponse" value="Talebiniz YK Otomasyon ekibine iletilmiştir. En kısa sürede size dönüş yapacağız.">
 <label>Ad Soyad *<input name="Ad Soyad" required maxlength="120" autocomplete="name" style="width:100%;padding:12px;border:1px solid #b8c7d5;border-radius:8px"></label>
 <label>Firma<input name="Firma" maxlength="160" autocomplete="organization" style="width:100%;padding:12px;border:1px solid #b8c7d5;border-radius:8px"></label>
 <label>E-posta *<input type="email" name="email" required maxlength="180" autocomplete="email" style="width:100%;padding:12px;border:1px solid #b8c7d5;border-radius:8px"></label>
@@ -397,7 +398,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElemen
 <label>Talebiniz *<textarea name="Talep" required rows="5" maxlength="4000" style="width:100%;padding:12px;border:1px solid #b8c7d5;border-radius:8px"></textarea></label>
 <label style="font-size:13px"><input type="checkbox" required> İletişim bilgilerimin talebime yanıt verilmesi amacıyla işlenmesini kabul ediyorum.</label>
 <button type="submit" style="background:#11638d;color:#fff;border:0;padding:14px;border-radius:8px;cursor:pointer;font-weight:700">Talebimi Gönder</button>
-</form><p style="font-size:12px;color:#637183">İlk kullanımda FormSubmit hizmetinin info@ykotomasyon.com.tr adresine gönderdiği aktivasyon e-postasını onaylamanız gerekir. Form verileri üçüncü taraf hizmet üzerinden iletilir.</p></section><script>
+</form><p style="font-size:12px;color:#637183">Bu form daha önce kullanılan FormSubmit yöntemiyle çalışır. Talep iletimi için FormSubmit hizmeti kullanılır.</p></section><script>
 /* Google Analytics 4: replace G-XXXXXXXXXX with your measurement ID before publishing. */
 (function(){
   var id='G-XXXXXXXXXX';

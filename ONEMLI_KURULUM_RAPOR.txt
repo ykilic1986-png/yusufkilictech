@@ -1,11 +1,9 @@
-YK OTOMASYON - KURULUM
-1. ZIP içeriğini GitHub Pages yayın klasörüne yükleyin.
-2. İletişim formunu bir kez test edin. FormSubmit, info@ykotomasyon.com.tr adresine aktivasyon mesajı yollar; onaylayın. Onay verilene kadar talepler ulaşmayabilir.
-3. Google Analytics 4 mülkü oluşturun. Web veri akışındaki G-... Ölçüm Kimliğini bütün HTML dosyalarında G-XXXXXXXXXX yerine yazın. Bu yapılmadıkça ziyaret istatistikleri toplanmaz.
-4. Analytics mülkündeki sayısal Property ID'yi GUNLUK_RAPOR_Google_Apps_Script.gs dosyasında GA4_PROPERTY_ID yerine yazın.
-5. script.google.com üzerinden yeni Apps Script projesi açın, .gs kodunu yapıştırın. Project Settings bölümünde manifesti açın ve GUNLUK_RAPOR_appsscript.json içeriğini uygulayın.
-6. İlgili Google Cloud projesinde Google Analytics Data API'yi etkinleştirin; Apps Script'i GA4 mülküne erişim izni olan hesapla çalıştırın.
-7. setupDailyReport() fonksiyonunu bir kez çalıştırıp izinleri onaylayın. sendDailyReport() ile test e-postası gönderin.
-8. Apps Script zaman tetikleyicileri tam 23:59 garantisi vermez; yaklaşık 23:55 civarında tetiklenir. GA4 verileri gecikmeli işlenebilir.
-9. GA4 çerezleri/analitik izleme için uygun KVKK aydınlatma ve gerektiğinde rıza yönetimi eklenmelidir. Bu paket rıza yönetimi içermiyor; canlı analitik etkinleştirmeden önce tamamlayın.
-10. Tarayıcı politikaları gereği otomatik oynatma sessizdir; iki video muted autoplay loop playsinline olarak ayarlandı.
+YK OTOMASYON - GÜNCEL SİTE VE E-POSTA TESTİ
+
+1. ZIP içindeki dosyaları GitHub Pages yayın klasörüne yükleyin.
+2. İletişim sayfasından deneme mesajı gönderin. Daha önce kullanılan FormSubmit adresi korunmuştur: https://formsubmit.co/info@ykotomasyon.com.tr
+3. info@ykotomasyon.com.tr gelen kutusu ve spam klasörünü kontrol edin. Mevcut FormSubmit doğrulaması halen geçerliyse mesaj gelir.
+4. TURKO Studio ve TURKO Cloud videoları sessiz otomatik oynar; videoların ses kanalları kaldırılmıştır.
+5. Günlük rapor: Google Analytics G-XXXXXXXXXX yer tutucusu ve Apps Script GA4_PROPERTY_ID yer tutucusu hâlâ doldurulmalıdır. Bu adımlar yapılmadıkça günlük ziyaret raporu otomatik e-posta göndermez.
+6. Bu paket, daha önceki canlı formun servis uç noktasını korur ancak dış servise gerçek e-posta gönderimi burada doğrulanamaz.
+7. Form verileri üçüncü taraf FormSubmit hizmetine gönderilir. Analitik için KVKK ve çerez/rıza yükümlülüklerini değerlendirin.
