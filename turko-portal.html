@@ -1,104 +1,85 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TURKO PORTAL | YK Otomasyon</title><meta name="description" content="TURKO Studio ve TURKO Connect demo videoları, Cloud arayüzü."><style>*{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#152538;font-family:Arial,Helvetica,sans-serif}header{background:#112b48;color:white;padding:18px max(24px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}header a{color:white;text-decoration:none}nav{display:flex;gap:19px;flex-wrap:wrap;font-size:14px}main{max-width:1160px;margin:auto;padding:54px 24px 80px}h1{font-size:clamp(32px,5vw,52px);margin:0 0 14px}.lead{font-size:18px;color:#536477;max-width:740px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:26px;margin-top:40px}.card{background:white;border:1px solid #dce4ec;border-radius:16px;overflow:hidden;box-shadow:0 12px 32px #142e4710}.body{padding:24px}.card h2{margin:0 0 10px}.card p{color:#536477;line-height:1.6}video{display:block;width:100%;background:#0b1521;aspect-ratio:16/9}.button{display:inline-block;background:#087c78;color:white;text-decoration:none;border-radius:9px;padding:13px 18px;font-weight:700;margin-top:8px}.secondary{background:#183a59}.note{margin-top:32px;color:#637183;font-size:14px}footer{background:#112b48;color:#d7e3ec;text-align:center;padding:24px}.yk-brand{display:flex;align-items:center;gap:13px;white-space:nowrap}.yk-brand img{width:64px;height:64px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}.yk-brand strong{font-size:16px;letter-spacing:.3px}.portal-heading{margin:0 0 16px;display:flex;align-items:baseline;flex-wrap:wrap;gap:16px}.turko-word{font-weight:900;letter-spacing:-3px;font-size:clamp(48px,7vw,78px);line-height:1;color:#12283f}.turko-o{color:#c6333a}.portal-word{font-weight:800;letter-spacing:4px;font-size:clamp(25px,3.5vw,40px);color:#234968}.lead{margin-top:12px}@media(max-width:760px){header{padding:15px 20px}.yk-brand img{width:54px;height:54px}nav{gap:12px}.portal-heading{gap:8px}.portal-word{letter-spacing:2px}} .turko-studio-logo{display:block;width:min(310px,65vw);height:auto;object-fit:contain;background:#fff;border-radius:3px}.portal-heading{align-items:center;gap:20px}.portal-word{font-size:clamp(26px,4vw,45px);letter-spacing:5px}</style><style>
-:root{--navy:#0a1d31;--blue:#0879d1;--ink:#203044;--muted:#6b7a8c;--light:#f2f6fa}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.65 Arial,Helvetica,sans-serif;color:var(--ink)}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}.wrap{width:min(1200px,92%);margin:auto}header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 3px 22px #071e3515}.bar{min-height:82px;display:flex;align-items:center;gap:26px;justify-content:space-between}.logo{font-size:24px;font-weight:900;line-height:1.15;color:var(--navy);white-space:nowrap}.logo small{display:block;font-size:10px;font-weight:700;letter-spacing:1.6px;color:#738399;margin-top:4px}nav{display:flex;gap:18px;align-items:center}nav a{font-weight:700;font-size:13px}nav a:hover{color:var(--blue)}.actions{display:flex;gap:9px;align-items:center}.lang{border:1px solid #d7e0e9;background:white;border-radius:5px;padding:6px 9px;font-size:12px;font-weight:bold;color:var(--navy)}.lang.active{background:var(--navy);color:white}.menu{display:none;background:var(--navy);color:white;border:0;border-radius:5px;padding:7px 12px}.hero{min-height:630px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(4,17,32,.91),rgba(4,17,32,.55) 62%,rgba(4,17,32,.24)),none center/cover;color:white}.hero-inner{padding:75px 0}.kicker{font-size:12px;letter-spacing:3px;font-weight:800;color:#75bfff}.hero h1{font-size:clamp(38px,5.4vw,69px);line-height:1.12;max-width:810px;margin:17px 0 24px}.hero p{font-size:19px;max-width:650px;color:#d9e7f3}.btn{display:inline-block;background:var(--blue);color:white;border:0;border-radius:4px;padding:13px 23px;font-weight:700;margin:12px 10px 0 0}.btn.alt{background:transparent;border:1px solid #dce9f4}.btn:hover{filter:brightness(1.12)}section{padding:85px 0}.light{background:var(--light)}.section-head{margin-bottom:35px}.section-head .kicker{color:var(--blue)}.section-head h2{font-size:clamp(29px,3.5vw,43px);color:var(--navy);margin:10px 0}.section-head p{max-width:720px;color:var(--muted);margin:0}.services,.brand-grid,.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:21px}.tile{background:white;padding:29px;border:1px solid #e3eaf1;border-radius:5px;box-shadow:0 8px 25px #142c4610}.tile .number{color:var(--blue);font-size:13px;font-weight:900;letter-spacing:2px}.tile h3{color:var(--navy);font-size:20px;margin:17px 0 8px}.tile p{color:var(--muted);margin:0}.about{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}.about-art{min-height:370px;background:#122b43 url('assets/automation.svg') center/cover;border-radius:5px}.about p{color:var(--muted)}.about ul{padding-left:20px}.about li{margin:8px 0}.brand{border:1px solid #dce6ef;border-radius:5px;background:white;padding:28px 20px;min-height:145px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s,border-color .2s}.brand:hover{transform:translateY(-4px);border-color:var(--blue)}.brand-mark{font-weight:800;font-size:19px;color:var(--navy)}.brand-sub{font-size:13px;color:var(--blue);font-weight:bold}.catalog{margin-top:38px;background:#0d2946;color:white;padding:30px;border-radius:5px}.catalog h3{margin:0 0 7px;font-size:23px}.catalog p{color:#d6e3ef;margin:0 0 15px}.catalog .placeholder{border:1px dashed #83a4c0;padding:22px;border-radius:4px;color:#dce8f4}.project{background:linear-gradient(140deg,#0b2948,#22689b);padding:32px;color:white;min-height:205px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:5px}.project h3{margin:0}.project p{margin:4px 0 0;color:#d5e5f3}.contact{display:grid;grid-template-columns:1fr 1fr;gap:42px}.contact a{color:var(--blue)}.form{padding:28px;background:var(--light);border-radius:5px}.form input,.form textarea{width:100%;padding:12px;margin-bottom:13px;border:1px solid #cbd8e5;border-radius:4px;font:inherit}.form textarea{height:125px;resize:vertical}.form .btn{margin-top:0}.note{font-size:13px;color:var(--muted)}footer{background:#081c31;color:#cbd9e6;padding:32px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.whatsapp{position:fixed;bottom:23px;right:23px;z-index:19;background:#168d5b;color:white;padding:12px 17px;border-radius:30px;font-weight:bold;box-shadow:0 8px 22px #001a2240}@media(max-width:1000px){.bar{flex-wrap:wrap}.menu{display:block}nav{display:none;order:5;flex-basis:100%;flex-direction:column;align-items:flex-start;padding-bottom:18px}nav.open{display:flex}.services,.brand-grid,.project-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){section{padding:60px 0}.hero{min-height:550px}.hero p{font-size:16px}.services,.brand-grid,.project-grid,.about,.contact{grid-template-columns:1fr}.about-art{min-height:240px}.bar{gap:10px}.logo{font-size:19px}.whatsapp{right:12px;bottom:12px}}
-
-/* Schneider product catalog */
-.catalog{padding:32px!important}.catalog-top{display:flex;justify-content:space-between;align-items:end;gap:18px;flex-wrap:wrap}.catalog-eyebrow{font-size:11px;letter-spacing:2px;color:#7db9ef;font-weight:800}.filterbar{display:flex;flex-wrap:wrap;gap:8px}.filter{border:1px solid #56708c;border-radius:5px;background:transparent;color:#dbeafa;padding:9px 13px;cursor:pointer;font-weight:700}.filter.active,.filter:hover{background:#fff;color:#102b4e}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}.product-card{border:1px solid #3c5874;border-radius:9px;background:#173654;overflow:hidden;display:flex;flex-direction:column}.product-art{height:145px;display:grid;place-items:center;background:linear-gradient(145deg,#edf3f8,#d3e2ed);position:relative;overflow:hidden}.device{position:relative;box-shadow:12px 12px 18px #152f4b3d;background:linear-gradient(90deg,#d5dfe7,#fff 15%,#edf3f7 80%,#aabac8);border:2px solid #a4b5c4;border-radius:5px;width:78px;height:112px;transform:perspective(350px) rotateY(-14deg)}.device:before{content:'';position:absolute;top:12px;left:9px;right:9px;height:19px;background:#273d51;border-radius:2px;box-shadow:0 32px 0 #c7d4dd,0 56px 0 #c7d4dd}.device:after{content:'';position:absolute;bottom:7px;left:10px;width:42px;height:5px;background:#3e9c75;border-radius:3px}.product-art.hmi .device{width:155px;height:93px;background:#263b4c;border:9px solid #273a49;border-radius:9px}.product-art.hmi .device:before{inset:3px;content:'';height:auto;background:linear-gradient(135deg,#117cae,#16416c 60%,#21a6b4);box-shadow:none}.product-art.hmi .device:after{bottom:-6px;left:65px;width:12px;height:2px;background:#67c9e5}.product-art.tm3 .device{height:112px;width:49px}.product-art.tm3 .device:before{height:12px;box-shadow:0 25px 0 #c7d4dd,0 45px 0 #c7d4dd,0 64px 0 #c7d4dd}.product-art.tm3 .device:after{width:23px}.art-caption{position:absolute;bottom:8px;right:11px;font-size:10px;color:#62778a;font-weight:700}.product-body{padding:18px;display:flex;flex:1;flex-direction:column}.product-code{font-size:12px;color:#a5c7e7;letter-spacing:1px;font-weight:800}.product-body h4{font-size:19px;color:white;margin:5px 0 6px}.product-body p{font-size:14px;color:#d2e2ef;margin:0 0 20px}.product-actions{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}.product-actions a{font-size:12px;font-weight:800;border:1px solid #6d95b9;padding:8px 10px;border-radius:5px;color:white}.product-actions a:first-child{background:#0879ce;border-color:#0879ce}.catalog-empty{border:1px dashed #6d849a;border-radius:6px;padding:20px;margin-top:18px}.catalog-note{font-size:12px;color:#bed0df;margin-top:16px}@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:570px){.product-grid{grid-template-columns:1fr}.catalog{padding:20px!important}}
-.product-notice{font-size:12px;color:#d8e6f4;line-height:1.5}
-/* Original project-area illustrations and expanded service cards */
-#projeler .project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-#projeler .project{display:block;padding:0;min-height:0;background:white;color:#0d2946;border:1px solid #d9e5ef;border-radius:9px;overflow:hidden;box-shadow:0 9px 28px rgba(15,41,69,.06)}
-#projeler .project-visual{background:#153b5c;height:175px;overflow:hidden}
-#projeler .project-visual img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
-#projeler .project-content{padding:23px 23px 26px}
-#projeler .project h3{font-size:21px;line-height:1.25;color:#0d2946;margin:0 0 17px}
-#projeler .project ul{padding-left:19px;margin:0;color:#3e5871}
-#projeler .project li{margin:0 0 11px;font-size:14px;line-height:1.5}
-#projeler .project li:last-child{margin-bottom:0}
-#projeler .project-count{font-size:11px;font-weight:800;letter-spacing:1.8px;color:#0879d1;margin-bottom:9px}
-#projeler .project-legal{margin-top:22px;color:#687e92;font-size:12px}
-@media(max-width:1000px){#projeler .project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){#projeler .project-grid{grid-template-columns:1fr}#projeler .project-visual{height:160px}}
-
-/* Interactive application detail panels */
-#projeler .project li{cursor:pointer;list-style:disc;transition:color .2s}
-#projeler .project li:hover{color:#0879d1;text-decoration:underline}
-#projeler .project li:focus-visible{outline:3px solid #0879d1;outline-offset:3px;border-radius:3px}
-#projeler .project li::marker{color:#0a79c8}
-.project-hint{font-size:13px;color:#54718b;margin:8px 0 0}
-.detail-overlay[hidden]{display:none!important}
-.detail-overlay{position:fixed;inset:0;background:rgba(6,22,39,.77);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
-.detail-panel{position:relative;width:min(860px,100%);max-height:min(90vh,900px);overflow-y:auto;background:#fff;color:#10253b;border-radius:12px;padding:32px;box-shadow:0 24px 90px #07182977}
-.detail-close{position:absolute;right:17px;top:14px;border:1px solid #d7e2ee;border-radius:7px;background:#f5f8fc;color:#10253b;font-size:27px;cursor:pointer;width:42px;height:42px}
-.detail-panel h2{font-size:clamp(23px,3vw,33px);margin:12px 38px 15px 0;line-height:1.25}
-.detail-eyebrow{font-size:12px;font-weight:800;color:#0878c6;letter-spacing:2px;text-transform:uppercase}
-.detail-panel h3{font-size:18px;margin:22px 0 9px}
-.detail-panel p,.detail-panel li{line-height:1.7;color:#415c75}
-.detail-panel ul{padding-left:22px}
-.detail-flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#eaf2f9;padding:20px;border-radius:8px}
-.detail-node{flex:1;min-width:120px;text-align:center;background:#fff;border:1px solid #bed3e4;border-radius:7px;padding:16px 8px;font-size:14px;font-weight:700;color:#123655}
-.detail-arrow{font-size:24px;font-weight:bold;color:#0878c6}
-.detail-note{font-size:13px!important;background:#f5f8fc;border-left:3px solid #0a79c8;padding:11px 14px}
-body.detail-open{overflow:hidden}
-@media(max-width:580px){.detail-panel{padding:23px 18px}.detail-arrow{display:none}.detail-node{min-width:100%;flex:auto}.detail-flow{gap:8px}}
-
-/* Original generic device sketches, no manufacturer artwork */
-.product-art.router .device,.product-art.switch .device,.product-art.ipc .device{width:145px;height:92px;border-radius:12px;background:linear-gradient(145deg,#344b61,#102538);border:4px solid #829fb1;box-shadow:10px 12px 18px #123c5738;position:relative;transform:perspective(480px) rotateY(-12deg)}
-.product-art.router .device:before,.product-art.switch .device:before,.product-art.ipc .device:before{content:'';position:absolute;left:14px;bottom:15px;width:75px;height:18px;border-radius:3px;background:repeating-linear-gradient(90deg,#84c5de 0 12px,#102c42 12px 18px)}
-.product-art.router .device:after{content:'';position:absolute;right:16px;top:-49px;width:5px;height:50px;background:#395a73;box-shadow:-90px 0 #395a73;border-radius:4px}
-.product-art.switch .device{width:200px;height:74px}
-.product-art.switch .device:before{width:158px;background:repeating-linear-gradient(90deg,#8fc9df 0 12px,#142c40 12px 19px)}
-.product-art.ipc .device:after{content:'';position:absolute;right:12px;top:16px;width:22px;height:22px;border-radius:50%;border:3px solid #779cb5}
-.product-art.software .device{width:184px;height:120px;border:9px solid #213c54;border-bottom-width:16px;border-radius:9px;background:linear-gradient(160deg,#113a58,#24608a);position:relative;box-shadow:10px 12px 16px #123c5733}
-.product-art.software .device:before{content:'';position:absolute;left:14px;right:14px;top:15px;height:65px;background:linear-gradient(145deg,transparent 44%,#8ce1c1 45%,#8ce1c1 48%,transparent 49%),linear-gradient(35deg,transparent 48%,#74bfe8 49%,#74bfe8 52%,transparent 53%);border-bottom:2px solid #8db7d0}
-.product-art.software .device:after{content:'';position:absolute;left:77px;bottom:-34px;width:15px;height:18px;background:#27455c;box-shadow:0 12px 0 12px #668ea7}
-
-/* YK Otomasyon - refreshed contact area */
-.contact-new{grid-template-columns:minmax(0,2.05fr) minmax(300px,1fr);gap:30px;align-items:stretch}.contact-form-new,.contact-info-new{border-radius:12px;padding:32px;box-shadow:0 2px 15px #132f4a10}.contact-form-new{background:#fff;border:1px solid #e7edf4}.contact-info-new{background:#f5f8fc}.contact-form-new h3,.contact-info-new h3{font-size:26px;line-height:1.3;color:#0a1d31;margin:0 0 27px}.contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 22px}.contact-field{min-width:0}.contact-field.wide{grid-column:1/-1}.contact-field label{display:block;font-size:14px;font-weight:700;color:#102c51;margin-bottom:7px}.contact-form-new input:not([type=checkbox]):not([type=hidden]),.contact-form-new textarea{background:white;border:1px solid #c9d6e8;border-radius:8px;width:100%;padding:13px 14px;font:inherit;margin:0;outline:none}.contact-form-new input:focus,.contact-form-new textarea:focus{border-color:#1762e9;box-shadow:0 0 0 3px #1762e920}.contact-form-new textarea{height:170px;resize:vertical}.consent{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:#566c82;margin:18px 0}.consent input{margin-top:4px;flex:none}.send-btn{background:#1b5cff;border-radius:8px;margin:0;padding:13px 25px}.info-line{display:flex;gap:16px;margin:22px 0}.info-line strong{color:#0a1d31}.info-line p{margin:3px 0;color:#36516c;line-height:1.55}.info-line a{color:#36516c}.info-icon{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:9px;background:#dce9ff;color:#1762e9;font-size:25px}.info-icon.green{background:#d9f9e5;color:#08a54a}.info-icon.purple{background:#eee2ff;color:#8533ec}.info-icon.orange{background:#ffecd2;color:#ff7900}.map-frame{height:255px;border-radius:9px;overflow:hidden;margin-top:25px}.map-frame iframe{border:0;width:100%;height:100%}.map-link{text-align:right;margin:7px 0}.map-link a,.info-site a{color:#1762e9}.info-site{font-size:13px}@media(max-width:900px){.contact-new{grid-template-columns:1fr}}@media(max-width:570px){.contact-fields{grid-template-columns:1fr}.contact-form-new,.contact-info-new{padding:22px}.contact-form-new h3,.contact-info-new h3{font-size:23px}}
-
-/* About us: dark title band and factory image / text layout */
-.about-section-new{padding:0;background:#fff}.about-banner{background:#10182b;color:#fff;text-align:center;padding:52px 0 57px}.about-banner h2{font-size:clamp(34px,4vw,50px);margin:0 0 5px;color:#fff;line-height:1.2}.about-banner p{margin:0;color:#e4eaf3;font-size:19px}.about-layout-new{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:start;padding-top:80px;padding-bottom:88px}.about-photo-new img{width:100%;height:auto;min-height:490px;object-fit:cover;border-radius:16px;box-shadow:0 12px 35px #132d4820;display:block}.about-copy-new h3{font-size:clamp(24px,2.5vw,33px);line-height:1.3;color:#10182b;margin:0 0 22px}.about-copy-new p{font-size:16px;line-height:1.8;color:#354e69;margin:0 0 17px}.about-copy-new .about-signature{margin:24px 0 4px;color:#0b2a4c;font-weight:800}.about-copy-new .about-motto{color:#0879d1;font-weight:600}@media(max-width:850px){.about-layout-new{grid-template-columns:1fr;padding-top:45px;gap:32px}.about-photo-new img{min-height:0;max-height:480px}.about-banner{padding:42px 0}}
-
-/* Technology brand logo gallery */
-.brand-section{background:#fff}.brand-logo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:34px}.brand-logo-card{border:1px solid #dce6ef;border-radius:10px;min-height:185px;background:white;display:flex;align-items:center;justify-content:center;padding:24px;box-shadow:0 8px 24px rgba(15,41,69,.045)}.brand-logo-card img{display:block;max-width:90%;max-height:125px;width:auto;height:auto;object-fit:contain}.brand-logo-card img.esa-logo{max-height:130px;max-width:135px}.brand-disclaimer{font-size:12px;color:#758397;margin-top:22px}@media(max-width:760px){.brand-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.brand-logo-grid{grid-template-columns:1fr}.brand-logo-card{min-height:155px}}
-
-/* Service cards with image banners */
-#hizmetler .services{align-items:stretch}
-#hizmetler .tile{padding:0;overflow:hidden;border-radius:10px;display:flex;flex-direction:column}
-#hizmetler .tile .service-photo{width:100%;height:175px;object-fit:cover;display:block;background:#143854}
-#hizmetler .tile .number{margin:18px 24px 0}
-#hizmetler .tile h3{margin:9px 24px 8px}
-#hizmetler .tile p{margin:0 24px 25px}
-
-
-/* Top contact strip */
-.top-contact-bar{background:#061b3b;color:#fff;font-size:13px;line-height:1.4}
-.top-contact-inner{width:min(1200px,92%);margin:auto;min-height:39px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:8px 0}
-.top-contact-links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-.top-contact-bar a{color:#fff;text-decoration:none}
-.top-contact-bar a:hover{text-decoration:underline}
-@media(max-width:640px){.top-contact-inner{justify-content:center;text-align:center}.top-contact-links{justify-content:center;gap:12px}}
-
-/* Homepage loop video: directly below building hero and above partner logos */
-.home-video{padding:22px 0 28px}.home-video-heading{text-align:center;margin:0 0 16px}.home-video-heading h2{font-size:clamp(20px,2.3vw,29px);color:#09234b;margin:0 0 7px}.home-video-heading p{font-size:14px;color:#52647a;margin:0}.home-video-player{display:block;width:100%;max-width:1000px;aspect-ratio:16/9;object-fit:contain;margin:auto;background:#09234b;border-radius:12px;box-shadow:0 14px 36px #09294b20}@media(prefers-reduced-motion:reduce){.home-video-player{display:none}}
-
-/* Independently authored, image-free technology visual */
-.yk-wordmark{display:inline-block;font-weight:900;font-size:clamp(17px,2vw,26px);letter-spacing:-.6px;color:#09234b}.yk-original-motion{position:relative;width:100%;min-height:420px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:22px;background:radial-gradient(circle at 70% 35%,#17699b,#09213b 63%);box-shadow:0 15px 45px #09213b26}.motion-circuit{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;width:90%}.motion-circuit span{color:#dff6ff;background:#0d3a5dcf;border:1px solid #38a8e0;border-radius:12px;text-align:center;padding:23px 8px;font-weight:800;font-size:clamp(13px,1.3vw,19px);box-shadow:0 0 25px #38a8e033;animation:ykGlow 5s ease-in-out infinite alternate}.motion-circuit span:nth-child(2){animation-delay:.6s}.motion-circuit span:nth-child(3){animation-delay:1.2s}.motion-circuit span:nth-child(4){animation-delay:1.8s}.motion-circuit span:nth-child(5){animation-delay:2.4s}.motion-pulse{position:absolute;width:75%;aspect-ratio:1;border:2px solid #49c8ff33;border-radius:50%;animation:ykPulse 10s linear infinite}@keyframes ykPulse{0%{transform:scale(.35);opacity:0}40%{opacity:1}100%{transform:scale(1.7);opacity:0}}@keyframes ykGlow{0%{border-color:#2572a1;transform:translateY(0)}100%{border-color:#8be4ff;transform:translateY(-6px)}}.yk-concept-art{height:100%;min-height:140px;background:linear-gradient(135deg,#0b2946,#0879d1 60%,#a5e5fa);position:relative}.yk-concept-art:after{content:'';position:absolute;inset:18%;border:2px solid #ffffff75;border-radius:15px;box-shadow:inset 0 0 0 12px #ffffff12}.about-art{background:linear-gradient(125deg,#0b2946,#0879d1)!important}.hero{background:linear-gradient(100deg,#eef5fb,#e8f3fa)!important;color:#09234b!important}.hero p{color:#4e6880!important}.hero-building{background:transparent!important}.hero-building .yk-original-motion{min-height:420px}.safe-contact{background:#f3f7fb;padding:25px;border-radius:14px}.safe-contact a{color:#0879d1}.map-frame{display:none}@media(max-width:700px){.yk-original-motion{min-height:260px}.motion-circuit{grid-template-columns:repeat(2,minmax(0,1fr))}.motion-circuit span{padding:15px 4px}}@media(prefers-reduced-motion:reduce){.motion-circuit span,.motion-pulse{animation:none}}
-
-.yk-illustration{display:block;width:100%;height:100%;min-height:160px;object-fit:cover;object-position:center;border:0}
-.tile>.yk-illustration{height:175px;min-height:0;border-radius:0}
-.about-photo-new>.yk-illustration{height:100%;min-height:260px}
-.project-visual>.yk-illustration{height:100%;min-height:180px}
-
-/* Kurumsal logo: masaustu ve mobil */
-.logo{display:flex;align-items:center;flex:0 0 auto;min-width:0;text-decoration:none}.yk-header-logo{display:block;width:clamp(210px,23vw,350px);height:auto;max-height:76px;object-fit:contain;object-position:left center}@media(max-width:900px){.yk-header-logo{width:clamp(170px,34vw,270px);max-height:65px}}@media(max-width:560px){.yk-header-logo{width:170px;max-height:54px}}
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TURKO PORTAL | YK Otomasyon</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0}body{font:16px/1.6 Arial,Helvetica,sans-serif;color:#172c42;background:#f4f7fb}
+a{text-decoration:none}button{cursor:pointer;font:inherit}
+main{max-width:1240px;margin:auto;padding:58px 22px 84px}
+.portal-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin:0 auto 12px;max-width:1100px}
+.portal-logos img{width:46%;max-height:170px;object-fit:contain}
+.portal-separator{height:105px;width:2px;background:#9caab9;flex:0 0 2px}
+.lead{font-size:19px;line-height:1.65;color:#536477;text-align:center;max-width:870px;margin:18px auto 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:42px}
+.card{overflow:hidden;background:#fff;border:1px solid #e0e8f0;border-radius:18px;box-shadow:0 12px 32px #142e4714}
+.card video{width:100%;aspect-ratio:16/9;display:block;background:#081c28}
+.card .body{padding:24px}.card h2{margin:0 0 6px;font-size:23px}.card p{color:#526479;margin:0 0 18px}
+.button{display:inline-block;padding:11px 16px;border-radius:9px;background:#174b6d;color:#fff;font-weight:700}
+.note{font-size:13px;color:#607187;margin-top:28px}
+footer{padding:25px;background:#071e36;color:#d5e3f1;text-align:center}
+@media(max-width:740px){main{padding:35px 16px 60px}.grid{grid-template-columns:1fr}.portal-logos{gap:10px}.portal-separator{height:65px}.lead{font-size:16px}}
+</style><style id="yk-unified-navigation">
+.yk-site-header{position:sticky;top:0;z-index:100;background:#071e36;color:#fff;box-shadow:0 3px 18px #00172d20;font-family:Arial,Helvetica,sans-serif}
+.yk-site-header .yk-site-bar{width:min(1320px,calc(100% - 36px));margin:auto;min-height:76px;display:flex;align-items:center;gap:20px}
+.yk-site-header .yk-site-brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;text-decoration:none;color:white;font-size:16px;font-weight:800;letter-spacing:.2px;white-space:nowrap}
+.yk-site-header .yk-site-brand img{height:47px;width:60px;object-fit:contain;background:white;border-radius:7px;padding:3px}
+.yk-site-header .yk-site-links{display:flex;align-items:center;justify-content:center;gap:4px;flex:1;min-width:0}
+.yk-site-header .yk-site-links a{display:inline-flex;align-items:center;justify-content:center;padding:10px 11px;min-height:42px;white-space:nowrap;color:#e6f2fc;text-decoration:none;font-size:13px;font-weight:650;border-radius:7px;line-height:1.3}
+.yk-site-header .yk-site-links a:hover,.yk-site-header .yk-site-links a[aria-current="page"]{background:#16446a;color:#fff}
+.yk-site-header .yk-site-languages{display:flex;gap:5px;flex:0 0 auto}
+.yk-site-header .yk-site-languages button{background:transparent;color:#fff;border:1px solid #54728c;border-radius:6px;padding:8px 10px;cursor:pointer;font-size:13px}
+.yk-site-header .yk-site-languages button.active{background:#0b85c6;border-color:#0b85c6}
+.yk-site-header .yk-site-menu{display:none;background:transparent;color:#fff;border:1px solid #56718a;border-radius:7px;padding:7px 11px;font-size:21px;cursor:pointer;margin-left:auto}
+@media(max-width:1180px){.yk-site-header .yk-site-bar{flex-wrap:wrap;padding:11px 0;gap:10px}.yk-site-header .yk-site-menu{display:block}.yk-site-header .yk-site-links{display:none;order:5;flex:0 0 100%;flex-direction:column;align-items:stretch;padding:8px 0}.yk-site-header .yk-site-links.open{display:flex}.yk-site-header .yk-site-links a{justify-content:flex-start;padding:12px 15px}.yk-site-header .yk-site-languages{margin-left:5px}}
+@media(max-width:480px){.yk-site-header .yk-site-brand{font-size:13px}.yk-site-header .yk-site-brand img{height:41px;width:51px}.yk-site-header .yk-site-bar{width:calc(100% - 24px)}}
+</style><style id="yk-final-visual-fix">
+/* YK 2026-10-21 logo ve dekoratif metin düzeltmesi */
+.yk-site-header .yk-site-brand img{width:86px!important;height:68px!important;object-fit:contain!important;padding:3px!important;background:#fff!important;border-radius:9px!important}
+.yk-site-header .yk-site-brand{gap:14px!important;font-size:19px!important;letter-spacing:0!important}
+.yk-site-header .yk-site-bar{min-height:90px!important}
+/* Eski sayfa şablonlarından kalan küçük açık-mavi üst başlıklar */
+.kicker,.eyebrow,.hero-eyebrow,.detail-eyebrow,.yk-academy-kicker{display:none!important}
+@media(max-width:480px){.yk-site-header .yk-site-brand img{width:67px!important;height:55px!important}.yk-site-header .yk-site-brand{font-size:15px!important}.yk-site-header .yk-site-bar{min-height:76px!important}}
 </style><style>
-/* Portal brand section; original site header remains unchanged */
-body{background:#f5f7fa}
-.portal-logos{display:flex;justify-content:center;align-items:center;gap:34px;margin:0 auto 18px;max-width:1000px}
-.portal-logos img{width:45%;max-height:155px;object-fit:contain}
-.portal-separator{height:110px;width:2px;background:#9caab9;flex-shrink:0}
-main>.lead{text-align:center;margin:0 auto;max-width:900px}
-@media(max-width:650px){.portal-logos{gap:12px}.portal-separator{height:60px}.portal-logos img{width:46%}}
+/* YK: Sabit ust menu ve yalnizca ikonlu WhatsApp baglantisi */
+html{scroll-padding-top:94px}
+.yk-site-header{position:sticky!important;top:0!important;z-index:9999!important}
+.yk-site-header .yk-site-bar{gap:12px}
+.yk-site-header .yk-whatsapp{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:43px;height:43px;border-radius:8px;background:#19c663;color:white;text-decoration:none;transition:background .2s,transform .2s}
+.yk-site-header .yk-whatsapp:hover,.yk-site-header .yk-whatsapp:focus-visible{background:#0ba650;transform:translateY(-1px)}
+.yk-site-header .yk-whatsapp svg{display:block}
+@media(max-width:900px){.yk-site-header .yk-whatsapp{width:40px;height:40px}}
+</style><style id="yk-header-responsive-fix">
+/* Desktop: keep logo, menu and contact controls in their own space */
+@media (min-width:1451px){
+.yk-site-header .yk-site-bar{width:min(1480px,calc(100% - 32px))!important;gap:9px!important}
+.yk-site-header .yk-site-brand{font-size:15px!important;gap:8px!important;flex-shrink:0!important}
+.yk-site-header .yk-site-brand img{width:67px!important;height:58px!important}
+.yk-site-header .yk-site-links{gap:0!important;justify-content:space-evenly!important;flex:1 1 auto!important;min-width:0!important}
+.yk-site-header .yk-site-links a{font-size:11px!important;padding:9px 6px!important}
+.yk-site-header .yk-site-languages{gap:3px!important;flex-shrink:0!important}
+.yk-site-header .yk-site-languages button{padding:7px 8px!important}
+.yk-site-header .yk-whatsapp{flex-shrink:0!important}
+}
+@media (max-width:1450px){
+.yk-site-header .yk-site-bar{flex-wrap:wrap!important;padding:11px 0!important;gap:10px!important}
+.yk-site-header .yk-site-menu{display:block!important}
+.yk-site-header .yk-site-links{display:none!important;order:5!important;flex:0 0 100%!important;flex-direction:column!important;align-items:stretch!important;padding:8px 0!important}
+.yk-site-header .yk-site-links.open{display:flex!important}
+.yk-site-header .yk-site-links a{justify-content:flex-start!important;padding:12px 15px!important}
+.yk-site-header .yk-site-languages{margin-left:5px!important}
+}
+</style><style id="yk-professional-navigation">
+.yk-site-header .yk-site-bar{width:min(1420px,calc(100% - 44px));gap:20px;min-height:82px}
+.yk-site-header .yk-site-brand{font-size:17px;gap:11px}
+.yk-site-header .yk-site-brand img{width:66px;height:58px;object-fit:contain}
+.yk-site-header .yk-site-links{gap:8px;justify-content:flex-end}
+.yk-site-header .yk-site-links>a,.yk-site-header .yk-nav-dropdown>button{color:#e8f0f8;font-size:13px;font-weight:650;min-height:42px;padding:11px 12px;border:0;background:transparent;border-radius:7px;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;cursor:pointer;font-family:inherit}
+.yk-site-header .yk-site-links>a:hover,.yk-site-header .yk-nav-dropdown>button:hover{background:#173b57;color:#fff}
+.yk-site-header .yk-site-links>a.yk-portal-link{color:#8fd6ff;background:#123953}
+.yk-site-header .yk-nav-dropdown{position:relative}
+.yk-site-header .yk-nav-sub{position:absolute;top:calc(100% + 7px);left:0;min-width:195px;background:#fff;border:1px solid #e0e8f0;border-radius:11px;box-shadow:0 15px 35px #00172d30;padding:7px;display:none;z-index:200}
+.yk-site-header .yk-nav-dropdown:hover .yk-nav-sub,.yk-site-header .yk-nav-dropdown:focus-within .yk-nav-sub,.yk-site-header .yk-nav-dropdown.open .yk-nav-sub{display:flex;flex-direction:column}
+.yk-site-header .yk-nav-sub a{color:#18364d!important;background:transparent!important;font-size:13px!important;font-weight:550!important;justify-content:flex-start!important;padding:11px 12px!important;border-radius:7px!important;white-space:nowrap}
+.yk-site-header .yk-nav-sub a:hover{background:#eef5fa!important}
+@media(max-width:1200px){.yk-site-header .yk-site-bar{flex-wrap:wrap;padding:12px 0;gap:12px}.yk-site-header .yk-site-menu{display:block}.yk-site-header .yk-site-links{display:none;order:5;flex:0 0 100%;flex-direction:column;align-items:stretch;gap:3px;padding:10px 0}.yk-site-header .yk-site-links.open{display:flex}.yk-site-header .yk-nav-dropdown>button{width:100%;justify-content:space-between}.yk-site-header .yk-nav-sub{position:static;box-shadow:none;margin:2px 0 8px 15px;min-width:0}.yk-site-header .yk-site-links>a{justify-content:flex-start}}
 </style></head><body><header class="yk-site-header"><div class="yk-site-bar"><a class="yk-site-brand" href="index.html"><img alt="YK Otomasyon logosu" src="yk-logo-simge.png"/><span>YK OTOMASYON</span></a><button aria-expanded="false" aria-label="Menüyü aç veya kapat" class="yk-site-menu" onclick="const n=this.nextElementSibling;n.classList.toggle('open');this.setAttribute('aria-expanded',String(n.classList.contains('open')))" type="button">☰</button><nav aria-label="Ana menü" class="yk-site-links">
 <a data-tr="Ana Sayfa" data-en="Home" href="index.html">Ana Sayfa</a>
 <div class="yk-nav-dropdown"><button type="button" data-tr="Kurumsal" data-en="Company" aria-haspopup="true">Kurumsal <span>⌄</span></button><div class="yk-nav-sub"><a href="hakkimizda.html" data-tr="Hakkımızda" data-en="About Us">Hakkımızda</a></div></div>
@@ -107,27 +88,7 @@ main>.lead{text-align:center;margin:0 auto;max-width:900px}
 <a class="yk-portal-link" data-tr="TURKO Portal" data-en="TURKO Portal" href="turko-portal.html">TURKO Portal</a>
 <div class="yk-nav-dropdown"><button type="button" data-tr="Kaynaklar" data-en="Resources" aria-haspopup="true">Kaynaklar <span>⌄</span></button><div class="yk-nav-sub"><a href="blog.html" data-tr="Teknik Blog" data-en="Technical Blog">Teknik Blog</a><a href="akademi.html" data-tr="Akademi &amp; Eğitim" data-en="Academy &amp; Training">Akademi &amp; Eğitim</a><a href="haberler.html" data-tr="Bizden Haberler" data-en="News">Bizden Haberler</a></div></div>
 <a data-tr="İletişim" data-en="Contact" href="iletisim.html">İletişim</a>
-</nav><div class="yk-site-languages"><button class="active" id="trBtn" onclick="setLang('tr')">TR</button><button id="enBtn" onclick="setLang('en')">EN</button></div><a aria-label="WhatsApp ile mesaj gönder" class="yk-whatsapp" href="https://wa.me/905015772249?text=Merhaba%2C%20YK%20Otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener noreferrer" target="_blank" title="WhatsApp ile iletişim"><svg aria-hidden="true" fill="currentColor" height="25" viewbox="0 0 24 24" width="25"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.04 0C5.45 0 .08 5.36.08 11.95c0 2.1.55 4.16 1.59 5.97L0 24l6.24-1.64a11.9 11.9 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.48 24 11.89c0-3.18-1.24-6.17-3.48-8.41ZM12.05 21.82a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.72.98.99-3.63-.24-.37a9.84 9.84 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.8 9.8 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.46-4.45 9.87-9.94 9.87Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.23-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.29.5 1.73.64.73.23 1.4.2 1.93.12.59-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"></path></svg></a></div></header><main><div class="portal-logos"><img src="turko-studio-logo-net.png" alt="TURKO STUDIO"><span class="portal-separator"></span><img src="turko-cloud-logo-yesil.png" alt="TURKO CLOUD"></div><p class="lead">Endüstriyel otomasyon yazılımı ve uzaktan izleme teknolojilerine yönelik demo çalışmalarımızı keşfedin.</p><div class="grid"><article class="card"><video controls autoplay muted loop preload="metadata" playsinline data-video-title="TURKO Studio"><source src="turko-studio-demo.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video><div class="body"><h2>TURKO STUDIO</h2><p>PLC, HMI ve SCADA mühendislik platformunun demo videosu. Videoyu doğrudan bu sayfadan izleyebilirsiniz.</p><a class="button secondary" href="turko-studio-demo.mp4" target="_blank" rel="noopener">Videoyu tam ekranda aç</a></div></article><article class="card"><video controls autoplay muted loop preload="metadata" playsinline data-video-title="TURKO Cloud Connect"><source src="turko-connect-demo.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video><div class="body"><h2>TURKO CONNECT</h2><p>PLC bağlantı ekranı, makine görseli, proses göstergeleri ve tarih-saat filtreli grafikli PDF raporlama demosu.</p><a class="button" href="turko-connect.html">Cloud arayüzüne doğrudan gir</a> <a class="button secondary" href="turko-connect-demo.mp4" target="_blank" rel="noopener">Videoyu aç</a></div></article></div><p class="note">Bilgilendirme: TURKO CONNECT arayüzündeki PLC bağlantısı ve geçmiş proses verileri demo/simülasyon amaçlıdır; gerçek cihaz bağlantısı değildir.</p><p class="note">Videolar tamamen sessizdir; ses kanalları bulunmaz.</p></main><footer>© YK OTOMASYON · <a href="https://www.ykotomasyon.com.tr" style="color:#d7e3ec">www.ykotomasyon.com.tr</a></footer><script>
-/* Google Analytics 4: replace G-XXXXXXXXXX with your measurement ID before publishing. */
-(function(){
-  var id='G-XXXXXXXXXX';
-  if(id==='G-XXXXXXXXXX')return;
-  var script=document.createElement('script');
-  script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
-  document.head.appendChild(script);
-  window.dataLayer=window.dataLayer||[];
-  window.gtag=function(){dataLayer.push(arguments)};
-  gtag('js',new Date());gtag('config',id,{send_page_view:true});
-  function event(name,params){gtag('event',name,params||{});}
-  if(/(?:turko-connect\.html|\/turko-connect\/)/i.test(location.pathname))event('turko_cloud_open',{platform:'turko_cloud_connect'});
-  document.addEventListener('DOMContentLoaded',function(){
-    document.querySelectorAll('video').forEach(function(v){
-      var name=v.getAttribute('data-video-title')||(v.querySelector('source')||{}).src||'video';
-      v.addEventListener('play',function(){event('video_play',{video_title:name})});
-      v.addEventListener('ended',function(){event('video_complete',{video_title:name})});
-    });
-    var form=document.querySelector('#yk-talep-formu form');
-    if(form)form.addEventListener('submit',function(){event('contact_form_submit',{form_name:'teklif_destek'})});
-  });
-})();
-</script><script>if(typeof setLang!=='function'){function setLang(lang){document.querySelectorAll('[data-'+lang+']').forEach(function(el){el.textContent=el.getAttribute('data-'+lang)});document.querySelectorAll('.yk-site-languages button').forEach(function(b){b.classList.toggle('active',b.id.toLowerCase().startsWith(lang))})}}</script></body></html>
+</nav><div class="yk-site-languages"><button class="active" id="trBtn" onclick="setLang('tr')">TR</button><button id="enBtn" onclick="setLang('en')">EN</button></div><a aria-label="WhatsApp ile mesaj gönder" class="yk-whatsapp" href="https://wa.me/905015772249?text=Merhaba%2C%20YK%20Otomasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." rel="noopener noreferrer" target="_blank" title="WhatsApp ile iletişim"><svg aria-hidden="true" fill="currentColor" height="25" viewbox="0 0 24 24" width="25"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.04 0C5.45 0 .08 5.36.08 11.95c0 2.1.55 4.16 1.59 5.97L0 24l6.24-1.64a11.9 11.9 0 0 0 5.8 1.48h.01C18.64 23.84 24 18.48 24 11.89c0-3.18-1.24-6.17-3.48-8.41ZM12.05 21.82a9.84 9.84 0 0 1-5.02-1.37l-.36-.21-3.72.98.99-3.63-.24-.37a9.84 9.84 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9a9.8 9.8 0 0 1 7 2.9 9.82 9.82 0 0 1 2.9 7c0 5.46-4.45 9.87-9.94 9.87Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.23-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.74-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.13 3.25 5.16 4.56.72.31 1.29.5 1.73.64.73.23 1.4.2 1.93.12.59-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"></path></svg></a></div></header><main><div class="portal-logos"><img src="turko-studio-logo-net.png" alt="TURKO STUDIO"><span class="portal-separator"></span><img src="turko-cloud-logo-yesil.png" alt="TURKO CLOUD"></div><p class="lead">Endüstriyel otomasyon yazılımı ve uzaktan izleme teknolojilerine yönelik demo çalışmalarımızı keşfedin.</p><div class="grid"><article class="card"><video controls autoplay muted loop preload="metadata" playsinline data-video-title="TURKO Studio"><source src="turko-studio-demo.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video><div class="body"><h2>TURKO STUDIO</h2><p>PLC, HMI ve SCADA mühendislik platformunun demo videosu. Videoyu doğrudan bu sayfadan izleyebilirsiniz.</p><a class="button secondary" href="turko-studio-demo.mp4" target="_blank" rel="noopener">Videoyu tam ekranda aç</a></div></article><article class="card"><video controls autoplay muted loop preload="metadata" playsinline data-video-title="TURKO Cloud Connect"><source src="turko-connect-demo.mp4" type="video/mp4">Tarayıcınız video oynatmayı desteklemiyor.</video><div class="body"><h2>TURKO CONNECT</h2><p>PLC bağlantı ekranı, makine görseli, proses göstergeleri ve tarih-saat filtreli grafikli PDF raporlama demosu.</p><a class="button" href="turko-connect.html">Cloud arayüzüne doğrudan gir</a> <a class="button secondary" href="turko-connect-demo.mp4" target="_blank" rel="noopener">Videoyu aç</a></div></article></div><p class="note">Bilgilendirme: TURKO CONNECT arayüzündeki PLC bağlantısı ve geçmiş proses verileri demo/simülasyon amaçlıdır; gerçek cihaz bağlantısı değildir.</p><p class="note">Videolar tamamen sessizdir; ses kanalları bulunmaz.</p></main><footer>YK OTOMASYON | Güvenilir ve Esnek Çözümler</footer>
+<script>
+document.querySelectorAll('video').forEach(v=>{v.muted=true;v.defaultMuted=true;v.volume=0;v.addEventListener('volumechange',()=>{if(!v.muted||v.volume!==0){v.muted=true;v.volume=0}})});
+</script></body></html>
