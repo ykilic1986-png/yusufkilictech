@@ -1,0 +1,11 @@
+YK OTOMASYON - KURULUM
+1. ZIP içeriğini GitHub Pages yayın klasörüne yükleyin.
+2. İletişim formunu bir kez test edin. FormSubmit, info@ykotomasyon.com.tr adresine aktivasyon mesajı yollar; onaylayın. Onay verilene kadar talepler ulaşmayabilir.
+3. Google Analytics 4 mülkü oluşturun. Web veri akışındaki G-... Ölçüm Kimliğini bütün HTML dosyalarında G-XXXXXXXXXX yerine yazın. Bu yapılmadıkça ziyaret istatistikleri toplanmaz.
+4. Analytics mülkündeki sayısal Property ID'yi GUNLUK_RAPOR_Google_Apps_Script.gs dosyasında GA4_PROPERTY_ID yerine yazın.
+5. script.google.com üzerinden yeni Apps Script projesi açın, .gs kodunu yapıştırın. Project Settings bölümünde manifesti açın ve GUNLUK_RAPOR_appsscript.json içeriğini uygulayın.
+6. İlgili Google Cloud projesinde Google Analytics Data API'yi etkinleştirin; Apps Script'i GA4 mülküne erişim izni olan hesapla çalıştırın.
+7. setupDailyReport() fonksiyonunu bir kez çalıştırıp izinleri onaylayın. sendDailyReport() ile test e-postası gönderin.
+8. Apps Script zaman tetikleyicileri tam 23:59 garantisi vermez; yaklaşık 23:55 civarında tetiklenir. GA4 verileri gecikmeli işlenebilir.
+9. GA4 çerezleri/analitik izleme için uygun KVKK aydınlatma ve gerektiğinde rıza yönetimi eklenmelidir. Bu paket rıza yönetimi içermiyor; canlı analitik etkinleştirmeden önce tamamlayın.
+10. Tarayıcı politikaları gereği otomatik oynatma sessizdir; iki video muted autoplay loop playsinline olarak ayarlandı.

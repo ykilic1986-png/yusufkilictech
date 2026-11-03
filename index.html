@@ -385,4 +385,27 @@ document.querySelectorAll('#projeler .project li[data-project-category]').forEac
 document.getElementById('detailClose').addEventListener('click',closeApplication);
 document.getElementById('projectDetail').addEventListener('click',e=>{if(e.target.id==='projectDetail')closeApplication()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.getElementById('projectDetail').hidden)closeApplication();if(e.key==='Tab'&&!document.getElementById('projectDetail').hidden){e.preventDefault();document.getElementById('detailClose').focus()}});
-</script><script>document.querySelectorAll('.yk-nav-dropdown>button').forEach(b=>b.addEventListener('click',()=>{let p=b.parentElement;document.querySelectorAll('.yk-nav-dropdown').forEach(d=>{if(d!==p)d.classList.remove('open')});p.classList.toggle('open')}));document.addEventListener('click',e=>{if(!e.target.closest('.yk-nav-dropdown'))document.querySelectorAll('.yk-nav-dropdown').forEach(d=>d.classList.remove('open'))});</script></body></html>
+</script><script>document.querySelectorAll('.yk-nav-dropdown>button').forEach(b=>b.addEventListener('click',()=>{let p=b.parentElement;document.querySelectorAll('.yk-nav-dropdown').forEach(d=>{if(d!==p)d.classList.remove('open')});p.classList.toggle('open')}));document.addEventListener('click',e=>{if(!e.target.closest('.yk-nav-dropdown'))document.querySelectorAll('.yk-nav-dropdown').forEach(d=>d.classList.remove('open'))});</script><script>
+/* Google Analytics 4: replace G-XXXXXXXXXX with your measurement ID before publishing. */
+(function(){
+  var id='G-XXXXXXXXXX';
+  if(id==='G-XXXXXXXXXX')return;
+  var script=document.createElement('script');
+  script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
+  document.head.appendChild(script);
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments)};
+  gtag('js',new Date());gtag('config',id,{send_page_view:true});
+  function event(name,params){gtag('event',name,params||{});}
+  if(/(?:turko-connect\.html|\/turko-connect\/)/i.test(location.pathname))event('turko_cloud_open',{platform:'turko_cloud_connect'});
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('video').forEach(function(v){
+      var name=v.getAttribute('data-video-title')||(v.querySelector('source')||{}).src||'video';
+      v.addEventListener('play',function(){event('video_play',{video_title:name})});
+      v.addEventListener('ended',function(){event('video_complete',{video_title:name})});
+    });
+    var form=document.querySelector('#yk-talep-formu form');
+    if(form)form.addEventListener('submit',function(){event('contact_form_submit',{form_name:'teklif_destek'})});
+  });
+})();
+</script></body></html>
