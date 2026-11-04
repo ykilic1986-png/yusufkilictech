@@ -1,10 +1,9 @@
-TEKNİK SERVİS GÜNCELLEMESİ
+YK TEKNİK SERVİS — GOOGLE APPS SCRIPT
 
-ZIP içindeki dosyaları mevcut GitHub Pages yayın klasörüne yükleyin.
-Yeni sayfa: teknik-servis.html
-Menüye Teknik Servis bağlantısı eklendi. Ücretsiz arıza tespiti formu mevcut FormSubmit e-posta adresini kullanır: info@ykotomasyon.com.tr
-İlk kullanımda FormSubmit aktivasyon e-postası gelirse doğrulayın. Gelen kutusu ve spam klasörünü kontrol edin.
-Gerçek e-posta teslimatı yayınlandıktan sonra bir deneme talebiyle doğrulanmalıdır.
-Form doğrulaması sonrası servis-tesekkur.html sayfasına dönülür.
-
-Teknik servis formunun tek alıcısı: info@ykotomasyon.com.tr
+ZIP içindeki dosyaları mevcut yayın klasörüne yükleyin.
+Teknik servis formu, kullanıcının dağıttığı Google Apps Script web uygulamasına POST gönderir.
+Alıcılar Apps Script kodundadır: info@ykotomasyon.com.tr ve mgurotomasyon@gmail.com.
+Dağıtım ayarları: çalıştıran Ben; erişim Herkes.
+Bir deneme talebi gönderip iki posta kutusunda da teslimatı kontrol edin.
+Web uygulamasının açılması tek başına e-posta teslimatını doğrulamaz.
+Mevcut genel iletişim formunun FormSubmit altyapısı değiştirilmemiştir.

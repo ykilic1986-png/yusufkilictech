@@ -367,10 +367,7 @@ html{scroll-padding-top:94px}
 <section id="servis-formu"><div class="wrap service-grid">
 <div class="service-form"><h2 data-tr="Teknik Servis Talep Formu" data-en="Technical Service Request Form">Teknik Servis Talep Formu</h2>
 <p data-tr="Cihaz bilgilerini ve yaşadığınız sorunu paylaşın. Talebinizi değerlendirmek için sizinle iletişime geçelim. * işaretli alanlar zorunludur." data-en="Share the device details and the issue. We will contact you to review your request. Fields marked * are required.">Cihaz bilgilerini ve yaşadığınız sorunu paylaşın. Talebinizi değerlendirmek için sizinle iletişime geçelim. * işaretli alanlar zorunludur.</p>
-<form action="https://formsubmit.co/info@ykotomasyon.com.tr" method="POST" accept-charset="UTF-8">
-<input type="hidden" name="_subject" value="YK OTOMASYON - Ücretsiz Arıza Tespiti / Teknik Servis Talebi">
-<input type="hidden" name="_template" value="table">
-<input type="hidden" name="_next" value="https://www.ykotomasyon.com.tr/servis-tesekkur.html">
+<form action="https://script.google.com/macros/s/AKfycbwMtXCMuUb_eJ1PlcOlCULqAdYuftwk1xlxTCwE5dqfjcCygA017_rtnkfKn7ELXFI5LQ/exec" method="POST" accept-charset="UTF-8">
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 <div class="service-fields">
 <label class="service-field"><span data-tr="Ad Soyad *" data-en="Full Name *">Ad Soyad *</span><input name="Ad Soyad" required maxlength="120" autocomplete="name"></label>
@@ -379,15 +376,16 @@ html{scroll-padding-top:94px}
 <label class="service-field"><span data-tr="Telefon *" data-en="Phone *">Telefon *</span><input type="tel" name="Telefon" required maxlength="40" autocomplete="tel"></label>
 <label class="service-field"><span data-tr="İl / İlçe" data-en="City / District">İl / İlçe</span><input name="Il Ilce" maxlength="160" autocomplete="address-level2"></label>
 <label class="service-field"><span data-tr="Cihaz Türü *" data-en="Device Type *">Cihaz Türü *</span><select name="Cihaz Turu" required><option value="" data-tr="Seçiniz" data-en="Select">Seçiniz</option><option>AC Sürücü</option><option>PLC</option><option>HMI</option><option data-tr="Diğer" data-en="Other">Diğer</option></select></label>
-<label class="service-field"><span data-tr="Marka *" data-en="Brand *">Marka *</span><input name="Marka" required maxlength="100"></label>
+<label class="service-field"><span data-tr="Marka *" data-en="Brand *">Marka *</span><select id="service-brand" name="Marka" required><option value="" data-tr="Marka seçiniz" data-en="Select a brand">Marka seçiniz</option><option value="Schneider Electric">Schneider Electric</option><option value="Siemens">Siemens</option><option value="Mitsubishi Electric">Mitsubishi Electric</option><option value="Omron">Omron</option><option value="Delta">Delta</option><option value="Shihlin">Shihlin</option><option value="INVT">INVT</option><option value="ABB">ABB</option><option value="Danfoss">Danfoss</option><option value="Yaskawa">Yaskawa</option><option value="Fuji Electric">Fuji Electric</option><option value="LS Electric">LS Electric</option><option value="FATEK">FATEK</option><option value="INOVANCE">INOVANCE</option><option value="VEICHI">VEICHI</option><option value="COTRUST">COTRUST</option><option value="Weintek">Weintek</option><option value="Pro-face">Pro-face</option><option value="Panasonic">Panasonic</option><option value="Allen-Bradley">Allen-Bradley</option><option value="Beckhoff">Beckhoff</option><option value="WAGO">WAGO</option><option value="__other" data-tr="Diğer" data-en="Other">Diğer</option></select></label>
+<label id="other-brand-field" class="service-field" style="display:none"><span data-tr="Diğer Marka *" data-en="Other Brand *">Diğer Marka *</span><input id="other-brand-input" disabled maxlength="100"></label>
 <label class="service-field"><span data-tr="Model / Ürün Kodu *" data-en="Model / Product Code *">Model / Ürün Kodu *</span><input name="Model" required maxlength="160"></label>
 <label class="service-field"><span data-tr="Seri Numarası" data-en="Serial Number">Seri Numarası</span><input name="Seri Numarasi" maxlength="160"></label>
 <label class="service-field"><span data-tr="Hata Kodu (varsa)" data-en="Error Code (if any)">Hata Kodu (varsa)</span><input name="Hata Kodu" maxlength="160"></label>
 <label class="service-field wide"><span data-tr="Arıza Açıklaması *" data-en="Fault Description *">Arıza Açıklaması *</span><textarea name="Ariza Aciklamasi" required maxlength="5000" rows="6"></textarea></label>
 </div>
-<label class="service-consent"><input type="checkbox" name="Iletisim Onayi" value="Kabul edildi" required><span data-tr="İletişim ve cihaz bilgilerimin servis talebime yanıt verilmesi amacıyla FormSubmit üzerinden e-posta ile iletilmesini kabul ediyorum." data-en="I agree to my contact and device information being sent by email through FormSubmit to respond to my service request.">İletişim ve cihaz bilgilerimin servis talebime yanıt verilmesi amacıyla FormSubmit üzerinden e-posta ile iletilmesini kabul ediyorum.</span></label>
+<label class="service-consent"><input type="checkbox" name="Iletisim Onayi" value="Kabul edildi" required><span data-tr="İletişim ve cihaz bilgilerimin servis talebime yanıt verilmesi amacıyla Google Apps Script üzerinden e-posta ile iletilmesini kabul ediyorum." data-en="I agree to my contact and device information being sent by email through Google Apps Script to respond to my service request.">İletişim ve cihaz bilgilerimin servis talebime yanıt verilmesi amacıyla Google Apps Script üzerinden e-posta ile iletilmesini kabul ediyorum.</span></label>
 <button class="btn" type="submit" data-tr="Servis Talebimi Gönder" data-en="Send Service Request">Servis Talebimi Gönder</button>
-<p class="service-caption" data-tr="Gönderim sırasında doğrulama adımı açılabilir. Formu gönderdikten sonra onay sayfasını bekleyin." data-en="A verification step may appear during submission. Wait for the confirmation page after submitting.">Gönderim sırasında doğrulama adımı açılabilir. Formu gönderdikten sonra onay sayfasını bekleyin.</p>
+<p class="service-caption" data-tr="Formu gönderdikten sonra gönderim sonucunun gösterildiği sayfayı bekleyin." data-en="After submitting, wait for the page showing the submission result.">Formu gönderdikten sonra gönderim sonucunun gösterildiği sayfayı bekleyin.</p>
 </form></div>
 <aside class="service-info"><h3 data-tr="Teknik servis hizmetlerimiz" data-en="Our Technical Services">Teknik servis hizmetlerimiz</h3>
 <ul><li data-tr="Ücretsiz arıza tespiti" data-en="Free fault diagnosis">Ücretsiz arıza tespiti</li><li data-tr="Bakım ve onarım" data-en="Maintenance and repair">Bakım ve onarım</li><li data-tr="PLC ve HMI yazılım desteği" data-en="PLC and HMI software support">PLC ve HMI yazılım desteği</li><li data-tr="Parametre ayarı ve devreye alma" data-en="Parameter setup and commissioning">Parametre ayarı ve devreye alma</li></ul>
@@ -421,5 +419,22 @@ const year=document.getElementById('year');if(year)year.textContent=new Date().g
     var form=document.querySelector('#yk-talep-formu form');
     if(form)form.addEventListener('submit',function(){event('contact_form_submit',{form_name:'teklif_destek'})});
   });
+})();
+</script><script>
+(function(){
+  const select=document.getElementById('service-brand');
+  const field=document.getElementById('other-brand-field');
+  const input=document.getElementById('other-brand-input');
+  function updateBrand(){
+    const other=select.value==='__other';
+    field.style.display=other?'flex':'none';
+    input.disabled=!other;
+    input.required=other;
+    if(other){select.removeAttribute('name');input.name='Marka';}
+    else{select.name='Marka';input.removeAttribute('name');}
+  }
+  select.addEventListener('change',updateBrand);
+  window.addEventListener('pageshow',updateBrand);
+  updateBrand();
 })();
 </script></body></html>
