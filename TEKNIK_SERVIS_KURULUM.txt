@@ -7,4 +7,4 @@ Menüye Teknik Servis bağlantısı eklendi. Ücretsiz arıza tespiti formu mevc
 Gerçek e-posta teslimatı yayınlandıktan sonra bir deneme talebiyle doğrulanmalıdır.
 Form doğrulaması sonrası servis-tesekkur.html sayfasına dönülür.
 
-Teknik servis formu alıcıları: info@ykotomasyon.com.tr; CC: mgurotomasyon@gmail.com
+Teknik servis formunun tek alıcısı: info@ykotomasyon.com.tr
