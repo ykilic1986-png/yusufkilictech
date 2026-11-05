@@ -1,0 +1,25 @@
+TURKO Reports eklemesi — 5 Kasım 2026
+
+Bu paket sitenin mevcut tam sürümüne Reports bölümünü ekler.
+ZIP içeriğini GitHub deposunun kök dizinine yükleyin; aynı adlı dosyaları değiştirin.
+Diğer dosyaları silmeyin.
+
+Yeni / güncellenen içerikler:
+- turko-portal.html: Studio + Cloud + Reports logo grubu ve üç ürün kartı
+- turko-reports-logo.svg: vektör Reports logo/simgesi
+- turko-reports-demo.mp4: sessiz örnek kullanım videosu
+- turko-reports-poster.jpg: video kapak görseli
+- turko-reports/: 20 grafik/tablo tipli tarayıcı demo uygulaması
+- sitemap.xml: Reports sayfası
+
+Videonun tüm değerleri simülasyondur. Gerçek PLC bağlantısı gösterilmez.
+Canlı saha kaydı için Python tabanlı yerel Modbus TCP / SQLite servisi gereklidir.
+Sitedeki demo arayüzünde gezinmek, grafik/tablo seçmek ve PDF oluşturmak mümkündür.
+Demo kayıtları tarayıcı belleğindedir; sayfa yenilenince sıfırlanır.
+Videolar sessizdir. Yeni video MP4/H.264, 1920x1080 formatındadır.
+
+Onaylanan yeni TURKO REPORTS logosu portal başlığında, video kapağında, giriş/çıkış ekranlarında ve video bölüm başlıklarında kullanılmıştır.
+
+Video eklemesi: 20 grafik ve tablo objesi, örnek görünümleriyle iki ekranda (her biri 8 saniye) gösterilir. Toplam süre: 71 saniye.
+
+Sol proje ağacı logosu uygulamada, yerel servis paketinde ve tüm video çekimlerinde onaylı logoyla değiştirilmiştir.

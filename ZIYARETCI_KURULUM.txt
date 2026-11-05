@@ -1,0 +1,16 @@
+YK ZİYARETÇİ SAYACI KURULUMU
+
+1. Mevcut YK Teknik Servis Apps Script projesini açın.
+2. Kod.gs içeriğinin tamamını YK_Teknik_Servis_ve_Ziyaretci.gs dosyasındaki kodla değiştirin. Servis e-postaları iki adrese gönderilmeye devam eder. Günlük rapor e-postası veya zamanlayıcı eklenmez.
+3. Kaydedin. İşlev listesinden ziyaretciKurulum seçip Çalıştır düğmesine basın. Google Sheets oluşturma/erişim iznini kontrol ederek onaylayın. Bu işlem özel bir istatistik tablosu oluşturur.
+4. Dağıt > Dağıtımları yönet > kalem simgesi > Sürüm: Yeni sürüm > Dağıt. Mevcut dağıtımı güncelleyin; adres değişmesin. Çalıştıran: Ben; erişim: Herkes.
+5. ZIP içeriğini mevcut site dosyalarının üzerine yükleyin. Ctrl+F5 ile yenileyin.
+
+ÖLÇÜM
+Bugün: Türkiye saatine göre aynı gün içindeki farklı tarayıcı kimlikleri.
+Toplam: ölçüm kurulduğundan beri farklı tarayıcı kimlikleri.
+Aktif: son 2 dakika içinde görünür sayfadan sinyal gönderen tarayıcılar; 60 saniyede yenilenir.
+Sayaç: 3567 başlangıç değeri + gerçek ölçülen toplam; 3567 geçmişte doğrulanmış ziyaretçi gibi sunulmaz.
+Tarayıcı deposunu silmek veya farklı cihaz kullanmak yeni ziyaretçi sayılır. Botlar ve istek engelleyicileri sayıları etkileyebilir.
+Kod ad, e-posta veya IP kaydetmez; rastgele kalıcı tarayıcı kimliği kullanır. Tablo gizli kalır; yalnızca toplu sayılar web uygulamasında döner.
+Veri alınamazsa rastgele sayı gösterilmez.

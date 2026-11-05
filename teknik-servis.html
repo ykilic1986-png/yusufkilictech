@@ -392,7 +392,7 @@ html{scroll-padding-top:94px}
 <h3 data-tr="Nasıl ilerliyoruz?" data-en="How It Works">Nasıl ilerliyoruz?</h3><ol><li data-tr="Teknik servis formunu doldurun." data-en="Complete the service request form.">Teknik servis formunu doldurun.</li><li data-tr="Talebinizi inceleyip sizinle iletişime geçelim." data-en="We review your request and contact you.">Talebinizi inceleyip sizinle iletişime geçelim.</li><li data-tr="Arıza tespiti sonrasında önerilen işlemleri paylaşalım." data-en="We share the proposed work after diagnosis.">Arıza tespiti sonrasında önerilen işlemleri paylaşalım.</li></ol>
 <h3 data-tr="Bize ulaşın" data-en="Contact Us">Bize ulaşın</h3><p><a href="tel:+905015772249">0501 577 22 49</a><br><a href="mailto:info@ykotomasyon.com.tr">info@ykotomasyon.com.tr</a></p>
 </aside></div></section></main>
-<footer><div class="wrap foot"><strong>YK OTOMASYON VE MÜHENDİSLİK HİZMETLERİ</strong><a data-en="Legal Information and Privacy" data-tr="Yasal Bilgiler ve Gizlilik" href="index.html#yasal-bilgiler">Yasal Bilgiler ve Gizlilik</a><span>© <span id="year"></span>YK OTOMASYON VE MÜHENDİSLİK HİZMETLERİ</span></div></footer>
+<footer><div class="wrap foot"><strong>YK OTOMASYON VE MÜHENDİSLİK HİZMETLERİ</strong><a data-en="Legal Information and Privacy" data-tr="Yasal Bilgiler ve Gizlilik" href="index.html#yasal-bilgiler">Yasal Bilgiler ve Gizlilik</a><span>© <span id="year"></span>YK OTOMASYON VE MÜHENDİSLİK HİZMETLERİ</span></div><div class="yk-visitor-stats" aria-label="Ziyaret istatistikleri" style="max-width:1200px;margin:24px auto 0;padding:20px 4%;border-top:1px solid #597087;color:#dbe5ef;font-size:14px"><div style="display:flex;gap:18px;flex-wrap:wrap"><span>Bugün: <strong data-today>—</strong></span><span>Toplam ölçülen ziyaretçi: <strong data-total>—</strong></span><span>Şu an aktif: <strong data-active>—</strong></span><span>Sayaç: <strong data-counter>—</strong></span></div><p data-status style="font-size:12px;margin:12px 0 0">Ziyaret istatistikleri yükleniyor…</p></div></footer>
 <script>let currentLang='tr';
 function setLang(lang){currentLang=lang;document.documentElement.lang=lang;document.querySelectorAll('[data-tr]').forEach(el=>{el.innerHTML=el.dataset[lang]});document.querySelectorAll('[data-tr-placeholder]').forEach(el=>{el.placeholder=el.dataset[lang+'Placeholder']});document.getElementById('trBtn').classList.toggle('active',lang==='tr');document.getElementById('enBtn').classList.toggle('active',lang==='en');try{localStorage.setItem('ykLang',lang)}catch(e){}}
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
@@ -437,4 +437,4 @@ const year=document.getElementById('year');if(year)year.textContent=new Date().g
   window.addEventListener('pageshow',updateBrand);
   updateBrand();
 })();
-</script></body></html>
+</script><script src="ziyaretci.js" defer></script></body></html>
