@@ -23,3 +23,7 @@ Onaylanan yeni TURKO REPORTS logosu portal başlığında, video kapağında, gi
 Video eklemesi: 20 grafik ve tablo objesi, örnek görünümleriyle iki ekranda (her biri 8 saniye) gösterilir. Toplam süre: 71 saniye.
 
 Sol proje ağacı logosu uygulamada, yerel servis paketinde ve tüm video çekimlerinde onaylı logoyla değiştirilmiştir.
+
+404 düzeltmesi: Reports artık ana dizindeki turko-reports.html tek dosyasıyla da çalışır. Portal bağlantısı buna yönelir.
+
+Menüdeki TURKO bağlantısı orijinal TURKO yazısıyla gösterilir. Kısa ekranlarda sol logo küçülerek kesilmez; menü gerektiğinde kaydırılır. Tek HTML ve yerel servis sürümleri de günceldir.
