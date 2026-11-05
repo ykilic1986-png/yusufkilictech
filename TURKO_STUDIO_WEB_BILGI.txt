@@ -1,0 +1,11 @@
+TURKO STUDIO WEB — SU ARITMA DEMOSU
+
+TURKO sekmesindeki Studio videosunun altından “Studio arayüzüne gir” düğmesine tıklayın.
+Arayüz turko-studio.html dosyasıdır ve sanal PLC RUN modunda açılır.
+RUN / STOP, vana, blower, canlı trend, CSV dışa aktarma, etiketler ve alarm ACK işlevleri kullanılabilir. Grafikler sekmesinde trende ek dört canlı grafik bulunur: donut, sütun, basınç göstergesi ve debi alan grafiği. Tanklar hızlandırılmış demo döngüsünde yaklaşık %20–84 aralığında dolup boşalır. Tasarım düğmesi SVG nesne kütüphanesini ve özellikleri açar.
+Örnek HMI gösterge projesi: downloads/TURKO_Studio_Su_Aritma.json (Proje Aç ile yüklenir).
+
+Bu sürüm bir eğitim simülasyonudur. Fiziksel PLC bağlantısı kurmaz; ekrandaki ST metnini derlemez. Ölçüm geçmişi açık oturumda tutulur, CSV ile alınabilir.
+
+WEB SİTESİNE YÜKLEME
+ZIP dosyasını açın. İçindeki dosya ve klasörleri mevcut GitHub Pages deposunun köküne yükleyin; ZIP dosyasının kendisini yüklemeyin. Mevcut aynı adlı dosyaların üzerine yazın. Eski turko-studio-demo.mp4 bu pakette yenisiyle değiştirilmiştir.
