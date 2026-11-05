@@ -1,0 +1,26 @@
+TURKO — GÜNCEL TAM WEB SİTESİ
+
+Bu pakette tüm HTML sayfaları, JavaScript kaynakları, logolar, videolar, Studio / Cloud / Reports arayüzleri ve Google Apps Script kodu vardır.
+
+YÜKLEME
+1. ZIP'i bilgisayarınızda açın.
+2. İçindeki dosyaları ve klasörleri mevcut GitHub Pages deposunun köküne yükleyin. ZIP'in kendisini yüklemeyin. Aynı adlı dosyaların üzerine yazın.
+3. GitHub Pages yayını tamamlanınca tarayıcıda Ctrl+F5 yapın.
+
+VİDEOLAR
+Studio videosu: arayüz sayfaları tam ekran görünür. Grafik yakın planları ve dış çerçeveler kaldırılmıştır. Tanklar dolup boşalır, dört ek grafik ve canlı trend bulunur.
+Cloud videosu: Studio ve Reports ile aynı görsel dilde TURKO Cloud logolu açılış eklenmiştir.
+Videolar sessizdir.
+
+İZLENME SAYISI
+Her videonun altında yalnızca “İzlenme sayısı” gösterilir. Üçü de 1234 başlangıç değerine sahiptir.
+1234 geçmişte ölçülmüş bir toplam değildir. Gerçek ortak izlenmeler bu başlangıç değerine eklenir.
+Bir izlenme: video ekranın görünür bölümünde en az %50 görünürken toplam 5 saniye oynatılır. Aynı tarayıcı oturumundaki video döngüleri yeniden sayılmaz.
+
+ORTAK İZLENMELERİN CANLI ARTMASI İÇİN
+Mevcut Google Apps Script projenizdeki kodu bu paketteki YK_Teknik_Servis_ve_Ziyaretci.gs dosyasının TAMAMIYLA güncelleyin.
+Dağıt > Dağıtımları yönet > kalem simgesi > Yeni sürüm > Dağıt.
+Dağıtım adresi değişmesin; çalıştıran Ben ve erişim Herkes olsun.
+İlk kurulum henüz yapılmadıysa ziyaretciKurulum işlevini bir kez çalıştırın. Ayrıntılar ZIYARETCI_KURULUM.txt içindedir.
+Bu güncelleme teknik servis formunun mevcut e-posta işlevini korur.
+Eski sunucu koduyla / sunucuya ulaşılamadığında 1234 başlangıç değeri gösterilir; ölçülmemiş artışlar üretilmez.

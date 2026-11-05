@@ -40,8 +40,11 @@ function doGet(e) {
     if (!today.some(r => String(r[1]) === id)) {
       daily.appendRow([day,id]); today.push([day,id]);
     }
+    const metricResult = ykMetricsV2_(p);
     result = {
       ok:true,
+      metrics:metricResult.metrics,
+      acknowledged:metricResult.acknowledged,
       today:today.length,
       total:vr.length,
       active:vr.filter(r => now - Number(r[1]) < 120000).length,
@@ -80,4 +83,27 @@ function doPost(e) {
 
 function sonucSayfasi(message) {
   return HtmlService.createHtmlOutput('<!doctype html><html lang="tr"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>YK Otomasyon</title></head><body style="font:18px/1.6 Arial;padding:30px;color:#173750"><h2>YK Otomasyon</h2><p>'+message+'</p><a target="_top" href="https://www.ykotomasyon.com.tr/teknik-servis.html">Teknik servis sayfasına dön</a></body></html>');
+}
+
+// Shared site and video counters. 1234 is an explicit starting value, not measured historical traffic.
+// Called only while doGet holds the script lock.
+function ykMetricsV2_(p) {
+  const props=PropertiesService.getScriptProperties();
+  const cache=CacheService.getScriptCache();
+  const ids=['studio','cloud','reports'];
+  const eventId=String(p.eventId||'');
+  let acknowledged='';
+  if (/^[a-f0-9-]{36}$/.test(eventId) && (p.event==='visit'||(p.event==='video'&&ids.indexOf(p.video)>=0))) {
+    const key='yk_metric_'+eventId;
+    if (!cache.get(key)) {
+      const property=p.event==='visit'?'YK_SITE_VISITS_V2':'YK_VIDEO_'+String(p.video).toUpperCase()+'_V2';
+      const current=Math.max(0,Number(props.getProperty(property))||0);
+      props.setProperty(property,String(current+1));
+      cache.put(key,'1',21600);
+    }
+    acknowledged=eventId;
+  }
+  const videos={};
+  ids.forEach(function(id){videos[id]=1234+Math.max(0,Number(props.getProperty('YK_VIDEO_'+id.toUpperCase()+'_V2'))||0);});
+  return {metrics:{version:2,siteVisits:1234+Math.max(0,Number(props.getProperty('YK_SITE_VISITS_V2'))||0),videos:videos},acknowledged:acknowledged};
 }
