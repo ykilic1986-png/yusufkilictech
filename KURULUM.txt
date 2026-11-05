@@ -1,3 +1,1 @@
-YK OTOMASYON - Otomatik Dongulu Video Haberler
-
-Tum dosyalari web sitenizin ana klasorune yukleyin. haberler.html icindeki iki video otomatik, sessiz, dongude ve kontrol dugmeleri olmadan oynar. Tarayici enerji tasarrufu / otomatik oynatma politikalarina gore davranis degisebilir.
+ZIP içindeki turko-reports.html ve turko-portal.html dosyalarını GitHub Pages deponuzun kök dizinine yükleyip aynı adlı dosyaları değiştirin. Yayımlama tamamlanınca TURKO sayfasını Ctrl+F5 ile yenileyin. Reports bağlantısı /turko-reports.html olacaktır. Alt klasör yüklemek gerekmez.
