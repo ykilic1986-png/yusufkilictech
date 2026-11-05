@@ -5,6 +5,7 @@ const endpoint='https://script.google.com/macros/s/AKfycbwMtXCMuUb_eJ1PlcOlCULqA
 const ids=['studio','cloud','reports'];
 const root=document.querySelector('.yk-visitor-stats');
 let metrics={siteVisits:BASE,videos:{studio:BASE,cloud:BASE,reports:BASE}},live=false,busy=false;
+let localViews={studio:0,cloud:0,reports:0};try{let stored=JSON.parse(localStorage.getItem('ykLocalViewsV3')||'{}');ids.forEach(id=>{localViews[id]=Number.isSafeInteger(stored[id])&&stored[id]>=0?stored[id]:0;metrics.videos[id]=BASE+localViews[id]})}catch(e){}
 function uuid(){return typeof crypto.randomUUID==='function'?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{let n=Math.floor(Math.random()*16);return(c==='x'?n:(n&3)|8).toString(16)});}
 function read(store,key,fallback){try{return store.getItem(key)||fallback}catch(e){return fallback}}
 function write(store,key,value){try{store.setItem(key,value)}catch(e){}}
@@ -16,7 +17,7 @@ function enqueue(type,video){pending.push({id:uuid(),type,video:video||''});save
 const format=n=>Number(n).toLocaleString('tr-TR');
 function paint(data){
  document.querySelectorAll('[data-site-visits]').forEach(el=>el.textContent=format(metrics.siteVisits));
- ids.forEach(id=>document.querySelectorAll('[data-video-count="'+id+'"]').forEach(el=>{el.textContent=format(metrics.videos[id]);el.title=live?'1234 başlangıç değeri + ölçülen izlenmeler':'Başlangıç değeri: 1234. Canlı ölçüm servisi bekleniyor.';}));
+ ids.forEach(id=>document.querySelectorAll('[data-video-count="'+id+'"]').forEach(el=>{el.textContent=format(metrics.videos[id]);el.title=live?'1234 başlangıç değeri + ortak ölçülen izlenmeler':'Bu tarayıcıda ölçülen izlenmeler; 1234 başlangıç değerine eklenir. Ortak toplam için ölçüm servisi eşitlenmelidir.';}));
  document.querySelectorAll('[data-metrics-status]').forEach(el=>el.textContent=live?'Başlangıç: 1234':'Başlangıç: 1234 · Canlı veri bekleniyor');
  if(root){
   const set=(key,value)=>{const el=root.querySelector('[data-'+key+']');if(el)el.textContent=value};
@@ -36,6 +37,7 @@ function send(){
    const m=data.metrics;const valid=n=>Number.isSafeInteger(n)&&n>=BASE;
    if(valid(m.siteVisits)&&ids.every(id=>valid(m.videos&&m.videos[id]))){metrics=m;live=true;}
    if(event&&data.acknowledged===event.id){pending=pending.filter(e=>e.id!==event.id);savePending();if(pending.length)setTimeout(send,150)}
+   if(live)ids.forEach(id=>{metrics.videos[id]+=pending.filter(e=>e.type==='video'&&e.video===id).length});
   }
   paint(data&&data.ok?data:null);
  };
@@ -44,18 +46,17 @@ function send(){
  script.src=endpoint+'?'+params.toString();script.onerror=fail;timeout=setTimeout(fail,15000);document.head.appendChild(script);
 }
 paint();enqueue('visit');setInterval(send,60000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')send()});
-// A visible video must actually play for five seconds. Looping does not add another session view.
+// Count the first visible playback on each page opening. A video loop is not a new view.
 const videos=Array.from(document.querySelectorAll('video[data-video-id]')).map(el=>({el,id:el.dataset.videoId,ratio:0,seconds:0,counted:false}));
 if(typeof IntersectionObserver==='function'){
  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{const item=videos.find(v=>v.el===entry.target);if(item)item.ratio=entry.intersectionRatio}),{threshold:[0,.5,1]});videos.forEach(v=>observer.observe(v.el));
 }else videos.forEach(v=>v.ratio=1);
-let last=performance.now();setInterval(()=>{
- const now=performance.now(),dt=Math.min(.35,(now-last)/1000);last=now;
- videos.forEach(v=>{
-  if(v.counted||!ids.includes(v.id))return;
-  let already=false;try{already=read(sessionStorage,'ykViewedV2:'+v.id,'')==='1'}catch(e){}
-  if(already){v.counted=true;return}
-  if(document.visibilityState==='visible'&&v.ratio>=.5&&!v.el.paused&&!v.el.ended&&v.el.readyState>=2){v.seconds+=dt;if(v.seconds>=5){v.counted=true;try{write(sessionStorage,'ykViewedV2:'+v.id,'1')}catch(e){}enqueue('video',v.id)}}
- });
-},250);
+function firstPlayback(v){
+ if(v.counted||!ids.includes(v.id)||document.visibilityState!=='visible'||v.ratio<.5||v.el.paused||v.el.ended||v.el.readyState<2)return;
+ v.counted=true;localViews[v.id]++;try{localStorage.setItem('ykLocalViewsV3',JSON.stringify(localViews))}catch(e){}
+ // An immediate local measurement remains usable when the shared endpoint is offline.
+ metrics.videos[v.id]=live?metrics.videos[v.id]+1:BASE+localViews[v.id];paint();enqueue('video',v.id);
+}
+videos.forEach(v=>v.el.addEventListener('playing',()=>firstPlayback(v)));
+setInterval(()=>videos.forEach(firstPlayback),250);
 })();

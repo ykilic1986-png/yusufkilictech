@@ -11,7 +11,7 @@ Bugün: Türkiye saatine göre aynı gün içindeki farklı tarayıcı kimlikler
 Toplam: ölçüm kurulduğundan beri farklı tarayıcı kimlikleri.
 Aktif: son 2 dakika içinde görünür sayfadan sinyal gönderen tarayıcılar; 60 saniyede yenilenir.
 Sayaç: 1234 başlangıç değeri + ölçülen sayfa açılışları. 1234 geçmişte doğrulanmış ziyaretçi olarak sunulmaz.
-Portalda video altlarında yalnızca Studio / Cloud / Reports izlenmeleri ayrı gösterilir. Site ziyareti arka planda ortak kaydedilir. İzlenme: video en az %50 görünürken 5 saniye oynatılır; aynı tarayıcı oturumunda döngü tekrarları eklenmez.
+Portalda video altlarında yalnızca Studio / Cloud / Reports izlenmeleri ayrı gösterilir. Site ziyareti arka planda ortak kaydedilir. İzlenme: görünür videonun ilk oynatılması sayılır. Her yeni sayfa açılışı yeniden sayılır; aynı sayfadaki döngü tekrarları eklenmez. Ortak sunucu bağlı değilse yerel tarayıcı kaydı kullanılır.
 Ortak sayaçlar için bu paketteki güncel Apps Script kodunu mevcut dağıtıma Yeni sürüm olarak yayımlayın. Eski sunucu sürümü çalışıyorsa video altlarında 1234 başlangıç değeri ve canlı veri bekleniyor durumu gösterilir.
 Tarayıcı deposunu silmek veya farklı cihaz kullanmak yeni ziyaretçi sayılır. Botlar ve istek engelleyicileri sayıları etkileyebilir.
 Kod ad, e-posta veya IP kaydetmez; rastgele kalıcı tarayıcı kimliği kullanır. Tablo gizli kalır; yalnızca toplu sayılar web uygulamasında döner.

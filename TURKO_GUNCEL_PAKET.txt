@@ -15,7 +15,8 @@ Videolar sessizdir.
 İZLENME SAYISI
 Her videonun altında yalnızca “İzlenme sayısı” gösterilir. Üçü de 1234 başlangıç değerine sahiptir.
 1234 geçmişte ölçülmüş bir toplam değildir. Gerçek ortak izlenmeler bu başlangıç değerine eklenir.
-Bir izlenme: video ekranın görünür bölümünde en az %50 görünürken toplam 5 saniye oynatılır. Aynı tarayıcı oturumundaki video döngüleri yeniden sayılmaz.
+Bir izlenme: video görünür halde ilk kez oynatıldığında kaydedilir. Her yeni sayfa açılışında yeniden başlayan video tekrar sayılır; aynı sayfadaki video döngüsü yeniden sayılmaz.
+Ortak sunucuya ulaşılamazsa bu tarayıcıda ölçülen izlenmeler yerel depoda korunur ve 1234 başlangıç değerine eklenir. Ortak sunucu hazır olduğunda bekleyen kayıtlar eşitlenir. Yerel toplam tüm ziyaretçilerin ortak toplamı değildir.
 
 ORTAK İZLENMELERİN CANLI ARTMASI İÇİN
 Mevcut Google Apps Script projenizdeki kodu bu paketteki YK_Teknik_Servis_ve_Ziyaretci.gs dosyasının TAMAMIYLA güncelleyin.
@@ -23,4 +24,7 @@ Dağıt > Dağıtımları yönet > kalem simgesi > Yeni sürüm > Dağıt.
 Dağıtım adresi değişmesin; çalıştıran Ben ve erişim Herkes olsun.
 İlk kurulum henüz yapılmadıysa ziyaretciKurulum işlevini bir kez çalıştırın. Ayrıntılar ZIYARETCI_KURULUM.txt içindedir.
 Bu güncelleme teknik servis formunun mevcut e-posta işlevini korur.
-Eski sunucu koduyla / sunucuya ulaşılamadığında 1234 başlangıç değeri gösterilir; ölçülmemiş artışlar üretilmez.
+Eski sunucu koduyla / sunucuya ulaşılamadığında yerel tarayıcıda kaydedilmiş izlenmeler gösterilir. Yerel depo silinirse yerel kayıt sıfırlanır.
+
+PLC ONLINE İZLEME
+MAIN_ST sabit su arıtma demo programı komut komut yürütülür. ST satır oku ve Ladder ağ vurgusu aynı yürütme izinden beslenir. Program derleyicisi / fiziksel PLC bağlantısı eklenmemiştir. Duraklat, Adım ve Düşük seviye testi bu demo programını işletir.
