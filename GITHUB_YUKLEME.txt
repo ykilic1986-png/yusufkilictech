@@ -1,6 +1,19 @@
-YK OTOMASYON - TAM SITE + TURKO PORTAL
+TURKO STUDIO · GITHUB PAGES GÜNCELLEMESİ
 
-ZIP dosyasinin tum icerigini GitHub deposunun ana dizinine yukleyin. Eski dosyalari ayni isimlerle degistirin; diger dosyalari silmeyin.
-GitHub Pages ana sayfasi index.html, TURKO PORTAL turko-portal.html, Cloud demo turko-connect/index.html.
-Videolar: turko-studio-demo.mp4 ve turko-connect-demo.mp4.
-Cloud PLC baglantisi ve verileri simule edilmistir.
+1. ZIP dosyasını çıkarın.
+2. Mevcut sitenizin GitHub deposunda main dalının köküne turko-studio.html
+   dosyasını yükleyin. Var olan aynı adlı dosyayı güncelleyin.
+3. Commit changes ile kaydedin. Actions altında Pages dağıtımı tamamlanınca
+   TURKO portalındaki Studio bağlantısını açın.
+
+GitHub'a yüklenen tek dosya: turko-studio.html
+Bu metin kurulum içindir.
+
+Pivot Sulama demosu
+Yeni Proje > Başlangıç > Pivot Sulama — düzenlenebilir örnek > Oluştur.
+Çalışan PLC dili ST iken Simülasyon'a basın ve HMI / Tasarım'ı açın.
+Ana ekran, Sektörler ve Alarm ve I/O sayfaları projede yer alır.
+
+PLC / Ladder sekmesinde iki örnek ağ bulunur. Kontak, bobin ve fonksiyon
+bloklarını paletten sürükleyin veya seçip uygun + noktasına tıklayın.
+Pivot'un enkoder, sektör ve alarm simülasyonu ST ile çalışır.
