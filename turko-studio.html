@@ -1133,7 +1133,7 @@ function renderHmiAsset(o,raw,preview=false){
     if(v===9){body=line(18,56,142,56,metal,2);for(let i=0;i<11;i++)body+=line(20+i*12,56,20+i*12,i%5?46:35,color,2)+text(20+i*12,71,i*10,7,muted);}
   }
   const title=(o.name||d.name);
-  return `<svg x="0" y="0" width="${o.w}" height="${o.h}" viewBox="0 0 160 120" aria-hidden="true" style="overflow:hidden"><g>${text(80,13,title.length>25?title.slice(0,24)+'…':title,10,ink)}</g><g transform="translate(0 20)">${body}</g></svg>${r.block?.type.startsWith('MC_')?`<div class="mc-pin-details"><b>${html(r.block.type)} / ${html(r.title||'')}</b>${Object.entries(r.block.inputs).map(([pin,value])=>`<span>${html(pin)} := ${html(value)}${online&&Object.hasOwn(mem,value.toUpperCase())?' ['+formatValue(mem[value.toUpperCase()])+']':''}</span>`).join('')}${Object.entries(r.block.outputs).map(([pin,tag])=>`<span><b>${html(pin)} =&gt; ${html(tag)}${online?' = '+formatValue(mem[tag.toUpperCase()]):''}</b></span>`).join('')}</div>`:''}`;
+  return `<svg x="0" y="0" width="${o.w}" height="${o.h}" viewBox="0 0 160 120" aria-hidden="true" style="overflow:hidden"><g>${text(80,13,title.length>25?title.slice(0,24)+'…':title,10,ink)}</g><g transform="translate(0 20)">${body}</g></svg>`;
 }
 
 const tagTypes=scalarTypes;
