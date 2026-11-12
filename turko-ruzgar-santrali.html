@@ -13,8 +13,23 @@
 .fleet-marker[data-active=true]{color:#aef7dc;border-color:#78ddbe;background:#103b36}
 @media(max-width:620px){.scene-switch{max-width:95%;gap:2px}.scene-switch button{padding:5px 6px}}
 </style>
-<body>
-<header><div class="brand"><span class="brand-icon">T</span><div><strong>TURKO</strong><small>RÜZGÂR ENERJİ SANTRALİ</small></div></div><div class="top-right"><span class="sim">YEREL SİMÜLASYON</span><span id="clock">00:00:00</span></div></header>
+<style id="wind-project-tools">
+.project-tools{display:flex;gap:5px;flex-wrap:wrap}header .top-right{gap:8px}#simulation-toggle{border-color:#527387}
+#simulation-state[data-paused=true]{color:#f9cf88;border-color:#ae8555}#project-editor{width:min(660px,94vw);max-height:90vh;background:#102437;color:#e9f4fa;border:1px solid #517185;border-radius:8px;padding:16px}
+#project-editor::backdrop{background:#030b14aa}#project-form h2{font-size:19px;margin:0 0 14px}
+#project-form label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0}#project-form :is(input,select){color:#e9f4fa;background:#132b3e;border:1px solid #52758a;border-radius:3px;padding:6px}
+#project-form table{width:100%;border-collapse:collapse;margin:14px 0}#project-form :is(th,td){border-bottom:1px solid #426176;padding:5px;text-align:left}#project-form th{font-size:12px}#project-form td input{width:100%;min-width:0}#project-form td:last-child{width:31%}
+#project-form .project-tools{justify-content:flex-end}#project-edit-status{font-size:12px;color:#f2ce96}#project-notice{position:fixed;right:12px;bottom:12px;z-index:8;margin:0;padding:10px 14px;background:#132b3e;border:1px solid #52758a;border-radius:4px}
+@media(min-width:621px){body[data-panel=right] main{grid-template-columns:minmax(0,1fr) 270px}body[data-panel=right] .scene{grid-column:1}body[data-panel=right] .metrics{grid-column:2}}
+@media(max-width:800px){header{height:auto;min-height:66px;flex-wrap:wrap;gap:6px;padding-top:8px;padding-bottom:8px}#simulation-state{display:none}}
+</style><body>
+<header><div class="brand"><span class="brand-icon">T</span><div><strong>TURKO</strong><small id="project-title">RÜZGÂR ENERJİ SANTRALİ</small></div></div><div class="top-right"><span class="sim" id="simulation-state">YEREL SİMÜLASYON</span><span id="clock">00:00:00</span><div class="project-tools" role="group" aria-label="Proje işlemleri"><button type="button" id="simulation-toggle">Simülasyonu durdur</button><button type="button" id="project-edit">Düzenle</button><button type="button" id="project-fullscreen" aria-pressed="false">Tam ekran</button></div></div></header>
+<dialog id="project-editor"><form id="project-form"><h2>Rüzgâr santrali · Proje ayarları</h2>
+<label>Proje adı<input name="title" maxlength="48" required></label>
+<label>Ölçüm paneli<select name="side"><option value="left">Sol</option><option value="right">Sağ</option></select></label>
+<table><thead><tr><th>Türbin</th><th>Görünen ad</th><th>Başlangıç rüzgârı (m/s)</th></tr></thead><tbody id="project-unit-rows"></tbody></table>
+<p id="project-edit-status" role="status"></p><div class="project-tools"><button type="button" id="project-cancel">Vazgeç</button><button type="submit">Kaydet</button></div>
+</form></dialog><p id="project-notice" role="status" hidden></p>
 <main>
 <section class="scene" aria-label="Etkileşimli türbin modeli"><div id="viewport"></div><div id="fleet-markers"></div><div class="scene-title"><span id="scene-turbine">WT–01 / TÜRBİN</span><h1>Makine kesiti</h1><p>Gondol, aktarma organları ve rotor</p></div>
 <div class="scene-switch" role="group" aria-label="Kamera görünümü"><button id="farm-view">Saha görünümü</button><button id="section" aria-pressed="true">Kesit</button><button id="outer" aria-pressed="false">Dış görünüm</button><button id="reset-camera" title="Kamerayı sıfırla" aria-label="Kamerayı sıfırla">↺</button></div>
@@ -4334,7 +4349,19 @@ const states=[10,8,12,9.5].map((wind,i)=>({
  id:'WT–0'+(i+1),set:wind,wind,rpm:wind*1.4,temp:40,power:2000*(wind/14)**3,energy:0,elapsed:0,
  command:true,fault:false,alarm:null,ack:false,mode:'ÜRETİMDE',samples:[],events:[]
 }));
-let selected=0,model=null,section=true;
+let selected=0,model=null,section=true,paused=false;
+const settingsKey='turko-wind-fleet-settings-v1';
+const defaults={title:'Rüzgâr Enerji Santrali',side:'left',units:states.map(s=>({name:s.id,wind:s.set}))};
+function validSettings(value){
+ return value&&typeof value.title==='string'&&value.title.trim()&&value.title.length<=48&&['left','right'].includes(value.side)&&
+ Array.isArray(value.units)&&value.units.length===states.length&&value.units.every(u=>u&&typeof u.name==='string'&&u.name.trim()&&u.name.length<=24&&Number.isFinite(u.wind)&&u.wind>=0&&u.wind<=28);
+}
+let settings=defaults;
+try{const prior=JSON.parse(localStorage.getItem(settingsKey));if(validSettings(prior))settings=prior;}catch{}
+for(const [i,s] of states.entries()){
+ const wind=settings.units[i].wind;s.set=wind;s.wind=wind;s.rpm=wind>=3&&wind<24?Math.min(19,wind*1.4):0;
+ s.power=wind>=3&&wind<24?Math.min(2000,2000*(wind/14)**3):0;
+}
 const active=()=>states[selected];
 const metrics=[
  ['wind','Rüzgâr hızı','m/s',28,'#67ded1',1],['rpm','Rotor devri','rpm',22,'#9ecfff',1],
@@ -4373,7 +4400,7 @@ function paintEvents(){
   const at=document.createElement('time');at.textContent=e.at;
   row.append(at,document.createTextNode(e.message));return row;
  }));
- by('ack').disabled=!s.alarm||s.ack;
+ by('ack').disabled=paused||!s.alarm||s.ack;
 }
 function alarm(s,next){
  if(next===s.alarm)return;
@@ -4392,7 +4419,7 @@ function paintValues(){
  by('model-temp').textContent=format(s.temp,0)+' °C';by('energy').firstChild.textContent=format(s.energy)+' ';
  by('state').textContent=s.mode;by('state').style.color=s.alarm?'#ffad9d':'var(--mint)';
  const sec=Math.floor(s.elapsed);by('clock').textContent=[Math.floor(sec/3600),Math.floor(sec/60)%60,sec%60].map(n=>String(n).padStart(2,'0')).join(':');
- by('run').disabled=s.command||s.fault;by('stop').disabled=!s.command;by('reset').disabled=!s.fault;by('fault').disabled=s.fault;
+ by('run').disabled=paused||s.command||s.fault;by('stop').disabled=paused||!s.command;by('reset').disabled=paused||!s.fault;by('fault').disabled=paused||s.fault;by('wind').disabled=paused;
  for(const [i,b] of pickButtons.entries())b.dataset.status=states[i].alarm?'alarm':states[i].command?'run':'stop';
 }
 let width=0,height=0;
@@ -4425,9 +4452,9 @@ function showSection(on){
 }
 function selectTurbine(i,focus=true){
  if(!states[i])return;
- selected=i;const s=active();
- by('scene-turbine').textContent=s.id+' / TÜRBİN';by('metric-turbine').textContent=s.id;
- for(const label of document.querySelectorAll('[data-selected-unit]'))label.textContent=s.id;
+ selected=i;const s=active(),name=settings.units[i].name;
+ by('scene-turbine').textContent=name+' / TÜRBİN';by('metric-turbine').textContent=name;
+ for(const label of document.querySelectorAll('[data-selected-unit]'))label.textContent=name;
  by('wind').value=s.set;by('wind-set').textContent=format(s.set)+' m/s';
  for(const [j,b] of pickButtons.entries())b.setAttribute('aria-pressed',String(j===i));
  model?.select(i,focus);showSection(true);paintValues();paintEvents();paintTrend();
@@ -4448,6 +4475,7 @@ selectTurbine(0,false);
 let previous=performance.now(),refresh=0,lastSample=0;
 function frame(now){
  const dt=clamp((now-previous)/1000,0,.15);previous=now;
+ if(paused){model?.draw(states,0);requestAnimationFrame(frame);return;}
  for(const s of states){
   const follow=(value,target,k)=>value+(target-value)*(1-Math.exp(-dt*k));
   s.wind=follow(s.wind,s.set,1.5);
@@ -4466,6 +4494,64 @@ function frame(now){
  requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
+function applySettings(){
+ document.title='TURKO · '+settings.title;by('project-title').textContent=settings.title;
+ document.body.dataset.panel=settings.side;
+ for(const [i,u] of settings.units.entries()){
+  pickButtons[i].textContent=u.name;
+  pickButtons[i].title=states[i].id;
+  markers[i].textContent=u.name;
+  markers[i].setAttribute('aria-label',u.name+' türbinini seç');
+ }
+ selectTurbine(selected,false);
+}
+let noticeTimer;
+function notice(text){
+ const el=by('project-notice');el.textContent=text;el.hidden=false;
+ clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>{el.hidden=true;},4200);
+}
+by('simulation-toggle').onclick=()=>{
+ paused=!paused;
+ const btn=by('simulation-toggle'),badge=by('simulation-state');
+ btn.textContent=paused?'Simülasyonu başlat':'Simülasyonu durdur';
+ badge.dataset.paused=String(paused);badge.textContent=paused?'SİMÜLASYON DURAKLATILDI':'YEREL SİMÜLASYON';
+ btn.setAttribute('aria-pressed',String(paused));
+ lastSample=performance.now();paintValues();paintEvents();
+};
+const fullscreen=by('project-fullscreen');
+function syncFullscreen(){
+ const on=!!document.fullscreenElement;fullscreen.textContent=on?'Tam ekrandan çık':'Tam ekran';
+ fullscreen.setAttribute('aria-pressed',String(on));
+}
+fullscreen.onclick=async()=>{
+ try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}
+ catch{notice('Tarayıcı tam ekran isteğini engelledi.');}
+};
+document.addEventListener('fullscreenchange',syncFullscreen);
+const editor=by('project-editor'),form=by('project-form'),rows=by('project-unit-rows');
+by('project-edit').onclick=()=>{
+ form.elements.title.value=settings.title;form.elements.side.value=settings.side;
+ rows.replaceChildren(...settings.units.map((u,i)=>{
+  const tr=document.createElement('tr'),name=document.createElement('input'),wind=document.createElement('input');
+  name.value=u.name;name.name='name'+i;name.maxLength=24;name.required=true;name.setAttribute('aria-label',states[i].id+' görünen adı');
+  wind.type='number';wind.min=0;wind.max=28;wind.step=.5;wind.name='wind'+i;wind.value=u.wind;wind.required=true;wind.setAttribute('aria-label',states[i].id+' başlangıç rüzgârı');
+  tr.insertCell().textContent=states[i].id;tr.insertCell().append(name);tr.insertCell().append(wind);return tr;
+ }));
+ by('project-edit-status').textContent='Ayarlar bu tarayıcıda saklanır. Yeni rüzgâr seti kaydedince uygulanır.';
+ editor.showModal();
+};
+by('project-cancel').onclick=()=>editor.close();
+form.onsubmit=e=>{
+ e.preventDefault();
+ const data=new FormData(form),next={title:data.get('title').trim(),side:data.get('side'),
+  units:states.map((s,i)=>({name:data.get('name'+i).trim(),wind:Number(data.get('wind'+i))}))};
+ if(!validSettings(next)){by('project-edit-status').textContent='Adları ve 0–28 m/s aralığındaki değerleri kontrol edin.';return;}
+ for(const [i,u] of next.units.entries())if(u.wind!==settings.units[i].wind)states[i].set=u.wind;
+ settings=next;
+ let saved=true;try{localStorage.setItem(settingsKey,JSON.stringify(settings));}catch{saved=false;}
+ editor.close();applySettings();notice(saved?'Proje ayarları kaydedildi.':'Ayarlar bu oturumda uygulandı.');
+};
+applySettings();
 })();
 </script></body></html>
 
