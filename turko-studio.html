@@ -941,7 +941,7 @@ const mount=document.getElementById('turko-project-workspace');
 const storageKey='turko-studio-projects-v1';
 const find=id=>mount.querySelector('#'+id);
 const html=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const kinds={button:'Anlık buton',toggle:'Kalıcı anahtar',lamp:'Durum lambası',value:'Sayısal gösterge',tank:'Tank',pump:'Pompa',blower:'Fan',valve:'Vana',trend:'Trend',text:'Metin',dial:'Enkoder kadranı',alarmTable:'Aktif alarm tablosu'};
+const kinds={button:'Anlık buton',toggle:'Kalıcı anahtar',lamp:'Durum lambası',value:'Sayısal gösterge',tank:'Tank',pump:'Pompa',blower:'Fan',valve:'Vana',trend:'Trend',text:'Metin',dial:'Enkoder kadranı',alarmTable:'Aktif alarm tablosu',processTrend:'Proses trendi',multiText:'Çok durumlu metin',faceplate:'Faceplate örneği',hydroDiagram:'HES proses şeması'};
 const hmiAssets=Object.fromEntries([{"type":"hmi_control_01","family":"control","variant":0,"name":"Yuvarlak start butonu","category":"Kumandalar","binding":"BOOL","action":"momentary","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_02","family":"control","variant":1,"name":"Kare stop butonu","category":"Kumandalar","binding":"BOOL","action":"momentary","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_03","family":"control","variant":2,"name":"Işıklı buton","category":"Kumandalar","binding":"BOOL","action":"momentary","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_04","family":"control","variant":3,"name":"Acil durdurma mantarı","category":"Kumandalar","binding":"BOOL","action":"momentary","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_05","family":"control","variant":4,"name":"Mandallı seçim anahtarı","category":"Kumandalar","binding":"BOOL","action":"toggle","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_06","family":"control","variant":5,"name":"Salınımlı anahtar","category":"Kumandalar","binding":"BOOL","action":"toggle","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_07","family":"control","variant":6,"name":"Anahtarlı şalter","category":"Kumandalar","binding":"BOOL","action":"toggle","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_08","family":"control","variant":7,"name":"Dokunmatik aç kapa","category":"Kumandalar","binding":"BOOL","action":"toggle","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_09","family":"control","variant":8,"name":"Sürgülü anahtar","category":"Kumandalar","binding":"BOOL","action":"toggle","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_control_10","family":"control","variant":9,"name":"Pedal anahtarı","category":"Kumandalar","binding":"BOOL","action":"momentary","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_01","family":"lamp","variant":0,"name":"Yuvarlak sinyal lambası","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_02","family":"lamp","variant":1,"name":"Kare sinyal lambası","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_03","family":"lamp","variant":2,"name":"İkili ikaz kulesi","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_04","family":"lamp","variant":3,"name":"Üçlü ikaz kulesi","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_05","family":"lamp","variant":4,"name":"Beşli ikaz kulesi","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_06","family":"lamp","variant":5,"name":"Döner ikaz lambası","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_07","family":"lamp","variant":6,"name":"LED durum şeridi","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_08","family":"lamp","variant":7,"name":"Alarm uyarı bandı","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_09","family":"lamp","variant":8,"name":"Dikdörtgen pilot lamba","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_lamp_10","family":"lamp","variant":9,"name":"Kabin durum göstergesi","category":"Durum lambaları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_01","family":"numeric","variant":0,"name":"Dijital değer ekranı","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"none","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_02","family":"numeric","variant":1,"name":"Sayısal giriş alanı","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"input","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_03","family":"numeric","variant":2,"name":"Döner set değeri","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"input","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_04","family":"numeric","variant":3,"name":"Yatay set sürgüsü","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"slider","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_05","family":"numeric","variant":4,"name":"Dikey set sürgüsü","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"vslider","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_06","family":"numeric","variant":5,"name":"Artır azalt kumandası","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"step","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_07","family":"numeric","variant":6,"name":"Segmentli değer ekranı","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"none","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_08","family":"numeric","variant":7,"name":"Termometre","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"none","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_09","family":"numeric","variant":8,"name":"Yatay doluluk çubuğu","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"none","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_numeric_10","family":"numeric","variant":9,"name":"Dikey doluluk çubuğu","category":"Sayısal giriş ve gösterim","binding":"NUM","action":"none","w":190,"h":115,"min":0,"max":100,"unit":""},{"type":"hmi_gauge_01","family":"gauge","variant":0,"name":"Tam daire gösterge","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_02","family":"gauge","variant":1,"name":"Yarım daire gösterge","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_03","family":"gauge","variant":2,"name":"Çeyrek daire gösterge","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_04","family":"gauge","variant":3,"name":"Kare gövdeli manometre","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_05","family":"gauge","variant":4,"name":"Basınç manometresi","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_06","family":"gauge","variant":5,"name":"Vakum göstergesi","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_gauge_07","family":"gauge","variant":6,"name":"Debimetre kadranı","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"m³/h"},{"type":"hmi_gauge_08","family":"gauge","variant":7,"name":"Sıcaklık kadranı","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":150,"unit":"°C"},{"type":"hmi_gauge_09","family":"gauge","variant":8,"name":"Hız göstergesi","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"Hz"},{"type":"hmi_gauge_10","family":"gauge","variant":9,"name":"Çift halkalı gösterge","category":"Göstergeler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":10,"unit":"bar"},{"type":"hmi_chart_01","family":"chart","variant":0,"name":"Çizgi trendi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_02","family":"chart","variant":1,"name":"Alan trendi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_03","family":"chart","variant":2,"name":"Sütun geçmişi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_04","family":"chart","variant":3,"name":"Basamak trendi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_05","family":"chart","variant":4,"name":"Nokta geçmişi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_06","family":"chart","variant":5,"name":"Halka doluluk grafiği","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_07","family":"chart","variant":6,"name":"Pasta doluluk grafiği","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_08","family":"chart","variant":7,"name":"Yatay geçmiş çubukları","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_09","family":"chart","variant":8,"name":"Kıvılcım trendi","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_chart_10","family":"chart","variant":9,"name":"Anlık değer tablosu","category":"Grafikler","binding":"NUM","action":"none","w":280,"h":175,"min":0,"max":100,"unit":""},{"type":"hmi_tank_01","family":"tank","variant":0,"name":"Dikey silindirik tank","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_02","family":"tank","variant":1,"name":"Yatay silindirik tank","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_03","family":"tank","variant":2,"name":"Konik dipli tank","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_04","family":"tank","variant":3,"name":"Dikdörtgen su deposu","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_05","family":"tank","variant":4,"name":"Küresel depo","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_06","family":"tank","variant":5,"name":"Açık proses havuzu","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_07","family":"tank","variant":6,"name":"Bölmeli proses tankı","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_08","family":"tank","variant":7,"name":"Karıştırıcılı tank","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_09","family":"tank","variant":8,"name":"Ceketli ısıtma tankı","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_tank_10","family":"tank","variant":9,"name":"Basınçlı depolama tankı","category":"Tank ve hazneler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":"%"},{"type":"hmi_pump_01","family":"pump","variant":0,"name":"Santrifüj pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_02","family":"pump","variant":1,"name":"Dikey çok kademeli pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_03","family":"pump","variant":2,"name":"Dalgıç pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_04","family":"pump","variant":3,"name":"Diyafram pompası","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_05","family":"pump","variant":4,"name":"Dişli pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_06","family":"pump","variant":5,"name":"Loblu pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_07","family":"pump","variant":6,"name":"Peristaltik pompa","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_08","family":"pump","variant":7,"name":"Dozaj pompası","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_09","family":"pump","variant":8,"name":"Vakum pompası","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pump_10","family":"pump","variant":9,"name":"Çift pompa grubu","category":"Pompalar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_01","family":"valve","variant":0,"name":"Küresel vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_02","family":"valve","variant":1,"name":"Kelebek vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_03","family":"valve","variant":2,"name":"Sürgülü vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_04","family":"valve","variant":3,"name":"Glob vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_05","family":"valve","variant":4,"name":"Çekvalf","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_06","family":"valve","variant":5,"name":"Solenoid vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_07","family":"valve","variant":6,"name":"Pnömatik aktüatörlü vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_08","family":"valve","variant":7,"name":"Motorlu vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_09","family":"valve","variant":8,"name":"Üç yollu vana","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_valve_10","family":"valve","variant":9,"name":"Basınç regülatörü","category":"Vana ve armatürler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_01","family":"motor","variant":0,"name":"Yatay elektrik motoru","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_02","family":"motor","variant":1,"name":"Dikey elektrik motoru","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_03","family":"motor","variant":2,"name":"Redüktörlü motor","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_04","family":"motor","variant":3,"name":"Servo motor","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_05","family":"motor","variant":4,"name":"Step motor","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_06","family":"motor","variant":5,"name":"Frenli motor","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_07","family":"motor","variant":6,"name":"Kaplinli motor grubu","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_08","family":"motor","variant":7,"name":"V kayışlı motor grubu","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_09","family":"motor","variant":8,"name":"AC sürücü gövdesi","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_motor_10","family":"motor","variant":9,"name":"Motor starter grubu","category":"Motor ve sürücüler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_01","family":"fan","variant":0,"name":"Eksenel fan","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_02","family":"fan","variant":1,"name":"Radyal fan","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_03","family":"fan","variant":2,"name":"Çatı fanı","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_04","family":"fan","variant":3,"name":"Kanal fanı","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_05","family":"fan","variant":4,"name":"Çift fan ünitesi","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_06","family":"fan","variant":5,"name":"Hava blower grubu","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_07","family":"fan","variant":6,"name":"Dört kanatlı fan","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_08","family":"fan","variant":7,"name":"Havalandırma menfezi","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_09","family":"fan","variant":8,"name":"Damperli hava kanalı","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_fan_10","family":"fan","variant":9,"name":"Isı geri kazanım ünitesi","category":"Fan ve havalandırma","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_01","family":"pipe","variant":0,"name":"Yatay akış borusu","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_02","family":"pipe","variant":1,"name":"Dikey akış borusu","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_03","family":"pipe","variant":2,"name":"Boru dirseği sağ","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_04","family":"pipe","variant":3,"name":"Boru dirseği sol","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_05","family":"pipe","variant":4,"name":"T boru bağlantısı","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_06","family":"pipe","variant":5,"name":"Çapraz boru bağlantısı","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_07","family":"pipe","variant":6,"name":"Boru redüksiyonu","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_08","family":"pipe","variant":7,"name":"Flanşlı boru parçası","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_09","family":"pipe","variant":8,"name":"Esnek boru bağlantısı","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pipe_10","family":"pipe","variant":9,"name":"U boru dönüşü","category":"Boru ve bağlantılar","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_01","family":"conveyor","variant":0,"name":"Bantlı konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_02","family":"conveyor","variant":1,"name":"Rulolu konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_03","family":"conveyor","variant":2,"name":"Eğimli konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_04","family":"conveyor","variant":3,"name":"Zincirli konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_05","family":"conveyor","variant":4,"name":"Vidalı konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_06","family":"conveyor","variant":5,"name":"Dönüşlü konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_07","family":"conveyor","variant":6,"name":"Şişe taşıma bandı","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_08","family":"conveyor","variant":7,"name":"Palet taşıma hattı","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_09","family":"conveyor","variant":8,"name":"Çift hat konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_conveyor_10","family":"conveyor","variant":9,"name":"Ayırıcı konveyör","category":"Konveyörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_01","family":"sensor","variant":0,"name":"Endüktif yaklaşım sensörü","category":"Sensörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_02","family":"sensor","variant":1,"name":"Kapasitif yaklaşım sensörü","category":"Sensörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_03","family":"sensor","variant":2,"name":"Fotoelektrik sensör","category":"Sensörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_04","family":"sensor","variant":3,"name":"Mekanik limit şalteri","category":"Sensörler","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_05","family":"sensor","variant":4,"name":"Basınç transmitteri","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_06","family":"sensor","variant":5,"name":"Sıcaklık probu","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_07","family":"sensor","variant":6,"name":"Ultrasonik seviye sensörü","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_08","family":"sensor","variant":7,"name":"Manyetik debimetre","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_09","family":"sensor","variant":8,"name":"Enkoder","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_sensor_10","family":"sensor","variant":9,"name":"Yük hücresi","category":"Sensörler","binding":"NUM","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_01","family":"electrical","variant":0,"name":"Üç kutuplu kontaktör","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_02","family":"electrical","variant":1,"name":"Termik aşırı yük rölesi","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_03","family":"electrical","variant":2,"name":"Mini devre kesici","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_04","family":"electrical","variant":3,"name":"Motor koruma şalteri","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_05","family":"electrical","variant":4,"name":"Cam sigorta","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_06","family":"electrical","variant":5,"name":"24 V güç kaynağı","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_07","family":"electrical","variant":6,"name":"Ara röle","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_08","family":"electrical","variant":7,"name":"Ayırıcı şalter","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_09","family":"electrical","variant":8,"name":"Transformatör","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_electrical_10","family":"electrical","variant":9,"name":"Akü grubu","category":"Elektrik elemanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_01","family":"process","variant":0,"name":"Plakalı eşanjör","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_02","family":"process","variant":1,"name":"Borulu eşanjör","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_03","family":"process","variant":2,"name":"Elektrikli ısıtıcı","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_04","family":"process","variant":3,"name":"Proses kazanı","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_05","family":"process","variant":4,"name":"Endüstriyel fırın","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_06","family":"process","variant":5,"name":"Kırıcı","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_07","family":"process","variant":6,"name":"Değirmen","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_08","family":"process","variant":7,"name":"Proses mikseri","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_09","family":"process","variant":8,"name":"Kurutma tamburu","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_process_10","family":"process","variant":9,"name":"Santrifüj ayırıcı","category":"Proses ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_01","family":"water","variant":0,"name":"Kum filtresi","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_02","family":"water","variant":1,"name":"Aktif karbon filtresi","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_03","family":"water","variant":2,"name":"Kartuş filtre","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_04","family":"water","variant":3,"name":"Ters ozmoz membranı","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_05","family":"water","variant":4,"name":"UV dezenfeksiyon","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_06","family":"water","variant":5,"name":"Klor dozaj ünitesi","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_07","family":"water","variant":6,"name":"Yumuşatma kolonu","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_08","family":"water","variant":7,"name":"Havalandırma difüzörü","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_09","family":"water","variant":8,"name":"Çöktürme havuzu","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_water_10","family":"water","variant":9,"name":"Bant filtre presi","category":"Su arıtma ekipmanları","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_01","family":"pneumatic","variant":0,"name":"Tek etkili silindir","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_02","family":"pneumatic","variant":1,"name":"Çift etkili silindir","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_03","family":"pneumatic","variant":2,"name":"Kılavuzlu silindir","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_04","family":"pneumatic","variant":3,"name":"Pnömatik tutucu","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_05","family":"pneumatic","variant":4,"name":"Vakum vantuzu","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_06","family":"pneumatic","variant":5,"name":"Hava hazırlama grubu","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_07","family":"pneumatic","variant":6,"name":"Kompresör","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_08","family":"pneumatic","variant":7,"name":"Hava deposu","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_09","family":"pneumatic","variant":8,"name":"Hidrolik güç ünitesi","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_pneumatic_10","family":"pneumatic","variant":9,"name":"Makaslı kaldırıcı","category":"Pnömatik ve mekanik","binding":"BOOL","action":"none","w":170,"h":135,"min":0,"max":100,"unit":""},{"type":"hmi_shape_01","family":"shape","variant":0,"name":"Düz çizgi","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_02","family":"shape","variant":1,"name":"Kesikli çizgi","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_03","family":"shape","variant":2,"name":"Yön oku","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_04","family":"shape","variant":3,"name":"Çift yön oku","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_05","family":"shape","variant":4,"name":"Dikdörtgen","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_06","family":"shape","variant":5,"name":"Yuvarlatılmış çerçeve","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_07","family":"shape","variant":6,"name":"Daire","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_08","family":"shape","variant":7,"name":"Üçgen","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_09","family":"shape","variant":8,"name":"Altıgen","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_shape_10","family":"shape","variant":9,"name":"Serbest bağlantı çizgisi","category":"Çizim elemanları","binding":"NONE","action":"none","w":180,"h":75,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_01","family":"navigation","variant":0,"name":"Ana sayfa tuşu","category":"Ekran ve bilgi","binding":"NONE","action":"nav","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_02","family":"navigation","variant":1,"name":"Önceki ekran tuşu","category":"Ekran ve bilgi","binding":"NONE","action":"nav","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_03","family":"navigation","variant":2,"name":"Sonraki ekran tuşu","category":"Ekran ve bilgi","binding":"NONE","action":"nav","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_04","family":"navigation","variant":3,"name":"Ekran seçme tuşu","category":"Ekran ve bilgi","binding":"NONE","action":"nav","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_05","family":"navigation","variant":4,"name":"Sekme tuşu","category":"Ekran ve bilgi","binding":"NONE","action":"nav","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_06","family":"navigation","variant":5,"name":"Dijital saat","category":"Ekran ve bilgi","binding":"NONE","action":"none","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_07","family":"navigation","variant":6,"name":"Tarih göstergesi","category":"Ekran ve bilgi","binding":"NONE","action":"none","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_08","family":"navigation","variant":7,"name":"Metin etiketi","category":"Ekran ve bilgi","binding":"NONE","action":"none","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_09","family":"navigation","variant":8,"name":"Etiket değer kartı","category":"Ekran ve bilgi","binding":"ANY","action":"none","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_navigation_10","family":"navigation","variant":9,"name":"BOOL durum metni","category":"Ekran ve bilgi","binding":"BOOL","action":"none","w":185,"h":80,"min":0,"max":100,"unit":""},{"type":"hmi_layout_01","family":"layout","variant":0,"name":"Başlık bandı","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_02","family":"layout","variant":1,"name":"Grup çerçevesi","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_03","family":"layout","variant":2,"name":"Bölüm ayırıcı","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_04","family":"layout","variant":3,"name":"KPI çerçevesi","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_05","family":"layout","variant":4,"name":"Bilgi notu","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_06","family":"layout","variant":5,"name":"Uyarı levhası","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_07","family":"layout","variant":6,"name":"Tehlike levhası","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_08","family":"layout","variant":7,"name":"Etiket plakası","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_09","family":"layout","variant":8,"name":"Bağlantı noktası","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""},{"type":"hmi_layout_10","family":"layout","variant":9,"name":"Ölçek cetveli","category":"Panel ve düzen","binding":"NONE","action":"none","w":220,"h":95,"min":0,"max":100,"unit":""}].map(d=>[d.type,d]));
 const scadaAssets=[
  ['Basınç vericisi','P','bar'],['Seviye vericisi','L','%'],['Debi vericisi','F','m³/h'],['Sıcaklık vericisi','T','°C'],
@@ -1207,9 +1207,9 @@ mount.innerHTML=`
     <button data-shell="new" title="Yeni proje" aria-label="Yeni proje">＋</button><button data-shell="open" title="Proje aç" aria-label="Proje aç">▱</button><button data-shell="save" title="Kaydet" aria-label="Kaydet">▣</button><i></i>
     <button data-shell="offline" title="Çevrimdışı simülasyon">▷ <span>Simülasyon</span></button><button data-shell="online" title="Canlı sunucu izlemesi">◉ <span>Çevrimiçi</span></button><button data-shell="stop" title="Durdur" aria-label="Durdur">■</button><button data-shell="runtime-preview" title="HMI test ekranı">▶ <span>HMI testi</span></button><button data-shell="validate" title="Projeyi doğrula">✓ <span>Doğrula</span></button><i></i>
     <button data-shell="undo" title="Geri al" aria-label="Geri al">↶</button><button data-shell="redo" title="Yinele" aria-label="Yinele">↷</button>
-    <span class="studio-object-tools" hidden><i></i><button data-shell="select" title="Seçim aracı">↖</button><button data-add="alarmTable" title="Aktif alarm tablosu">⚑ Alarm tablosu</button><button data-add="text" title="Metin">T</button><button data-add="value" title="Sayısal gösterge">123</button><button data-add="button" title="Buton">▣</button><button data-add="lamp" title="Lamba">●</button><button data-add="hmi_gauge_07" title="Kadran ekle">◴</button><button data-add="trend" title="Trend">⌁</button><button data-shell="library" title="Nesne kütüphanesi">▤</button></span>
+    <span class="studio-object-tools" hidden><i></i><button data-shell="select" title="Seçim aracı">↖</button><button data-add="processTrend" title="Proses trendi">↗ Proses trendi</button><button data-add="alarmTable" title="Aktif alarm tablosu">⚑ Alarm tablosu</button><button data-add="multiText" title="Çok durumlu metin">≡ Durum metni</button><button data-add="text" title="Metin">T</button><button data-add="value" title="Sayısal gösterge">123</button><button data-add="button" title="Buton">▣</button><button data-add="lamp" title="Lamba">●</button><button data-add="hmi_gauge_07" title="Kadran ekle">◴</button><button data-add="trend" title="Trend">⌁</button><button data-shell="library" title="Nesne kütüphanesi">▤</button></span>
   </div></header>
-  <div class="tp-layout"><aside class="tp-side">
+  <div class="tp-layout"><aside class="tp-side"><div class="studio-dock-heading">Proje ağacı</div><div class="studio-tree-scroll">
     <label>Proje adı<input id="tp-name" maxlength="100" placeholder="Yeni proje"></label>
     <h3>Proje</h3><div id="tp-nav">
       <details class="studio-group" open><summary>▤ Sayfalar</summary><button data-view="pages">Sayfa listesi</button><div id="studio-tree-pages"></div></details>
@@ -1223,7 +1223,7 @@ mount.innerHTML=`
       </details>
       <details class="studio-group" open><summary>SCADA</summary>
         <button data-view="historian">Veri kaydı ve trend</button>
-        <button data-view="alarms">Alarm yönetimi</button><button data-view="hmi-alarms">HMI alarm tanımları</button><button data-view="hmi-recipes">HMI reçeteleri</button>
+        <button data-view="alarms">Alarm yönetimi</button><button data-view="hmi-logging">Etiket kaydı / Veri arşivi</button><button data-view="hmi-alarms">HMI alarm tanımları</button><button data-view="hmi-recipes">HMI reçeteleri</button>
         <button data-view="reports">Raporlar</button>
         <button data-view="process3d">3B proses izleme</button>
         <button data-view="transforms">Veri dönüşümleri</button>
@@ -1237,18 +1237,21 @@ mount.innerHTML=`
     </div>
     <details class="studio-group"><summary>Oturumdaki projeler</summary><div id="tp-list"></div></details>
     <button id="studio-tree-validate" data-shell="validate">✓ Projeyi doğrula</button>
-  </aside><main class="tp-main">
+  </div><div class="studio-splitter" data-split="details" role="separator" aria-label="Etiket paneli yüksekliği" aria-orientation="horizontal" tabindex="0"></div><section class="studio-tag-dock"><div class="studio-dock-heading">Ayrıntılar · PLC etiketleri</div><div id="studio-drag-tags"></div></section>
+  </aside><div class="studio-splitter" data-split="left" role="separator" aria-label="Proje ağacı genişliği" aria-orientation="vertical" tabindex="0"></div><main class="tp-main">
     <div id="studio-tabs" aria-label="Açık çalışma alanları"></div>
-    <div class="tp-tools"><button id="tp-compile">Derle</button><button id="tp-blocks">▦ Fonksiyon kütüphanesi</button><button id="tp-run" class="tp-primary">▶ Simülasyon</button>
+    <div class="studio-editor"><div class="tp-tools"><button id="tp-compile">Derle</button><button id="tp-blocks">▦ Fonksiyon kütüphanesi</button><button id="tp-run" class="tp-primary">▶ Simülasyon</button>
     <button id="tp-step">Tek tarama</button><button id="tp-stop">■ Durdur</button><span id="tp-cycles"></span><span id="tp-io-badge" hidden></span>
     <label class="tp-right">Çalışan PLC dili <select id="tp-lang"><option>ST</option><option value="LD">Ladder</option></select></label></div>
+    <section class="studio-pane" data-page="hmi-logging" id="hmi-log-editor" hidden></section>
     <section class="studio-pane" data-page="hmi-alarms" id="hmi-alarm-editor" hidden></section>
     <section class="studio-pane" data-page="hmi-recipes" id="hmi-recipe-editor" hidden></section>
+    <section data-page="wind-fleet" id="studio-wind-fleet" hidden><div class="studio-section-head"><strong>Rüzgâr Santrali · 4 türbin</strong><button data-shell="applications">Projeler</button></div><iframe id="studio-wind-frame" title="Rüzgâr Santrali SCADA" allowfullscreen></iframe></section>
     <section data-page="applications" id="studio-applications" hidden>
       <div class="app-hub-head"><h2>Uygulamalar</h2><div><button data-shell="new">＋ Yeni uygulama</button><button data-shell="open">Proje aç</button></div></div>
       <div class="studio-section-head"><strong>Bu oturumdaki projeler</strong></div><div id="studio-hub-projects"></div>
       <div class="studio-section-head"><strong>Örnek projeler</strong></div>
-      <div class="studio-example-list"><button data-example="water">Su arıtma</button><button data-example="filling">İki nozullu dolum</button><button data-example="pivot">Pivot sulama</button></div>
+      <div class="studio-example-list"><button data-example="hydro">＋ Hidroelektrik Santrali</button><button data-open-hydro>HES-01 simülasyonunu aç</button><button data-example="water">Su arıtma</button><button data-example="filling">İki nozullu dolum</button><button data-example="pivot">Pivot sulama</button></div>
     </section>
     <section data-page="devices" id="wizard-project-devices" hidden></section>
     <section data-page="pages" hidden id="studio-pages">
@@ -1286,15 +1289,22 @@ mount.innerHTML=`
     <section data-page="pivot" id="pivot-section" hidden></section><section data-page="hmi"><div class="studio-hmi-command"><strong id="studio-hmi-title">HMI Tasarımcısı</strong><div id="hmi-arrange">
       <select id="hmi-arrange-action" aria-label="Nesne düzenleme işlemi"><option value="left">Sola hizala</option><option value="center-x">Yatay ortala</option><option value="right">Sağa hizala</option><option value="top">Üste hizala</option><option value="center-y">Dikey ortala</option><option value="bottom">Alta hizala</option><option value="spread-x">Yatay dağıt</option><option value="spread-y">Dikey dağıt</option><option value="raise">Öne getir</option><option value="lower">Arkaya gönder</option><option value="group">Grupla</option><option value="ungroup">Grubu çöz</option></select><button id="hmi-arrange-run" type="button">Uygula</button></div><button type="button" id="wizard-preview-exit" hidden>Editöre dön</button><button id="hmi-mode-toggle">▶ HMI çalıştır</button></div><p class="hmi-edit-help">Sürükle-bırak: nesne ekle · Boş alanda kutu çiz: çoklu seç · Ctrl/Shift + tıklama: seçime ekle/çıkar · Seçili grubu sürükle: birlikte taşı</p><p>Nesne ekleyip sürükleyin, ardından PLC etiketini seçin. HMI butonlarını denemek için simülasyonu başlatın.</p>
     <div class="tp-row"><button id="pivot-all-pages" type="button" hidden>Tüm Pivot ekranları (14)</button></div><div class="tp-row" id="tp-hmi-pages"></div>
-    <div class="tp-row"><button type="button" id="tp-face-save">Seçimi faceplate olarak kaydet</button><select id="tp-face-list" aria-label="Faceplate şablonu"></select><button type="button" id="tp-face-insert">Faceplate ekle</button><button type="button" id="tp-scada-read" hidden>Sunucu etiketlerini izle</button></div>
+    <div class="tp-row"><button type="button" id="tp-face-save">Seçimden faceplate türü</button><select id="tp-face-list" aria-label="Faceplate şablonu"></select><button type="button" id="tp-face-insert">Örnek ekle</button><button type="button" id="tp-face-edit">Tür arayüzü</button><button type="button" id="tp-face-replace">Tür görünümünü seçimden güncelle</button><button type="button" id="tp-scada-read" hidden>Sunucu etiketlerini izle</button></div>
     <form id="tp-page-form" class="tp-row"><input name="pageName" aria-label="HMI sayfa adı" maxlength="32" required placeholder="Yeni HMI sayfası"><button>＋ HMI sayfası</button></form>
-    <details class="hmi-quick"><summary>Hızlı nesne ekleme</summary>    <div class="tp-row"><select id="tp-kind" aria-label="HMI nesnesi">${Object.entries(kinds).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
+    <details class="hmi-quick"><summary>Hızlı nesne ekleme</summary>    <div class="tp-row"><select id="tp-kind" aria-label="HMI nesnesi">${Object.entries(kinds).filter(([k])=>k!=='faceplate').map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
     <button id="tp-object">＋ Nesne ekle</button><label><input type="checkbox" id="tp-plant"> Su arıtma proses modeli</label></div>
 </details>
-    <div class="tp-hmi"><aside class="hmi-library"><h3>HMI Nesne Kütüphanesi</h3><input id="hmi-search" aria-label="HMI nesnesi ara" placeholder="Pompa, vana, gösterge..."><select id="hmi-category" aria-label="HMI kategorisi"><option value="">Tüm kategoriler</option><option>Kumandalar</option><option>Durum lambaları</option><option>Sayısal giriş ve gösterim</option><option>Göstergeler</option><option>Grafikler</option><option>Tank ve hazneler</option><option>Pompalar</option><option>Vana ve armatürler</option><option>Motor ve sürücüler</option><option>Fan ve havalandırma</option><option>Boru ve bağlantılar</option><option>Konveyörler</option><option>Sensörler</option><option>Elektrik elemanları</option><option>Proses ekipmanları</option><option>Su arıtma ekipmanları</option><option>Pnömatik ve mekanik</option><option>Çizim elemanları</option><option>Ekran ve bilgi</option><option>Panel ve düzen</option><option>SCADA enstrümanları</option></select><output id="hmi-asset-count"></output><div id="hmi-gallery"></div></aside><div id="tp-canvas"><div class="studio-ruler" aria-hidden="true"></div><div class="studio-stage"><svg viewBox="0 0 860 520" id="tp-screen" aria-label="HMI ekranı"></svg></div></div><div id="tp-props"></div><div id="studio-object-tree"></div><nav class="studio-inspector-tabs" aria-label="Sağ düzenleme paneli"><button data-inspector="properties" title="Özellikler">☷</button><button data-inspector="events" title="Olaylar">ϟ</button><button data-inspector="objects" title="Nesne ağacı">▥</button><button data-inspector="layers" title="Katman sırası">▰</button><button data-inspector="library" title="Kütüphane">▤</button></nav></div></section>
+    <div class="tp-hmi"><div id="tp-canvas"><div class="studio-ruler" aria-hidden="true"></div><div class="studio-stage"><svg viewBox="0 0 860 520" id="tp-screen" aria-label="HMI ekranı"></svg></div></div></div></section></div>
+    <div class="studio-splitter" data-split="bottom" role="separator" aria-label="Alt panel yüksekliği" aria-orientation="horizontal" tabindex="0"></div>
+    <section class="studio-bottom"><div class="studio-bottom-tabs" aria-label="Alt düzenleme paneli">
+      <button data-inspector="properties">Özellikler</button><button data-inspector="events">Olaylar</button><button data-inspector="diagnostics">Tanılama</button><button id="studio-collapse-dock" aria-label="Alt paneli daralt veya aç" aria-expanded="true">▾</button>
+    </div><div class="studio-bottom-body"><div id="tp-props"></div><div id="studio-diagnostics"><p id="studio-diagnostic-context">Derleme ve proje doğrulama sonuçları burada görünür.</p>
     <div id="studio-validation" hidden><div class="studio-section-head"><strong>Doğrulama günlüğü</strong><button data-shell="log" aria-label="Günlüğü kapat">×</button></div><div id="studio-validation-list"></div></div>
+    </div></div></section>
+    <aside class="studio-right-dock"><nav class="studio-inspector-tabs" aria-label="Sağ düzenleme paneli"><button data-inspector="library">Nesneler</button><button data-inspector="objects">Ağaç</button><button data-inspector="layers">Katman</button></nav><div class="hmi-library"><h3>HMI Nesne Kütüphanesi</h3><input id="hmi-search" aria-label="HMI nesnesi ara" placeholder="Pompa, vana, gösterge..."><select id="hmi-category" aria-label="HMI kategorisi"><option value="">Tüm kategoriler</option><option>Kumandalar</option><option>Durum lambaları</option><option>Sayısal giriş ve gösterim</option><option>Göstergeler</option><option>Grafikler</option><option>Tank ve hazneler</option><option>Pompalar</option><option>Vana ve armatürler</option><option>Motor ve sürücüler</option><option>Fan ve havalandırma</option><option>Boru ve bağlantılar</option><option>Konveyörler</option><option>Sensörler</option><option>Elektrik elemanları</option><option>Proses ekipmanları</option><option>Su arıtma ekipmanları</option><option>Pnömatik ve mekanik</option><option>Çizim elemanları</option><option>Ekran ve bilgi</option><option>Panel ve düzen</option><option>SCADA enstrümanları</option></select><output id="hmi-asset-count"></output><div id="hmi-gallery"></div></div><div id="studio-object-tree"></div></aside><div class="studio-splitter" data-split="right" role="separator" aria-label="Nesne kütüphanesi genişliği" aria-orientation="vertical" tabindex="0"></div>
   </main></div>
   <footer class="studio-statusbar"><span id="studio-context">Proje</span><label>Yakınlaştırma <input id="studio-zoom" type="range" min="40" max="150" value="85"><output id="studio-zoom-label">85%</output></label><span>TURKO Studio</span></footer>
+  <div id="fp-windows"></div><dialog id="fp-edit" class="hmi-alarm-dialog"><form id="fp-form"></form></dialog>
   <dialog id="studio-import-pages"><form method="dialog"><h2>Projeden sayfa aktar</h2><div id="studio-import-options"></div><div class="tp-row"><button value="cancel">İptal</button><button value="save">Seçilenleri aktar</button></div></form></dialog>
   <dialog id="studio-page-dialog"><form method="dialog"><h2 id="studio-page-dialog-title">Yeni sayfa</h2><label>Sayfa adı <input id="studio-page-name" maxlength="32" required></label><div class="tp-row"><button value="cancel" formnovalidate>İptal</button><button value="save">Uygula</button></div></form></dialog>
   <dialog id="hmi-number"><form id="hmi-number-form"><h2 id="hmi-number-title"></h2><p id="hmi-number-range"></p><input type="number" id="hmi-number-value" step="any" required aria-label="HMI sayısal değer"><div class="tp-row"><button type="button" id="hmi-number-cancel">Vazgeç</button><button class="tp-primary">Değeri yaz</button></div></form></dialog><dialog id="tp-library"><div class="tp-row"><h2>Fonksiyon kütüphanesi</h2><button id="tp-library-close" class="tp-right">Kapat</button></div>
@@ -1306,7 +1316,7 @@ mount.innerHTML=`
     <section data-wizard="0"><label>Proje adı<input id="tp-create-name" maxlength="100" required value="Yeni Proje"></label>
     <label>Açıklama<textarea id="wizard-description" maxlength="500" rows="3"></textarea></label>
     <label>Hazırlayan<input id="wizard-author" maxlength="100"></label>
-    <label>Başlangıç<select id="tp-template"><option value="empty">Boş proje</option><option value="filling">İki nozullu dolum</option><option value="water">Su arıtma</option><option value="pivot">Pivot Sulama</option></select></label></section>
+    <label>Başlangıç<select id="tp-template"><option value="empty">Boş proje</option><option value="hydro">Hidroelektrik Santrali</option><option value="filling">İki nozullu dolum</option><option value="water">Su arıtma</option><option value="pivot">Pivot Sulama</option></select></label></section>
     <section data-wizard="1" hidden><h3>Hedef ekran</h3><div id="wizard-targets"></div><output id="wizard-target-preview"></output></section>
     <section data-wizard="2" hidden><h3>Cihazlar ve portlar</h3><div class="wizard-device-grid">
     <div><label>Port<select id="wizard-port"><option>ETH 1</option><option>ETH 2</option></select></label><div id="wizard-devices"></div><button id="wizard-device-new" type="button">＋ Cihaz ekle</button></div>
@@ -1319,6 +1329,17 @@ mount.innerHTML=`
     </div><p id="wizard-error" role="status"></p>
     <div class="wizard-footer"><button type="button" id="tp-open-local">Proje aç</button><button type="button" id="tp-cancel">İptal</button><span></span>
     <button type="button" id="wizard-back">Geri</button><button type="submit" id="wizard-next">İleri</button></div></form></dialog>
+    <dialog id="hmi-log-edit" class="hmi-alarm-dialog"><form id="hmi-log-form"></form></dialog>
+    <dialog id="hmi-trend-dialog" class="hmi-alarm-dialog">
+      <div class="studio-section-head"><h2 id="trend-title">Proses trendi</h2><form method="dialog"><button>Kapat</button></form></div>
+      <div class="alarm-tools">
+        <button id="trend-back" type="button" aria-label="Önceki zaman penceresi">←</button><button id="trend-pause" type="button">Dondur</button><button id="trend-next" type="button" aria-label="Sonraki zaman penceresi">→</button>
+        <label>Zaman aralığı <select id="trend-range"><option value="15">15 sn</option><option value="30">30 sn</option><option value="60">1 dk</option><option value="300">5 dk</option><option value="900">15 dk</option><option value="3600">1 saat</option><option value="86400">24 saat</option></select></label>
+        <label id="trend-group-label">Grup <select id="trend-group"></select></label><button id="trend-csv" type="button">CSV indir</button>
+      </div>
+      <p id="trend-window"></p><div id="trend-legend"></div><svg id="trend-plot" role="img" aria-label="Zaman serisi grafiği" viewBox="0 0 760 270"></svg><p id="trend-cursor"></p>
+      <div id="trend-rows" class="alarm-scroll"></div>
+    </dialog>
     <dialog id="hmi-alarm-edit" class="hmi-alarm-dialog"><form id="hmi-alarm-form"></form></dialog>
     <input id="hmi-alarm-import" type="file" accept=".csv,text/csv" hidden>
     <dialog id="hmi-alarm-dialog" class="hmi-alarm-dialog">
@@ -1348,8 +1369,8 @@ function savedList(){
 function open(p){
   mount.classList.remove('wizard-preview');
   scadaFollowing=false;find('tp-scada-read').textContent='Sunucu etiketlerini izle';
-  resetHmiSession();
-  const previousPage=current;stopModbus();running=false;project=p;selected=null;hmiSelection.clear();drag=null;hmiPointerObject=null;clearAssetDrag();recipePick=null;recipeNotice='';activeHmiPage=Number.isInteger(p.hmiHome)&&p.hmiHome>=0&&p.hmiHome<(p.hmiPages?.length??1)?p.hmiHome:0;ldTool='';ldSelection=null;
+  resetHmiSession();resetTagLogging(p);
+  const previousPage=current;studioTabs=['pages'];studioPath=[];studioCursor=-1;stopModbus();running=false;project=p;selected=null;hmiSelection.clear();drag=null;hmiPointerObject=null;clearAssetDrag();recipePick=null;recipeNotice='';activeHmiPage=Number.isInteger(p.hmiHome)&&p.hmiHome>=0&&p.hmiHome<(p.hmiPages?.length??1)?p.hmiHome:0;ldTool='';ldSelection=null;
   ladderEditing=!isPivotProject(p)&&!isFillingProject(p);
   pvState.page=0;pvState.popup=-1;pvState.faults.clear();pvState.alarms=[];pvState.seconds=0;compiled=null;mem={};trace=[];cycle=0;history={};dirty=unsavedProjects.has(p.id);
   find('tp-name').value=p.name;find('tp-st').value=p.st;find('tp-lang').value=p.language;find('tp-plant').checked=p.plant;
@@ -1358,7 +1379,7 @@ function open(p){
   compile(false);projectContext();rememberProject();resetStudioEdit();view(previousPage||'pages');savedList();if(p.profile==='two-nozzle-filler'&&p.modbus?.transport==='browser')queueMicrotask(()=>{if(project===p&&current!=='hmi')startWebFilling();});
 }
 function templateDefaultName(){
-  return ({water:'Su Arıtma',pivot:'Pivot Sulama',filling:'İki Nozullu Dolum'})[find('tp-template').value]||'Yeni Proje';
+  return ({hydro:'Hidroelektrik Santrali · HES-01',water:'Su Arıtma',pivot:'Pivot Sulama',filling:'İki Nozullu Dolum'})[find('tp-template').value]||'Yeni Proje';
 }
 function newProject(){
   if(!preserve())return;
@@ -1441,10 +1462,18 @@ function renderTags(){
   }).join('')}</tbody></table>`:'<p>Henüz etiket yok. ST kodu yazın veya tablodan ekleyin.</p>';
 }
 function screenShape(o, val){
+  if(o.type==='hydroDiagram')return hydroShape(o);
+  if(o.type==='faceplate')return fpAssetShape(o);
   if(o.type==='alarmTable')return alarmObjectShape(o);
+  if(o.type==='processTrend')return trendObjectShape(o);
   if(hmiAssets[o.type])return renderHmiAsset(o,val);
   const {w,h,type}=o,color=/^#[0-9a-f]{6}$/i.test(o.color||'')?o.color:'#509cff',on=val===true,bar=on||!running?color:'#4b6475',value=formatValue(val);
   if(type==='button'||type==='toggle')return `<rect width="${w}" height="${h}" rx="8" fill="${color}" fill-opacity="${on||!running?1:.6}"/><text x="${w/2}" y="${h/2+5}" text-anchor="middle">${html(o.name)}</text>`;
+  if(type==='multiText'){
+    const row=(o.textStates??[]).find(r=>r.value===Number(val));
+    const label=running?(row?.label??o.textFallback??o.name):o.name;
+    return `<rect width="${w}" height="${h}" rx="8" fill="#152b40" stroke="${html(o.color||'#509cff')}"/><svg x="9" y="0" width="${w-18}" height="${h}" overflow="hidden"><text x="${(w-18)/2}" y="${h/2}" dominant-baseline="middle" text-anchor="middle" style="font-size:${o.fontSize??18}px;font-family:${fontFamilies[o.fontFamily]??fontFamilies.system};font-weight:${o.fontBold?'700':'400'}">${html(label)}</text></svg>`;
+  }
   if(type==='text')return `<text x="8" y="8" dominant-baseline="hanging" style="fill:${html(o.color||'#dcebf0')};font-size:${o.fontSize??18}px;font-family:${fontFamilies[o.fontFamily]??fontFamilies.system};font-weight:${o.fontBold?'700':'400'}">${html(o.name)}</text>`;
   const label=`<text x="10" y="22">${html(o.name)}</text>`;
   const frame=`<rect width="${w}" height="${h}" rx="8" fill="#142b3c" stroke="${color}"/>`;
@@ -1484,7 +1513,7 @@ function drawScreen(){
   find('tp-screen').innerHTML=studioBackground(activeHmiPage)+pageObjects().map(o=>`<g data-object="${html(o.id)}" transform="translate(${o.x} ${o.y})" class="${hmiSelection.has(o.id)?'tp-selected':''}" ${running&&(hmiInteractive(o)||hasHmiEvents(o))?'role="button" tabindex="0" aria-label="'+html(o.name)+'"':''}>
     <rect class="tp-hit" width="${o.w}" height="${o.h}" rx="8" fill="transparent"/>
     ${screenShape(o,mem[o.tag.toUpperCase()])}
-    ${hmiSelection.has(o.id)&&!running?`<rect width="${o.w}" height="${o.h}" rx="8" fill="none" stroke="#72e9be" stroke-dasharray="5 4" pointer-events="none"/>`:''}</g>`).join('');
+    ${hmiSelection.has(o.id)&&!running?`<rect width="${o.w}" height="${o.h}" rx="8" fill="none" stroke="#72e9be" stroke-dasharray="5 4" pointer-events="none"/>${hmiSelection.size===1?`<rect data-hmi-resize x="${o.w-11}" y="${o.h-11}" width="11" height="11" fill="#72e9be" stroke="#0c2130"/>`:''}`:''}</g>`).join('');
   if(drag?.kind==='marquee'){const a=drag.start,b=drag.last;find('tp-screen').insertAdjacentHTML('beforeend',`<rect data-selection-marquee x="${Math.min(a.x,b.x)}" y="${Math.min(a.y,b.y)}" width="${Math.abs(a.x-b.x)}" height="${Math.abs(a.y-b.y)}" fill="#42e2b633" stroke="#70f7c8" stroke-dasharray="5 3" pointer-events="none"/>`);}
   if(!running)renderStudioObjects();
   if(focused) Array.from(screen.children).find(el=>el.dataset.object===focused)?.focus({preventScroll:true});
@@ -1496,7 +1525,7 @@ function props(){
     <label>Başlık<input data-prop="name" maxlength="50" value="${html(o.name)}"></label>
     <label>PLC etiketi<select data-prop="tag">${tagChoices(o.tag,allTags().filter(t=>hmiTagFits(o,t)))}</select></label>
     <div class="tp-dim">${[['x','X'],['y','Y'],['w','Genişlik'],['h','Yükseklik']].map(([key,title])=>`<label>${title}<input type="number" data-prop="${key}" value="${o[key]}"></label>`).join('')}</div>
-    <label>Nesne rengi<input type="color" data-prop="color" value="${html(o.color||'#25bea5')}"></label><label>HEX renk<input type="text" aria-label="Renk HEX" data-prop="color" maxlength="7" value="${html(o.color||'#25bea5')}"></label>${hmiTextProps(o)}${alarmObjectProps(o)}${hmiAssetProps(o)}${hmiEventProps(o)}<button id="tp-delete-object">Nesneyi sil</button>`;
+    <label>Nesne rengi<input type="color" data-prop="color" value="${html(o.color||'#25bea5')}"></label><label>HEX renk<input type="text" aria-label="Renk HEX" data-prop="color" maxlength="7" value="${html(o.color||'#25bea5')}"></label>${hmiTextProps(o)}${alarmObjectProps(o)}${trendObjectProps(o)}${fpInstanceProps(o)}${hydroProps(o)}${hmiAssetProps(o)}${hmiEventProps(o)}<button id="tp-delete-object">Nesneyi sil</button>`;
 }
 let lastColored=null;
 let activeHmiPage=0;
@@ -1517,6 +1546,8 @@ function syncEditor(){
   color.scrollTop=editor.scrollTop;color.scrollLeft=editor.scrollLeft;
 }
 function renderLive(){
+  updateFpWindows();
+  captureTagLogging();if(trendDialog.open)renderProcessTrend();
   evaluateHmiAlarms();if(alarmDialog.open)renderHmiAlarmDialog();
   if(find('hmi-mode-toggle'))find('hmi-mode-toggle').textContent=running?'✎ Tasarıma geç':'▶ HMI çalıştır';
   if(current==='filling')updateFilling();
@@ -1542,7 +1573,7 @@ function renderLive(){
   if(current==='tags')find('tp-tags').querySelectorAll('[data-live]').forEach(el=>el.textContent=formatValue(mem[el.dataset.live]));
   if(current==='hmi'){find('hmi-arrange').hidden=running;drawScreen();}
 }
-function render(){if(current==='hmi-alarms')renderHmiAlarmEditor();if(current==='hmi-recipes')renderRecipeEditor();if(current==='recipes')drawRecipes();if(current==='filling')drawFilling();runtimeStatus();if(current==='tags')renderTags();if(current==='ld')showLadderMode(ladderEditing);if(current==='pivot')drawPivot();if(current==='hmi'){renderHmiPages();renderHmiLibrary();props();find('hmi-mode-toggle').textContent=running?'✎ Tasarıma geç':'▶ HMI çalıştır';}if(current==='modbus')renderModbus();renderLive();}
+function render(){renderStudioTagDock();if(current==='hmi-logging')renderTagLog();if(current==='hmi-alarms')renderHmiAlarmEditor();if(current==='hmi-recipes')renderRecipeEditor();if(current==='recipes')drawRecipes();if(current==='filling')drawFilling();runtimeStatus();if(current==='tags')renderTags();if(current==='ld')showLadderMode(ladderEditing);if(current==='pivot')drawPivot();if(current==='hmi'){renderHmiPages();renderHmiLibrary();props();find('hmi-mode-toggle').textContent=running?'✎ Tasarıma geç':'▶ HMI çalıştır';}if(current==='modbus')renderModbus();renderLive();}
 function validateProject(p, nested=false){
   const text=(v,max)=>typeof v==='string'&&v.length<=max;
   const ident=v=>text(v,48)&&/^[a-z_][a-z_0-9]*$/i.test(v);
@@ -1571,6 +1602,7 @@ function validateProject(p, nested=false){
   validateWizardProfile(p.application);
   validateRecipeProject(p.hmiRecipe);
   validateAlarmRules(p.hmiAlarms);
+  validateTagLogging(p);
   if(p.hmiBackgrounds!==undefined){
     const count=p.hmiPages?.length??1;
     if(!Array.isArray(p.hmiBackgrounds)||p.hmiBackgrounds.length>count||p.hmiBackgrounds.some((source,index)=>
@@ -1584,6 +1616,9 @@ function validateProject(p, nested=false){
     !range(o.x,0,860)||!range(o.y,0,520)||!range(o.w,50,860)||!range(o.h,50,520)||o.x+o.w>860||o.y+o.h>520) throw Error('HMI nesnesi geçersiz.');
   for(const o of p.objects){
     validateAlarmObject(o);
+    validateTrendObject(o);
+    if(o.type==='hydroDiagram'&&o.hydroTags!==undefined&&(!o.hydroTags||typeof o.hydroTags!=='object'||Array.isArray(o.hydroTags)||Object.entries(o.hydroTags).some(([k,v])=>!Object.hasOwn(hydroSignals,k)||v!==''&&!ident(v))))throw Error('HES şeması etiket bağlantıları geçersiz.');
+    validateMultiText(o);
     validateHmiEnhancements(o,p.hmiPages?.length??1);
     if(o.events!==undefined){if(!o.events||typeof o.events!=='object'||Array.isArray(o.events)||Object.entries(o.events).some(([name,a])=>!['pointerdown','pointerup','click'].includes(name)||!a||!['none','set','reset','toggle','write'].includes(a.action)||!(a.tag===''||ident(a.tag))||!Number.isFinite(a.value)))throw Error('HMI fare aksiyonları geçersiz.');}
     if(o.color!==undefined&&!/^#[0-9a-f]{6}$/i.test(o.color)||o.unit!==undefined&&(typeof o.unit!=='string'||o.unit.length>16)||o.decimals!==undefined&&(!Number.isInteger(o.decimals)||o.decimals<0||o.decimals>4))throw Error('HMI görünüm ayarları geçersiz.');
@@ -1602,6 +1637,7 @@ function validateProject(p, nested=false){
       validateProject({...blank(f.name),objects:f.objects},true);
     }
   }
+  validateFaceplateData(p,nested);
   if(p.modbus!==undefined)validateModbusConfig(p.modbus);
   return {...p,id:id(),objects:p.objects.map(o=>({...o,id:id()}))};
 }
@@ -1688,7 +1724,7 @@ find('tp-run').onclick=()=>{if(webFillingSelected()){startWebFilling();return;}
   if(compile()){running=true;status(project.modbus?.enabled?'Modbus Master çalışıyor.':'Simülasyon çalışıyor · '+(project.language==='ST'?'Structured Text':'Ladder'));tick();}render();
 };
 find('tp-step').onclick=()=>{running=false;if(compiled||compile())tick();render();};
-find('tp-stop').onclick=()=>{scadaFollowing=false;find('tp-scada-read').textContent='Sunucu etiketlerini izle';stopModbus();running=false;status('Simülasyon durduruldu.');render();};
+find('tp-stop').onclick=()=>{flushTagArchive();scadaFollowing=false;find('tp-scada-read').textContent='Sunucu etiketlerini izle';stopModbus();running=false;status('Simülasyon durduruldu.');render();};
 find('tp-plant').onchange=e=>{project.plant=e.target.checked;stopEdit();compile();render();};
 find('tp-tag-form').onsubmit=e=>{
   e.preventDefault();
@@ -2017,44 +2053,12 @@ function renderHmiPages(){
   find('tp-hmi-pages').innerHTML=hmiPages().map((name,index)=>`<button data-hmi-page="${index}" class="${activeHmiPage===index?'on':''}">${html(name)}</button>`).join('');
   find('tp-page-form').hidden=running;
   find('tp-face-list').innerHTML=choices((project.faceplates??[]).map(f=>f.name),find('tp-face-list').value);
-  find('tp-face-save').disabled=running;find('tp-face-insert').disabled=running||!project.faceplates?.length;
+  find('tp-face-save').disabled=running;
+  for(const key of ['insert','edit','replace'])find('tp-face-'+key).disabled=running||!project.faceplates?.length;
 }
 function faceBindings(objects){
   return [...new Set(objects.flatMap(o=>[o.tag,...allHmiActions(o).flatMap(a=>[a.tag,a.source])]).filter(Boolean))];
 }
-find('tp-face-save').onclick=()=>{
-  if(running)return;
-  const objects=pageObjects().filter(o=>hmiSelection.has(o.id));
-  if(!objects.length)return status('Önce HMI üzerinde bir veya daha fazla nesne seçin.',true);
-  if((project.faceplates?.length??0)>=24)return status('24 faceplate sınırına ulaşıldı.',true);
-  const name=prompt('Faceplate adı')?.trim();
-  if(!name)return;
-  if(name.length>48||project.faceplates?.some(f=>f.name===name))return status('Faceplate adı en fazla 48 karakter ve benzersiz olmalı.',true);
-  const left=Math.min(...objects.map(o=>o.x)),top=Math.min(...objects.map(o=>o.y));
-  project.faceplates??=[];
-  project.faceplates.push({name,objects:structuredClone(objects).map(o=>({...o,x:o.x-left,y:o.y-top,page:0,targetPage:undefined,actionLists:withoutHmiPageActions(o.actionLists)}))});
-  change();renderHmiPages();find('tp-face-list').value=name;status('Faceplate proje şablonlarına eklendi.');
-};
-find('tp-face-insert').onclick=()=>{
-  if(running)return;
-  const template=project.faceplates?.find(f=>f.name===find('tp-face-list').value);
-  if(!template)return;
-  if(project.objects.length+template.objects.length>100)return status('100 HMI nesnesi sınırı aşılır.',true);
-  const tags=allTags();
-  const mapping=new Map();
-  for(const key of faceBindings(template.objects)){
-    const response=prompt('Faceplate etiket bağlantısı · '+key+'\nBoş bırakırsanız bağlantı kaldırılır.',key);
-    if(response===null)return;
-    const newTag=response.trim();
-    const match=tags.find(t=>t.name.toUpperCase()===newTag.toUpperCase());
-    if(newTag&&!match)return status('Etiket bulunamadı: '+newTag,true);
-    mapping.set(key,match?.name??'');
-  }
-  const width=Math.max(...template.objects.map(o=>o.x+o.w)),height=Math.max(...template.objects.map(o=>o.y+o.h));
-  const faceGroups=copyGroupIds(template.objects);
-  const copies=structuredClone(template.objects).map(o=>({...o,id:id(),x:o.x+Math.min(32,860-width),y:o.y+Math.min(32,520-height),page:activeHmiPage,tag:mapping.get(o.tag)??'',groupId:faceGroups.get(o.groupId),actionLists:mapHmiActionTags(o.actionLists,mapping),events:o.events&&Object.fromEntries(Object.entries(o.events).map(([event,a])=>[event,{...a,tag:mapping.get(a.tag)??''}]))}));
-  project.objects.push(...copies);setHmiSelection(copies.map(o=>o.id));change();render();status(template.name+' faceplate’i eklendi.');
-};
 let scadaFollowing=false,scadaBusy=false;
 const served=/^https?:$/.test(location.protocol);
 if(served)fetch('/api/session').then(r=>r.ok?r.json():null).then(s=>{if(s?.role==='admin')find('tp-scada-read').hidden=false;}).catch(()=>{});
@@ -2128,7 +2132,7 @@ find('tp-page-form').onsubmit=e=>{
 find('tp-object').onclick=()=>{
   if(project.objects.length>=100)return status('100 HMI nesnesi sınırına ulaşıldı.',true);
   running=false;const type=find('tp-kind').value;
-  if(hmiAssets[type]||type==='alarmTable')return createHmiAsset(type);
+  if(hmiAssets[type]||type==='alarmTable'||type==='processTrend')return createHmiAsset(type);
   const n=pageObjects().length,w=type==='dial'?280:type==='trend'?270:type==='tank'?120:155,h=type==='dial'?260:type==='tank'||type==='trend'?145:type==='lamp'||type==='value'?75:['pump','blower','valve'].includes(type)?105:55;
   const o={id:id(),type,name:kinds[type],tag:'',page:activeHmiPage,x:24+(n%4)*160,y:22+(Math.floor(n/4)%3)*144,w,h};
   project.objects.push(o);setHmiSelection([o.id]);change();render();
@@ -2137,7 +2141,8 @@ const bounded=(v,min,max)=>Math.max(min,Math.min(max,v));
 find('tp-props').onchange=e=>{
   if(editHmiEvent(e))return;if(running)return;
   const o=project.objects.find(o=>o.id===selected), key=e.target.dataset.prop;if(!o||!key)return;
-  if(['name','tag','unit','alarmMode'].includes(key))o[key]=e.target.value;
+  if(key==='trendRange'){const v=Number(e.target.value);if(!Object.hasOwn(trendRanges,v))return;o.trendRange=v;}
+  else if(['name','tag','unit','alarmMode'].includes(key))o[key]=e.target.value;
   else if(key==='fontFamily'){if(!Object.hasOwn(fontFamilies,e.target.value))return;o.fontFamily=e.target.value;}
   else if(key==='fontBold')o.fontBold=e.target.checked;
   else if(key==='fontSize'){if(!Number.isFinite(e.target.valueAsNumber))return;o.fontSize=Math.round(bounded(e.target.valueAsNumber,8,96));}
@@ -2173,6 +2178,8 @@ const screen=find('tp-screen');screen.tabIndex=0;
 let drag=null,pressed=null,hmiPointerObject=null;
 function point(e){return new DOMPoint(e.clientX,e.clientY).matrixTransform(screen.getScreenCTM().inverse());}
 function activate(o,event){
+ if(o.type==='faceplate')return openFpWindow(o);
+ if(o.type==='processTrend')return openProcessTrend(o);
  if(o.type==='alarmTable')return showHmiAlarms(o.alarmMode??'active',o.alarmColumns,o.alarmColumnLayout);
  if(hmiAsset(o))return activateHmiAsset(o,event);
  const key=o.tag.toUpperCase();if(compiled?.tags[key]?.type!=='BOOL')return status('Bu butona bir BOOL etiketi bağlayın.',true);
@@ -2182,6 +2189,7 @@ screen.onpointerdown=e=>{
  if(e.button!==0)return;const g=e.target.closest('[data-object]'),o=g&&pageObjects().find(v=>v.id===g.dataset.object);
  if(running){if(o&&hasHmiEvents(o)){e.preventDefault();hmiPointerObject={id:o.id,project:project.id,pointer:e.pointerId,page:activeHmiPage};const continued=runHmiEvent(o,'pointerdown');if(continued!==false)screen.setPointerCapture(e.pointerId);else hmiPointerObject=null;}else if(o&&hmiInteractive(o)){e.preventDefault();activate(o,e);if(hmiSliderDrag)screen.setPointerCapture(e.pointerId);}return;}
  e.preventDefault();screen.focus({preventScroll:true});const p=point(e),add=e.ctrlKey||e.metaKey||e.shiftKey;
+ if(o&&e.target.hasAttribute('data-hmi-resize')){drag={kind:'resize',pointer:e.pointerId,start:p,id:o.id,w:o.w,h:o.h};screen.setPointerCapture(e.pointerId);return;}
  if(o){if(add){const ids=pageObjects().filter(v=>v.id===o.id||(o.groupId&&v.groupId===o.groupId)).map(v=>v.id);const next=new Set(hmiSelection);for(const key of ids){if(hmiSelection.has(o.id))next.delete(key);else next.add(key);}setHmiSelection(next);}else if(!hmiSelection.has(o.id))setHmiSelection([o.id]);selected=hmiSelection.has(o.id)?o.id:[...hmiSelection].at(-1)||null;const objects=selectedHmiObjects();drag=objects.length&&hmiSelection.has(o.id)?{kind:'objects',pointer:e.pointerId,start:p,objects:objects.map(v=>({id:v.id,x:v.x,y:v.y,w:v.w,h:v.h}))}:null;}
  else{const base=add?new Set(hmiSelection):new Set();setHmiSelection(base);drag={kind:'marquee',pointer:e.pointerId,start:p,last:p,baseline:base};}
  screen.setPointerCapture(e.pointerId);props();drawScreen();
@@ -2189,6 +2197,7 @@ screen.onpointerdown=e=>{
 screen.onpointermove=e=>{
  if(hmiSliderDrag){updateHmiSlider(hmiSliderDrag,e);return;}if(!drag||drag.pointer!==e.pointerId||running)return;
  const p=point(e);if(drag.kind==='marquee'){drag.last={x:bounded(p.x,0,860),y:bounded(p.y,0,520)};let left=Math.min(drag.start.x,p.x),right=Math.max(drag.start.x,p.x),top=Math.min(drag.start.y,p.y),bottom=Math.max(drag.start.y,p.y);const ids=pageObjects().filter(o=>o.x<right&&o.x+o.w>left&&o.y<bottom&&o.y+o.h>top).map(o=>o.id);setHmiSelection([...drag.baseline,...ids]);}
+ else if(drag.kind==='resize'){const o=project.objects.find(v=>v.id===drag.id);if(!o)return;o.w=Math.round(bounded(drag.w+p.x-drag.start.x,50,860-o.x));o.h=Math.round(bounded(drag.h+p.y-drag.start.y,50,520-o.y));drag.moved=o.w!==drag.w||o.h!==drag.h;}
  else{const all=drag.objects,dx=bounded(p.x-drag.start.x,-Math.min(...all.map(o=>o.x)),860-Math.max(...all.map(o=>o.x+o.w))),dy=bounded(p.y-drag.start.y,-Math.min(...all.map(o=>o.y)),520-Math.max(...all.map(o=>o.y+o.h)));for(const old of all){const o=project.objects.find(v=>v.id===old.id);if(o){o.x=Math.round(old.x+dx);o.y=Math.round(old.y+dy);}}drag.moved=all.some(old=>{const o=project.objects.find(v=>v.id===old.id);return o&&(o.x!==old.x||o.y!==old.y);});}
  drawScreen();
 };
@@ -2608,7 +2617,7 @@ const hmiSearchKey=s=>String(s).toLocaleLowerCase('tr').replaceAll('ı','i').nor
 const hmiAsset=o=>hmiAssets[o.type];
 const hmiBinding=o=>hmiAsset(o)?.binding||(['button','toggle','lamp','pump','blower','valve'].includes(o.type)?'BOOL':['tank','trend','dial'].includes(o.type)?'NUM':'ANY');
 const hmiTagFits=(o,t)=>hmiBinding(o)==='BOOL'?t.type==='BOOL':hmiBinding(o)==='NUM'?t.type!=='BOOL':true;
-const hmiInteractive=o=>['alarmTable','button','toggle'].includes(o.type)||hmiAsset(o)?.action&&hmiAsset(o).action!=='none';
+const hmiInteractive=o=>['faceplate','processTrend','alarmTable','button','toggle'].includes(o.type)||hmiAsset(o)?.action&&hmiAsset(o).action!=='none';
 const hmiHistory=o=>o.type==='trend'||hmiAsset(o)?.family==='chart';
 function hmiLimits(o){
   const d=hmiAsset(o);
@@ -2624,23 +2633,24 @@ function renderHmiLibrary(force=false){
   if(!force&&lastHmiQuery===key&&find('hmi-gallery').children.length)return;
   lastHmiQuery=key;
   const q=hmiSearchKey(query);
-  const matches=[alarmAsset,...Object.values(hmiAssets)].filter(d=>(!category||d.category===category)&&hmiSearchKey(d.name+' '+d.category).includes(q));
-  find('hmi-asset-count').textContent=matches.length+' / '+(Object.keys(hmiAssets).length+1)+' nesne';
+  const matches=[alarmAsset,trendAsset,...Object.values(hmiAssets)].filter(d=>(!category||d.category===category)&&hmiSearchKey(d.name+' '+d.category).includes(q));
+  find('hmi-asset-count').textContent=matches.length+' / '+(Object.keys(hmiAssets).length+2)+' nesne';
   find('hmi-gallery').innerHTML=matches.map(d=>{
     const sample={id:'preview-'+d.type,type:d.type,name:'',tag:'',w:160,h:120};
-    return `<button type="button" draggable="false" data-hmi-asset="${d.type}" aria-label="${html(d.name)} ekle" title="${html(d.name+' · '+d.category)}"><span class="hmi-thumb">${d.type==='alarmTable'?'<svg viewBox="0 0 320 150">'+alarmObjectShape({...sample,w:320,h:150,name:d.name})+'</svg>':renderHmiAsset(sample,d.binding==='BOOL'?true:58,true)}</span><span class="hmi-asset-label">${html(d.name)}</span></button>`;
+    return `<button type="button" draggable="false" data-hmi-asset="${d.type}" aria-label="${html(d.name)} ekle" title="${html(d.name+' · '+d.category)}"><span class="hmi-thumb">${d.type==='processTrend'?'<svg viewBox="0 0 320 150">'+trendObjectShape({...sample,w:320,h:150,name:d.name})+'</svg>':d.type==='alarmTable'?'<svg viewBox="0 0 320 150">'+alarmObjectShape({...sample,w:320,h:150,name:d.name})+'</svg>':renderHmiAsset(sample,d.binding==='BOOL'?true:58,true)}</span><span class="hmi-asset-label">${html(d.name)}</span></button>`;
   }).join('')||'<p>Aramaya uygun nesne yok.</p>';
 }
-function createHmiAsset(type,position){
+function createHmiAsset(type,position,tagName=''){
   if(running)return status('Nesne eklemek için simülasyonu durdurun.',true);
-  const def=type==='alarmTable'?alarmAsset:hmiAssets[type];if(!def)return;
+  const def=type==='alarmTable'?alarmAsset:type==='processTrend'?trendAsset:hmiAssets[type];if(!def)return;
   if(project.objects.length>=100)return status('100 HMI nesnesi sınırına ulaşıldı.',true);
   const count=pageObjects().length;
   const x=position?position.x-def.w/2:24+(count%3)*210,y=position?position.y-def.h/2:24+(Math.floor(count/3)%3)*150;
-  const o={id:id(),type,name:def.name,tag:'',page:activeHmiPage,x:Math.round(bounded(x,0,860-def.w)),y:Math.round(bounded(y,0,520-def.h)),w:def.w,h:def.h,min:def.min,max:def.max,decimals:1,unit:def.unit,color:'#509cff'};
+  const o={id:id(),type,name:tagName||def.name,tag:tagName,page:activeHmiPage,x:Math.round(bounded(x,0,860-def.w)),y:Math.round(bounded(y,0,520-def.h)),w:def.w,h:def.h,min:def.min,max:def.max,decimals:1,unit:def.unit,color:'#509cff'};
   if(def.action==='nav')o.targetPage=Math.min(activeHmiPage+1,hmiPages().length-1);
   project.objects.push(o);setHmiSelection([o.id]);change();render();
   status(def.name+' eklendi. Özelliklerden PLC etiketini seçin.');
+  return o;
 }
 function hmiDropPosition(event){
   const svg=find('tp-screen'),r=svg.getBoundingClientRect();
@@ -2654,7 +2664,7 @@ let hmiAssetPointer=null,hmiGhost=null,hmiSuppressClickUntil=0;
 function clearAssetDrag(){const previous=hmiAssetPointer;hmiAssetPointer=null;if(previous){try{find('hmi-gallery').releasePointerCapture(previous.pointer);}catch{}}hmiDragging='';hmiGhost?.remove();hmiGhost=null;find('tp-canvas').classList.remove('hmi-drop-ready');}
 find('hmi-gallery').onclick=e=>{if(Date.now()<hmiSuppressClickUntil){e.preventDefault();return;}const type=e.target.closest('[data-hmi-asset]')?.dataset.hmiAsset;if(type)createHmiAsset(type);};
 find('hmi-gallery').onpointerdown=e=>{if(e.button!==0)return;const type=e.target.closest('[data-hmi-asset]')?.dataset.hmiAsset;if(!type)return;if(running){status('Nesne eklemek için Tasarıma geç düğmesine basın.',true);return;}hmiAssetPointer={type,pointer:e.pointerId,x:e.clientX,y:e.clientY,project:project.id,page:activeHmiPage,moved:false};find('hmi-gallery').setPointerCapture(e.pointerId);};
-find('hmi-gallery').onpointermove=e=>{const d=hmiAssetPointer;if(!d||d.pointer!==e.pointerId)return;if(!d.moved&&Math.hypot(e.clientX-d.x,e.clientY-d.y)<5)return;e.preventDefault();d.moved=true;hmiDragging=d.type;if(!hmiGhost){hmiGhost=document.createElement('div');hmiGhost.className='hmi-drag-ghost';hmiGhost.setAttribute('aria-hidden','true');hmiGhost.innerHTML=d.type==='alarmTable'?'<svg viewBox="0 0 320 150">'+alarmObjectShape({w:320,h:150,name:alarmAsset.name})+'</svg>':renderHmiAsset({id:'drag-ghost',type:d.type,name:'',tag:'',w:160,h:120},58,true);document.body.append(hmiGhost);}hmiGhost.style.left=e.clientX+12+'px';hmiGhost.style.top=e.clientY+12+'px';find('tp-canvas').classList.toggle('hmi-drop-ready',!!hmiDropPosition(e));};
+find('hmi-gallery').onpointermove=e=>{const d=hmiAssetPointer;if(!d||d.pointer!==e.pointerId)return;if(!d.moved&&Math.hypot(e.clientX-d.x,e.clientY-d.y)<5)return;e.preventDefault();d.moved=true;hmiDragging=d.type;if(!hmiGhost){hmiGhost=document.createElement('div');hmiGhost.className='hmi-drag-ghost';hmiGhost.setAttribute('aria-hidden','true');hmiGhost.innerHTML=d.type==='processTrend'?'<svg viewBox="0 0 320 150">'+trendObjectShape({w:320,h:150,name:trendAsset.name})+'</svg>':d.type==='alarmTable'?'<svg viewBox="0 0 320 150">'+alarmObjectShape({w:320,h:150,name:alarmAsset.name})+'</svg>':renderHmiAsset({id:'drag-ghost',type:d.type,name:'',tag:'',w:160,h:120},58,true);document.body.append(hmiGhost);}hmiGhost.style.left=e.clientX+12+'px';hmiGhost.style.top=e.clientY+12+'px';find('tp-canvas').classList.toggle('hmi-drop-ready',!!hmiDropPosition(e));};
 find('hmi-gallery').onpointerup=e=>{const d=hmiAssetPointer;if(!d||d.pointer!==e.pointerId)return;const p=hmiDropPosition(e),same=!running&&d.project===project.id&&d.page===activeHmiPage;hmiSuppressClickUntil=Date.now()+500;e.preventDefault();clearAssetDrag();if(same&&d.moved&&p)createHmiAsset(d.type,p);else if(same&&!d.moved)createHmiAsset(d.type);};
 find('hmi-gallery').onpointercancel=clearAssetDrag;
 find('hmi-gallery').onlostpointercapture=()=>{if(hmiAssetPointer)clearAssetDrag();};
@@ -3012,7 +3022,7 @@ setInterval(()=>{if(running&&!mount.hidden)tick();},200);
 let studioPath=[],studioCursor=-1,studioNavigating=false,studioTabs=['pages'];
 let studioSelected=0,studioPageMode='cards',studioInspector='properties';
 let studioEdits=[],studioEditIndex=-1,studioReplaying=false;
-const studioLabels={applications:'Uygulamalar',devices:'Proje cihazları',pages:'Sayfa listesi',hmi:'HMI tuvali',tags:'PLC etiketleri',st:'Structured Text',ld:'Ladder'};
+const studioLabels={'wind-fleet':'Rüzgâr Santrali',applications:'Uygulamalar',devices:'Proje cihazları',pages:'Sayfa listesi',hmi:'HMI tuvali',tags:'PLC etiketleri',st:'Structured Text',ld:'Ladder'};
 function studioLabel(key){
   return studioLabels[key]??mount.querySelector('[data-view="'+key+'"]')?.textContent.trim()??key;
 }
@@ -3047,17 +3057,27 @@ function syncStudioShell(page){
   mount.dataset.studioView=page;wizardTargetStyle();
   if(page==='hmi-recipes')renderRecipeEditor();
   if(page==='hmi-alarms')renderHmiAlarmEditor();
+  if(page==='hmi-logging')renderTagLog();
   if(page==='devices')renderWizardProjectDevices();
   if(page==='applications')renderStudioHub();
-  if(!studioNavigating&&studioPath[studioCursor]!==page){
-    studioPath=studioPath.slice(0,studioCursor+1);studioPath.push(page);studioCursor=studioPath.length-1;
+  if(page==='wind-fleet'&&!find('studio-wind-frame').hasAttribute('src'))find('studio-wind-frame').src='turko-ruzgar-santrali/';
+  const key=studioKey(page);
+  studioTabs=studioTabs.filter(tab=>!tab.startsWith('hmi:')||hmiPages()[Number(tab.slice(4))]);
+  if(!studioNavigating&&!running&&studioPath[studioCursor]!==key){
+    studioPath=studioPath.slice(0,studioCursor+1);studioPath.push(key);studioCursor=studioPath.length-1;
   }
-  if(!studioTabs.includes(page)){studioTabs.push(page);if(studioTabs.length>9)studioTabs.splice(1,1);}
-  find('studio-tabs').innerHTML=studioTabs.map(key=>'<span class="'+(key===page?'current':'')+'"><button data-studio-tab="'+key+'">'+html(key==='hmi'?hmiPages()[activeHmiPage]:studioLabel(key))+'</button>'+(key==='pages'?'':'<button data-close-tab="'+key+'" title="Sekmeyi kapat" aria-label="'+html(studioLabel(key))+' sekmesini kapat">×</button>')+'</span>').join('');
+  if(!running&&!studioTabs.includes(key))studioTabs.push(key);
+  find('studio-tabs').innerHTML=studioTabs.map(tab=>'<span class="'+(tab===key?'current':'')+'"><button data-studio-tab="'+tab+'" '+(tab===key?'aria-current="page"':'')+'>'+html(tab.startsWith('hmi:')?hmiPages()[Number(tab.slice(4))]:studioLabel(tab))+'</button>'+(tab==='pages'?'':'<button data-close-tab="'+tab+'" aria-label="Sekmeyi kapat">×</button>')+'</span>').join('');
+  renderStudioTagDock();
   find('studio-context').textContent=page==='hmi'?hmiPages()[activeHmiPage]:studioLabel(page);
   mount.querySelector('.studio-object-tools').hidden=page!=='hmi';
   find('studio-zoom').disabled=page!=='hmi';
   renderStudioPages();updateStudioTools();
+}
+function studioKey(page){return page==='hmi'?'hmi:'+activeHmiPage:page;}
+function openStudioTab(key){
+  if(key.startsWith('hmi:'))studioNavigatePage(Number(key.slice(4)));
+  else view(key);
 }
 function studioNavigatePage(index){
   if(!Number.isInteger(index)||!hmiPages()[index])return;
@@ -3103,12 +3123,16 @@ function renderStudioPages(){
 function renderStudioObjects(){
   if(current!=='hmi')return;
   const panel=find('studio-object-tree');
-  const layers=studioInspector==='layers';
+  const layers=mount.dataset.rightDock==='layers';
   panel.innerHTML='<h3>'+(layers?'Katman sırası':'Nesne ağacı')+'</h3>'+ (layers?'<div class="studio-layer-controls"><button data-shell="raise">Öne al</button><button data-shell="lower">Arkaya al</button></div>':'')+pageObjects().map(o=>'<button type="button" data-studio-object="'+html(o.id)+'" class="'+(hmiSelection.has(o.id)?'on':'')+'">▱ '+html(o.name)+'</button>').join('');
 }
 function studioInspectorMode(mode){
-  studioInspector=mode;mount.dataset.inspector=mode;
-  mount.querySelectorAll('[data-inspector]').forEach(b=>b.classList.toggle('on',b.dataset.inspector===mode));
+  if(['library','objects','layers'].includes(mode))mount.dataset.rightDock=mode;
+  else{
+    studioInspector=mode;mount.dataset.inspector=mode;mount.classList.remove('studio-dock-collapsed');
+    find('studio-collapse-dock').setAttribute('aria-expanded','true');find('studio-collapse-dock').textContent='▾';
+  }
+  mount.querySelectorAll('[data-inspector]').forEach(b=>b.classList.toggle('on',b.dataset.inspector===(b.closest('.studio-bottom-tabs')?mount.dataset.inspector:mount.dataset.rightDock)));
   if(mode==='events')find('tp-props').querySelector('details')?.setAttribute('open','');
   if(mode==='objects'||mode==='layers')renderStudioObjects();
 }
@@ -3141,6 +3165,12 @@ function reorderPages(indices){
   const names=hmiPages(),map=new Map(indices.map((old,idx)=>[old,idx]));
   const home=project.hmiHome??0;
   project.hmiPages=indices.map(i=>names[i]);
+  studioTabs=studioTabs.flatMap(key=>{
+    if(!key.startsWith('hmi:'))return [key];
+    const to=map.get(Number(key.slice(4)));
+    return to===undefined?[]:['hmi:'+to];
+  });
+  studioPath=['pages'];studioCursor=0;
   project.hmiHome=map.get(home)??0;
   if(project.hmiBackgrounds)project.hmiBackgrounds=indices.map(i=>map.get(project.hmiBackgrounds[i])??null);
   project.objects=project.objects.filter(o=>map.has(o.page??0)).map(o=>({
@@ -3148,7 +3178,7 @@ function reorderPages(indices){
   }));
   activeHmiPage=map.get(activeHmiPage)??project.hmiHome;
   studioSelected=map.get(studioSelected)??activeHmiPage;
-  change();renderStudioPages();
+  change();syncStudioShell(current);
 }
 function studioPageAction(action){
   if(action==='import'){find('studio-import-pages-file').click();return;}
@@ -3171,10 +3201,26 @@ function studioValidate(){
   const errors=[];
   try{validateProject(project);}catch(e){errors.push(e.message);}
   if(!compile())errors.push(find('tp-status').textContent);
-  const tags=new Set(allTags().map(t=>t.name.toUpperCase()));
+  const tagList=allTags(),tags=new Set(tagList.map(t=>t.name.toUpperCase()));
+  for(const o of project.objects.filter(o=>o.type==='faceplate')){
+    const f=fpTemplate(o);if(!f)continue;
+    const cfg=o.faceplate;
+    const tagType=name=>tagList.find(t=>t.name.toUpperCase()===name?.toUpperCase())?.type;
+    if(cfg.selector&&tagType(cfg.selector)!=='BOOL')errors.push(o.name+' · A/B seçici BOOL olmalı.');
+    for(const p of fpPorts(f))for(const mapping of [cfg.bindings,...(cfg.selector?[cfg.alternate]:[])]){
+      const name=mapping[p.key];
+      if(name&&tagType(name)!==p.type)errors.push(o.name+' · Geçersiz faceplate bağlantısı: '+name);
+    }
+  }
+  for(const g of logGroups())for(const tag of g.tags)if(!tags.has(tag.toUpperCase()))errors.push(g.name+' · Kayıt etiketi bulunamadı: '+tag);
   for(const alarm of hmiAlarmRules())if(!tags.has(alarm.tag.toUpperCase()))errors.push('Alarm etiketi bulunamadı: '+alarm.tag);
   for(const key of project.hmiRecipe?.tags??[])if(!tags.has(key))errors.push('Reçete etiketi bulunamadı: '+key);
   for(const o of project.objects){
+    for(const series of o.trendSeries??[]){
+      if(!tags.has(series.tag.toUpperCase()))errors.push(o.name+' · Trend etiketi bulunamadı: '+series.tag);
+      if(series.source==='archive'&&!logGroups().find(g=>g.id===series.group)?.tags.some(t=>t.toUpperCase()===series.tag.toUpperCase()))errors.push(o.name+' · Arşiv serisinin kaynağı eksik.');
+    }
+    if(o.type==='multiText'&&!o.tag)errors.push(o.name+' · Durum etiketi seçilmedi.');
     if(o.tag&&!tags.has(o.tag.toUpperCase()))errors.push(o.name+' · Etiket bulunamadı: '+o.tag);
     for(const event of allHmiActions(o)){
       for(const name of [event.tag,event.source])if(name&&!tags.has(name.toUpperCase()))errors.push(o.name+' · Olay etiketi bulunamadı: '+name);
@@ -3184,20 +3230,20 @@ function studioValidate(){
     }
   }
   out.innerHTML='<table><thead><tr><th>Durum</th><th>Açıklama</th></tr></thead><tbody>'+ (errors.length?errors.map(e=>'<tr><td>Hata</td><td>'+html(e)+'</td></tr>').join(''):'<tr><td>Başarılı</td><td>Proje yapısı, PLC programı ve HMI etiket bağlantıları doğrulandı.</td></tr>')+'</tbody></table>';
-  find('studio-validation').hidden=false;
+  find('studio-validation').hidden=false;studioInspectorMode('diagnostics');
 }
 function studioCommand(cmd){
   const click=id=>find(id).click();
   if(cmd==='runtime-preview')return startWizardPreview();
   if(cmd==='validate')return studioValidate();
-  if(cmd==='log'){find('studio-validation').hidden=!find('studio-validation').hidden;return;}
+  if(cmd==='log'){const panel=find('studio-validation');panel.hidden=!panel.hidden;if(!panel.hidden)studioInspectorMode('diagnostics');return;}
   if(cmd==='help')return status('Sayfa aç: çift tık veya Enter · Kaydet: Ctrl+S · Geri al: Ctrl+Z · Yinele: Ctrl+Y.');
   if(cmd==='undo'||cmd==='redo')return studioUndo(cmd==='undo'?-1:1);
   if(cmd==='back'||cmd==='forward'){
     const next=studioCursor+(cmd==='back'?-1:1);
     if(!studioPath[next])return;
     studioNavigating=true;studioCursor=next;
-    try{view(studioPath[next]);}finally{studioNavigating=false;}
+    try{openStudioTab(studioPath[next]);}finally{studioNavigating=false;}
     return;
   }
   if(cmd==='offline'||cmd==='online'){
@@ -3289,10 +3335,10 @@ mount.addEventListener('click',e=>{
   if(shell){target.closest('.studio-menubar details')?.removeAttribute('open');studioCommand(shell);}
   else if(add){if(running)return status('Nesne eklemek için simülasyonu durdurun.',true);find('tp-kind').value=add;find('tp-object').click();studioInspectorMode('properties');}
   else if(inspector)studioInspectorMode(inspector);
-  else if(studioTab)view(studioTab);
-  else if(closeTab){studioTabs=studioTabs.filter(v=>v!==closeTab);if(current===closeTab)view(studioTabs.at(-1)??'pages');else syncStudioShell(current);}
+  else if(studioTab)openStudioTab(studioTab);
+  else if(closeTab){studioTabs=studioTabs.filter(v=>v!==closeTab);if(studioKey(current)===closeTab)openStudioTab(studioTabs.at(-1)??'pages');else syncStudioShell(current);}
   else if(studioPage!==undefined)studioNavigatePage(Number(studioPage));
-  else if(studioObject){setHmiSelection([studioObject]);props();drawScreen();if(studioInspector!=='layers')studioInspectorMode('properties');}
+  else if(studioObject){setHmiSelection([studioObject]);props();drawScreen();studioInspectorMode('properties');}
   else if(pageAction)studioPageAction(pageAction);
   else if(target.closest('.studio-menubar details'))target.closest('.studio-menubar details').open=false;
 });
@@ -3303,16 +3349,21 @@ mount.addEventListener('keydown',e=>{
     e.preventDefault();studioCommand(key==='s'?'save':key==='y'||e.shiftKey?'redo':'undo');
   }
 });
-studioInspectorMode(studioInspector);
+mount.dataset.rightDock='library';studioInspectorMode(studioInspector);
 
 function renderStudioHub(){
+  const examples=find('studio-hub-projects');
+  if(!find('open-trend-example'))examples.insertAdjacentHTML('beforebegin','<p><button id="open-trend-example" data-trend-example>Örnek · Proses trendi ve veri kaydı</button></p>');
   const box=find('studio-hub-projects'),items=Object.values(library);
-  box.innerHTML=items.length?'<table><thead><tr><th>Proje</th><th>Hedef</th><th></th></tr></thead><tbody>'+
-    items.map(p=>'<tr><td>'+html(p.name)+'</td><td>'+html(wizardTargets[p.application?.target??'desktop']?.[0]??'Web SCADA')+'</td><td><button data-hub-project="'+html(p.id)+'">Aç</button></td></tr>').join('')+
-    '</tbody></table>':'<p>Bu oturumda henüz proje açılmadı.</p>';
+  box.innerHTML='<table><thead><tr><th>Proje</th><th>Hedef</th><th></th></tr></thead><tbody>'+
+    '<tr><td>Rüzgâr Santrali · 4 türbin</td><td>Web SCADA</td><td><button data-open-wind>Aç</button></td></tr>'+items.map(p=>'<tr><td>'+html(p.name)+'</td><td>'+html(wizardTargets[p.application?.target??'desktop']?.[0]??'Web SCADA')+'</td><td><button data-hub-project="'+html(p.id)+'">Aç</button></td></tr>').join('')+
+    '</tbody></table>';
 }
 find('studio-applications').onclick=e=>{
   const b=e.target.closest('button');if(!b)return;
+  if(b.hasAttribute('data-open-wind')){view('wind-fleet');return;}
+  if(b.hasAttribute('data-open-hydro')){if(preserve())openHydroRuntime();return;}
+  if(b.hasAttribute('data-trend-example'))return openTrendExample();
   if(b.dataset.example){
     find('tp-template').value=b.dataset.example;newProject();
   }
@@ -3380,7 +3431,7 @@ function advanceWizard(e){
   }
   if(wizardStep<3){wizardStep++;showWizardStep();return;}
   const type=find('tp-template').value;
-  const p=type==='filling'?validateProject(fillingTemplate):type==='pivot'?validateProject(pivotTemplate):type==='water'?sample():blank(name);
+  const p=type==='hydro'?makeHydroProject():type==='filling'?validateProject(fillingTemplate):type==='pivot'?validateProject(pivotTemplate):type==='water'?sample():blank(name);
   p.name=name;p.application={target:wizardTarget,description:find('wizard-description').value.trim(),author:find('wizard-author').value.trim(),devices:structuredClone(wizardDevices)};
   validateWizardProfile(p.application);
   find('tp-create').close();open(p);change();view('pages');stash();savedList();
@@ -3554,6 +3605,7 @@ const hmiActions={
 };
 let recipeSelected='',hmiPageTrail=[],hmiAuthBusy=false;
 function resetHmiSession(){
+  for(const key of fpWindows.keys())closeFpWindow(key);fpEdit.close();
   recipeSelected='';hmiPageTrail=[];alarmLive.clear();alarmPending.clear();alarmHistory=[];alarmDialog.close();find('hmi-alarm-edit').close();
   find('hmi-recipe-runtime').close();find('hmi-user-login').close();
 }
@@ -3591,11 +3643,11 @@ function validateHmiEnhancements(o,pages){
   }
 }
 function hmiTextProps(o){
-  if(o.type!=='text')return '';
+  if(!['text','multiText'].includes(o.type))return '';
   return '<label>Yazı boyutu<input type="number" min="8" max="96" data-prop="fontSize" value="'+(o.fontSize??18)+'"></label>'+
     '<label>Yazı tipi<select data-prop="fontFamily">'+Object.entries({system:'Sistem',arial:'Arial',mono:'Eş aralıklı',serif:'Georgia'}).map(([value,label])=>
       '<option value="'+value+'" '+(value===(o.fontFamily??'system')?'selected':'')+'>'+label+'</option>').join('')+'</select></label>'+
-    '<label><input type="checkbox" data-prop="fontBold" '+(o.fontBold?'checked':'')+'> Kalın</label>';
+    '<label><input type="checkbox" data-prop="fontBold" '+(o.fontBold?'checked':'')+'> Kalın</label>'+multiTextProps(o);
 }
 function hmiEventProps(o){
   const select=(rows,current)=>rows.map(([v,l])=>'<option value="'+html(v)+'" '+(String(v)===String(current)?'selected':'')+'>'+html(l)+'</option>').join('');
@@ -4104,7 +4156,585 @@ function alarmObjectShape(o){
   return `<rect width="${w}" height="${h}" rx="6" fill="#112737" stroke="${html(o.color||'#509cff')}"/><text x="9" y="19">${html(o.name.slice(0,Math.max(4,Math.floor(w/8)-1)))}</text><rect x="5" y="27" width="${w-10}" height="20" fill="#294965"/>${rowText(cols.map(k=>hmiAlarmColumns[k]),41)}${Array.from({length:count},(_,i)=>`<rect x="5" y="${48+i*20}" width="${w-10}" height="19" fill="${i%2?'#1e384e':'#172e42'}"/>${rows[i]?rowText(cols.map(k=>alarmCell(rows[i],k)),62+i*20):''}`).join('')}`;
 }
 
-if(location.hash==='#dolum'){open(validateProject(fillingTemplate));view('filling');}else if(!location.hash){open(blank('Yeni Proje'));view('applications');}
+const trendAsset={type:'processTrend',name:'Proses trendi',category:'Grafikler',w:540,h:245,min:0,max:100,unit:''};
+const trendColors=['#4eaaff','#64e6b5','#ffc47a','#f68bb0'];
+const logLimit=2400;
+const logPane=find('hmi-log-editor'),logForm=find('hmi-log-form'),trendDialog=find('hmi-trend-dialog');
+let liveSeries=new Map(),archiveRows=[],sampleState=new Map(),lastLive=0,archiveDirty=false,lastArchiveFlush=0,archiveWarning=false,trendView=null;
+const logGroups=()=>project.hmiLogs??[];
+const validLogId=value=>typeof value==='string'&&/^[\w-]{1,80}$/.test(value);
+const validLogTag=value=>typeof value==='string'&&/^[A-Z_]\w{0,47}$/i.test(value);
+const validColor=value=>typeof value==='string'&&/^#[\da-f]{6}$/i.test(value);
+const logKey=p=>'turko-hmi-log-v1:'+p.hmiLogId;
+function validateTagLogging(p){
+  if(p.hmiLogId!==undefined&&!validLogId(p.hmiLogId))throw Error('Arşiv kimliği geçersiz.');
+  const groups=p.hmiLogs;
+  if(groups===undefined)return;
+  if(!Array.isArray(groups)||groups.length>12||new Set(groups.map(g=>g?.id)).size!==groups.length||groups.some(g=>
+    !g||!validLogId(g.id)||typeof g.name!=='string'||!g.name.trim()||g.name.length>50||!['cycle','change'].includes(g.mode)||
+    !Number.isInteger(g.interval)||g.interval<250||g.interval>3600000||!Array.isArray(g.tags)||!g.tags.length||g.tags.length>8||
+    !g.tags.every(validLogTag)||new Set(g.tags.map(t=>t.toUpperCase())).size!==g.tags.length))throw Error('Etiket kayıt grubu geçersiz.');
+}
+function validateTrendObject(o){
+  if(o.type!=='processTrend')return;
+  const series=o.trendSeries;
+  if(series!==undefined&&(!Array.isArray(series)||series.length>4||series.some(s=>!s||!validLogTag(s.tag)||!validColor(s.color)||!['live','archive'].includes(s.source)||s.source==='archive'&&!validLogId(s.group))))throw Error('Trend serisi geçersiz.');
+  if(o.trendRange!==undefined&&![15,30,60,300,900,3600,86400].includes(o.trendRange))throw Error('Trend zaman aralığı geçersiz.');
+}
+function flushTagArchive(){
+  if(!project?.hmiLogId||!archiveDirty)return;
+  try{
+    localStorage.setItem(logKey(project),JSON.stringify(archiveRows));
+    archiveDirty=false;archiveWarning=false;
+  }catch{
+    if(!archiveWarning){archiveWarning=true;status('Tarayıcı arşive yazamadı. Kayıtlar bellekte, CSV ile alınabilir.',true);}
+  }
+  lastArchiveFlush=Date.now();
+}
+function resetTagLogging(next){
+  flushTagArchive();
+  liveSeries=new Map();sampleState=new Map();lastLive=0;
+  archiveRows=[];archiveDirty=false;archiveWarning=false;lastArchiveFlush=0;trendView=null;trendDialog.close();
+  if(next.hmiLogId){
+    try{
+      const rows=JSON.parse(localStorage.getItem(logKey(next))||'[]');
+      if(Array.isArray(rows))archiveRows=rows.slice(-logLimit).filter(r=>r&&validLogId(r.group)&&validLogTag(r.tag)&&Number.isFinite(r.at)&&Number.isFinite(r.value));
+    }catch{}
+  }
+}
+function captureTagLogging(){
+  if(!running||!compiled||scadaFollowing||project.modbus?.enabled)return;
+  const now=Date.now(),due=now-lastLive>=250;
+  if(due){
+    lastLive=now;
+    const keys=new Set(project.objects.filter(o=>o.type==='processTrend').flatMap(o=>(o.trendSeries??[]).filter(s=>s.source==='live').map(s=>s.tag.toUpperCase())));
+    for(const key of keys){
+      if(typeof mem[key]!=='boolean'&&!Number.isFinite(mem[key]))continue;
+      const list=liveSeries.get(key)??[];
+      list.push({at:now,value:Number(mem[key])});
+      if(list.length>960)list.shift();
+      liveSeries.set(key,list);
+    }
+  }
+  if(!project.hmiLogId)return;
+  for(const group of logGroups()){
+    const state=sampleState.get(group.id)??{at:0,values:new Map()};
+    if(now-state.at<group.interval)continue;
+    state.at=now;sampleState.set(group.id,state);
+    for(const tag of group.tags){
+      const key=tag.toUpperCase(),value=mem[key];
+      if(typeof value!=='boolean'&&!Number.isFinite(value))continue;
+      const numeric=Number(value);
+      if(group.mode==='change'&&state.values.get(key)===numeric)continue;
+      state.values.set(key,numeric);archiveRows.push({group:group.id,tag:key,at:now,value:numeric});archiveDirty=true;
+    }
+  }
+  if(archiveRows.length>logLimit)archiveRows.splice(0,archiveRows.length-logLimit);
+  if(archiveDirty&&now-lastArchiveFlush>=2000)flushTagArchive();
+}
+const trendRanges={15:'15 sn',30:'30 sn',60:'1 dk',300:'5 dk',900:'15 dk',3600:'1 saat',86400:'24 saat'};
+function archiveDownload(rows){
+  const names=new Map(logGroups().map(g=>[g.id,g.name]));
+  const cell=value=>'"'+(/^[\s]*[=+@-]/.test(value)?"'":'')+value.replaceAll('"','""')+'"';
+  const body=['Zaman UTC,Kayit grubu,Etiket,Deger',...rows.map(r=>new Date(r.at).toISOString()+','+cell(names.get(r.group)??r.group)+','+r.tag+','+r.value)].join('\r\n');
+  const link=document.createElement('a');
+  link.href=URL.createObjectURL(new Blob(['\ufeff'+body],{type:'text/csv;charset=utf-8'}));
+  link.download='turko-veri-kaydi.csv';link.click();setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+}
+function renderTagLog(){
+  const groups=logGroups();
+  logPane.innerHTML=`<div class="studio-section-head"><h2>Etiket kaydı / Veri arşivi</h2><div class="alarm-tools">
+  <button data-log-tool="add">+ Kayıt grubu</button><button data-log-tool="view">Kayıtları incele</button><button data-log-tool="csv">CSV indir</button></div></div>
+  <p>Tarayıcı arşivi · Son ${logLimit} örnek · Simülasyon çalışırken kayıt alınır.</p>
+  <div class="alarm-scroll"><table><thead><tr><th>Grup</th><th>Etiketler</th><th>Kayıt yöntemi</th><th>Çevrim</th><th>İşlem</th></tr></thead><tbody>${groups.map(g=>`<tr><td>${html(g.name)}</td><td>${g.tags.map(html).join(', ')}</td><td>${g.mode==='cycle'?'Periyodik':'Değişimde'}</td><td>${g.interval} ms</td><td><button data-log-edit="${g.id}">Düzenle</button> <button data-log-remove="${g.id}">Sil</button></td></tr>`).join('')||'<tr><td colspan="5">Henüz kayıt grubu yok.</td></tr>'}</tbody></table></div>`;
+}
+function editTagLog(group){
+  const g=group??{name:'',mode:'cycle',interval:1000,tags:[]};
+  logForm.dataset.group=group?.id??'';
+  const tags=[...new Set([...allTags().map(t=>t.name.toUpperCase()),...g.tags])];
+  logForm.innerHTML=`<h2>Kayıt grubu</h2><label>Grup adı<input name="groupName" maxlength="50" required value="${html(g.name)}"></label>
+  <label>Kayıt yöntemi<select name="mode"><option value="cycle">Periyodik</option><option value="change" ${g.mode==='change'?'selected':''}>Değişimde</option></select></label>
+  <label>Örnekleme çevrimi (ms)<input name="interval" type="number" min="250" max="3600000" step="1" required value="${g.interval}"></label>
+  <fieldset class="log-tag-list"><legend>Kayıt etiketleri (en fazla 8)</legend>${tags.map(t=>`<label><input type="checkbox" name="tags" value="${html(t)}" ${g.tags.includes(t)?'checked':''}> ${html(t)}</label>`).join('')||'Önce PLC etiketleri bölümünden etiket oluşturun.'}</fieldset>
+  <p role="status"></p><div class="alarm-tools"><button type="button" data-log-cancel>Vazgeç</button><button>Kaydet</button></div>`;
+  find('hmi-log-edit').showModal();
+}
+logPane.onclick=e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const {logTool,logEdit,logRemove}=b.dataset;
+  if(logTool==='view')return openProcessTrend();
+  if(logTool==='csv')return archiveDownload(archiveRows);
+  if(running)return status('Kayıt ayarlarını değiştirmek için simülasyonu durdurun.',true);
+  if(logEdit||logTool==='add')return editTagLog(logGroups().find(g=>g.id===logEdit));
+  if(logRemove&&confirm('Kayıt grubu silinsin mi?')){
+    project.hmiLogs=logGroups().filter(g=>g.id!==logRemove);
+    for(const o of project.objects)if(o.trendSeries)o.trendSeries=o.trendSeries.filter(s=>s.group!==logRemove);
+    change();renderTagLog();
+  }
+};
+logForm.onclick=e=>{if(e.target.closest('[data-log-cancel]'))find('hmi-log-edit').close();};
+logForm.onsubmit=e=>{
+  e.preventDefault();const f=new FormData(logForm),key=logForm.dataset.group;
+  const group={id:key||id(),name:f.get('groupName').trim(),mode:f.get('mode'),interval:Number(f.get('interval')),tags:f.getAll('tags')};
+  const groups=key?logGroups().map(g=>g.id===key?group:g):[...logGroups(),group];
+  try{
+    validateTagLogging({hmiLogs:groups});
+    const tags=new Set(allTags().map(t=>t.name.toUpperCase()));
+    if(group.tags.some(t=>!tags.has(t)))throw Error('Silinmiş etiketi kayıt grubundan çıkarın.');
+    project.hmiLogId??=id();project.hmiLogs=groups;sampleState.delete(group.id);
+    for(const o of project.objects)if(o.trendSeries)o.trendSeries=o.trendSeries.filter(s=>s.group!==group.id||group.tags.includes(s.tag.toUpperCase()));
+    change();renderTagLog();find('hmi-log-edit').close();
+  }catch(error){logForm.querySelector('[role=status]').textContent=error.message;}
+};
+function trendObjectProps(o){
+  if(o.type!=='processTrend')return '';
+  const series=o.trendSeries??[];
+  const opt=(value,label,selected)=>`<option value="${html(value)}" ${value===selected?'selected':''}>${html(label)}</option>`;
+  return `<label>Zaman penceresi<select data-prop="trendRange">${Object.entries(trendRanges).map(([v,l])=>opt(v,l,String(o.trendRange??60))).join('')}</select></label>
+  <details open><summary>Trend serileri</summary>${series.map((s,i)=>{
+    const source=s.source==='live'?'live':s.group;
+    const tags=s.source==='live'?allTags().map(t=>t.name.toUpperCase()):logGroups().find(g=>g.id===s.group)?.tags??[];
+    return `<fieldset><legend>Seri ${i+1}</legend><label>Kaynak<select data-series-source="${i}">${opt('live','Canlı etiket',source)}${logGroups().map(g=>opt(g.id,g.name,source)).join('')}</select></label>
+    <label>Etiket<select data-series-tag="${i}">${[...new Set([...tags,s.tag])].map(t=>opt(t,t,s.tag)).join('')}</select></label>
+    <label>Çizgi rengi<input type="color" data-series-color="${i}" value="${s.color}"></label><button data-series-remove="${i}">Seriyi kaldır</button></fieldset>`;
+  }).join('')}<button data-series-add ${series.length>=4?'disabled':''}>+ Seri</button></details>`;
+}
+function editTrendSeries(e){
+  if(running)return;
+  const o=project.objects.find(o=>o.id===selected&&o.type==='processTrend');if(!o)return;
+  const d=e.target.dataset;
+  const rows=o.trendSeries??=[];
+  if(d.seriesAdd!==undefined){
+    const t=allTags()[0];if(!t)return status('Önce bir PLC etiketi oluşturun.',true);
+    if(rows.length>=4)return;
+    rows.push({tag:t.name.toUpperCase(),source:'live',color:trendColors[rows.length]});
+  }else if(d.seriesRemove!==undefined){rows.splice(Number(d.seriesRemove),1);}
+  else if(d.seriesSource!==undefined){
+    const row=rows[Number(d.seriesSource)],source=e.target.value;
+    if(source==='live'){row.source='live';delete row.group;}
+    else{
+      const g=logGroups().find(g=>g.id===source);if(!g)return;
+      row.source='archive';row.group=g.id;if(!g.tags.includes(row.tag))row.tag=g.tags[0];
+    }
+  }else if(d.seriesTag!==undefined){rows[Number(d.seriesTag)].tag=e.target.value;}
+  else if(d.seriesColor!==undefined&&validColor(e.target.value)){rows[Number(d.seriesColor)].color=e.target.value;}
+  else return;
+  change();props();drawScreen();
+}
+find('tp-props').addEventListener('change',editTrendSeries);
+find('tp-props').addEventListener('click',e=>{if(e.target.matches('[data-series-add],[data-series-remove]'))editTrendSeries(e);});
+function trendData(series,from,to){
+  return series.map(s=>{
+    const key=s.tag.toUpperCase();
+    const list=s.source==='live'?(liveSeries.get(key)??[]):archiveRows.filter(r=>r.group===s.group&&r.tag===key);
+    return {...s,points:list.filter(r=>r.at>=from&&r.at<=to)};
+  });
+}
+function trendPlot(w,h,series,from,to){
+  const left=48,right=w-12,top=26,bottom=h-35;
+  if(right<=left||bottom<=top)return '';
+  const points=series.flatMap(s=>s.points),values=points.map(p=>p.value);
+  const low=values.length?Math.min(...values):0,high=values.length?Math.max(...values):100;
+  const min=low===high?low-1:low,max=low===high?high+1:high;
+  const x=t=>left+(t-from)/(to-from)*(right-left),y=v=>bottom-(v-min)/(max-min)*(bottom-top);
+  const number=n=>n.toLocaleString('tr-TR',{maximumFractionDigits:2});
+  const clock=t=>new Date(t).toLocaleTimeString('tr-TR');
+  const grid=Array.from({length:5},(_,i)=>{
+    const at=top+(bottom-top)*i/4;
+    return `<path d="M${left},${at}H${right}" stroke="#35506c"/><text x="${left-6}" y="${at+4}" text-anchor="end" fill="#bed3e7" style="font-size:10px">${number(max-(max-min)*i/4)}</text>`;
+  }).join('');
+  return `${grid}<path d="M${left},${top}V${bottom}H${right}" fill="none" stroke="#7994af"/><text x="${left}" y="${bottom+17}" fill="#bed3e7" style="font-size:10px">${clock(from)}</text><text x="${right}" y="${bottom+17}" text-anchor="end" fill="#bed3e7" style="font-size:10px">${clock(to)}</text>
+  ${series.map(s=>s.points.length===1?`<circle cx="${x(s.points[0].at)}" cy="${y(s.points[0].value)}" r="3" fill="${s.color}"/>`:`<polyline points="${s.points.map(p=>x(p.at).toFixed(1)+','+y(p.value).toFixed(1)).join(' ')}" fill="none" stroke="${s.color}" stroke-width="2"/>`).join('')}
+  ${points.length?'':`<text x="${(left+right)/2}" y="${(top+bottom)/2}" text-anchor="middle" fill="#bed3e7" style="font-size:12px">Bu aralıkta veri yok</text>`}`;
+}
+function trendObjectShape(o){
+  const {w,h}=o,to=lastLive||Date.now(),from=to-(o.trendRange??60)*1000;
+  const series=running?trendData(o.trendSeries??[],from,to):[];
+  return `<rect width="${w}" height="${h}" rx="6" fill="#102538" stroke="${html(o.color||'#509cff')}"/><text x="10" y="18">${html(o.name)}</text>${trendPlot(w,h,series,from,to)}`;
+}
+function openProcessTrend(o=null){
+  trendView={o,range:o?.trendRange??60,paused:null,offset:0,group:'',cursor:null};
+  find('trend-range').value=String(trendView.range);
+  const groups=find('trend-group');groups.replaceChildren(new Option('Tüm arşiv grupları',''),...logGroups().map(g=>new Option(g.name,g.id)));
+  groups.hidden=!!o;find('trend-group-label').hidden=!!o;
+  find('trend-title').textContent=o?.name??'Veri arşivi';
+  if(!trendDialog.open)trendDialog.showModal();renderProcessTrend();
+}
+function renderProcessTrend(){
+  const view=trendView;if(!view)return;
+  const span=view.range*1000,end=(view.paused??Date.now())-view.offset*span,start=end-span;
+  const rows=view.o?null:archiveRows.filter(r=>(!view.group||r.group===view.group)&&r.at>=start&&r.at<=end);
+  const series=view.o?trendData(view.o.trendSeries??[],start,end):[];
+  const samples=rows??series.flatMap(s=>s.points.map(p=>({...p,tag:s.tag,group:p.group??'canli'})));
+  const legend=series.map(s=>`<span><i style="background:${s.color}"></i>${html(s.tag)} · ${s.source==='live'?'Canlı':'Arşiv'}</span>`).join('');
+  const cursor=view.cursor===null?'':`<path d="M${48+view.cursor*700},26V235" stroke="#e5effa" stroke-dasharray="4 4"/>`;
+  const labels=view.cursor===null?[]:series.flatMap(s=>s.points.length?[s.tag+' '+s.points.reduce((a,b)=>Math.abs(b.at-(start+view.cursor*span))<Math.abs(a.at-(start+view.cursor*span))?b:a).value]:[]);
+  find('trend-pause').textContent=view.paused===null?'Dondur':'Canlıya dön';
+  find('trend-window').textContent=new Date(start).toLocaleString('tr-TR')+' – '+new Date(end).toLocaleTimeString('tr-TR')+' · '+samples.length+' örnek';
+  find('trend-legend').innerHTML=legend;find('trend-cursor').textContent=labels.join(' · ');
+  const svg=find('trend-plot');svg.hidden=!view.o;
+  svg.style.display=view.o?'block':'none';
+  if(view.o)svg.innerHTML=trendPlot(760,270,series,start,end)+cursor;
+  const visible=samples.slice().sort((a,b)=>b.at-a.at).slice(0,100);
+  const markup='<table><thead><tr><th>Zaman</th><th>Etiket</th><th>Değer</th></tr></thead><tbody>'+visible.map(r=>'<tr><td>'+html(new Date(r.at).toLocaleString('tr-TR'))+'</td><td>'+html(r.tag)+'</td><td>'+r.value+'</td></tr>').join('')+'</tbody></table>';
+  const table=find('trend-rows');if(table.archiveMarkup!==markup){table.archiveMarkup=markup;table.innerHTML=markup;}
+  view.samples=samples;
+}
+find('trend-range').onchange=e=>{trendView.range=Number(e.target.value);trendView.offset=0;renderProcessTrend();};
+find('trend-group').onchange=e=>{trendView.group=e.target.value;renderProcessTrend();};
+find('trend-pause').onclick=()=>{trendView.paused=trendView.paused===null?Date.now():null;trendView.offset=0;renderProcessTrend();};
+find('trend-back').onclick=()=>{trendView.paused??=Date.now();trendView.offset++;renderProcessTrend();};
+find('trend-next').onclick=()=>{trendView.offset=Math.max(0,trendView.offset-1);renderProcessTrend();};
+find('trend-csv').onclick=()=>archiveDownload(trendView.samples);
+find('trend-plot').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();trendView.cursor=bounded(((e.clientX-r.left)/r.width*760-48)/700,0,1);renderProcessTrend();};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)flushTagArchive();});
+window.addEventListener('pagehide',flushTagArchive);
+function openTrendExample(){
+  if(!preserve())return;
+  const p=blank('Proses trendi ve veri kaydı'),group=id();
+  p.tags=[tag('SET_DEGER','REAL',35),tag('PROSES','REAL',35)];
+  p.st='PROGRAM MAIN\nPROSES := PROSES + (SET_DEGER - PROSES) * 0.12;\nEND_PROGRAM';
+  p.hmiLogId=id();p.hmiLogs=[{id:group,name:'Proses arşivi',mode:'cycle',interval:1000,tags:['PROSES']}];
+  const obj=(type,name,key,x,y,w,h,extra={})=>({id:id(),type,name,tag:key,x,y,w,h,page:0,...extra});
+  p.objects=[
+    obj('text','PROSES İZLEME','',24,18,400,55,{fontSize:23,fontBold:true,color:'#c9e7ff'}),
+    obj('hmi_numeric_05','Set sürgüsü','SET_DEGER',24,83,98,320),
+    obj('hmi_gauge_07','Proses göstergesi','PROSES',135,85,210,184),
+    obj('hmi_numeric_02','Set değeri','SET_DEGER',145,290,185,88),
+    obj('processTrend','Canlı ve arşiv trendi','',355,75,480,320,{trendRange:60,trendSeries:[
+      {tag:'SET_DEGER',source:'live',color:trendColors[0]},{tag:'PROSES',source:'archive',group,color:trendColors[1]}]})
+  ];
+  open(validateProject(p));studioNavigatePage(0);
+}
+
+function validateMultiText(o){
+  if(o.type!=='multiText')return;
+  const rows=o.textStates;
+  if(rows!==undefined&&(!Array.isArray(rows)||rows.length>24||rows.some(r=>!r||!Number.isSafeInteger(r.value)||typeof r.label!=='string'||!r.label.trim()||r.label.length>60)||new Set(rows.map(r=>r.value)).size!==rows.length))throw Error('Durum metinleri geçersiz.');
+  if(o.textFallback!==undefined&&(typeof o.textFallback!=='string'||o.textFallback.length>60))throw Error('Varsayılan durum metni geçersiz.');
+}
+function multiTextProps(o){
+  if(o.type!=='multiText')return '';
+  const rows=(o.textStates??[]).map(r=>r.value+' | '+r.label).join('\n');
+  return '<label>Durum listesi (değer | metin)<textarea data-multi-states rows="5" placeholder="0 | Hazır">'+html(rows)+'</textarea></label><label>Diğer değerlerde<input data-multi-fallback maxlength="60" value="'+html(o.textFallback??'')+'"></label><button type="button" data-multi-save>Durum metinlerini uygula</button><p data-multi-message role="status"></p>';
+}
+find('tp-props').addEventListener('click',e=>{
+  if(!e.target.matches('[data-multi-save]')||running)return;
+  const o=project.objects.find(v=>v.id===selected&&v.type==='multiText');if(!o)return;
+  const panel=find('tp-props');
+  try{
+    const textStates=panel.querySelector('[data-multi-states]').value.split(/\r?\n/).filter(line=>line.trim()).map(line=>{
+      const parts=/^\s*([+-]?\d+)\s*\|\s*(.*?)\s*$/.exec(line);
+      if(!parts)throw Error('Her satıra tam sayı | metin girin.');
+      return {value:Number(parts[1]),label:parts[2]};
+    });
+    const textFallback=panel.querySelector('[data-multi-fallback]').value.trim();
+    validateMultiText({...o,textStates,textFallback});
+    Object.assign(o,{textStates,textFallback});change();props();drawScreen();
+    panel.querySelector('[data-multi-message]').textContent='Durum metinleri uygulandı.';
+  }catch(error){panel.querySelector('[data-multi-message]').textContent=error.message;}
+});
+
+function renderStudioTagDock(){
+  if(!project)return;
+  const pane=find('studio-drag-tags');
+  const items=allTags().map(t=>'<div draggable="true" data-studio-tag="'+html(t.name)+'" title="Tuvale veya nesne üzerine sürükleyin"><b>'+html(t.name)+'</b><span>'+html(t.type)+'</span></div>').join('');
+  const markup=items||'<p>PLC / Etiketler bölümünde bir etiket tanımlayın.</p>';
+  if(pane.studioMarkup!==markup){pane.studioMarkup=markup;pane.innerHTML=markup;}
+}
+const tagTransfer='application/x-turko-tag';
+find('studio-drag-tags').ondragstart=e=>{
+  const row=e.target.closest('[data-studio-tag]');if(!row)return;
+  e.dataTransfer.setData(tagTransfer,row.dataset.studioTag);e.dataTransfer.effectAllowed='copy';
+};
+find('tp-canvas').addEventListener('dragover',e=>{
+  if(!running&&e.dataTransfer.types.includes(tagTransfer)){e.preventDefault();e.dataTransfer.dropEffect='copy';}
+});
+find('tp-canvas').addEventListener('drop',e=>{
+  const name=e.dataTransfer.getData(tagTransfer);
+  if(!name||running)return;
+  e.preventDefault();
+  const tag=allTags().find(t=>t.name===name),position=hmiDropPosition(e);
+  if(!tag||!position)return;
+  const o=pageObjects().find(o=>o.id===e.target.closest('[data-object]')?.dataset.object);
+  if(o){
+    if(!hmiTagFits(o,tag)||hmiBinding(o)==='NONE'||['text','alarmTable','processTrend','faceplate'].includes(o.type))return status('Bu etiket nesneyle uyumlu değil.',true);
+    o.tag=name;setHmiSelection([o.id]);change();render();
+  }else if(!createHmiAsset(tag.type==='BOOL'?'hmi_lamp_01':'hmi_numeric_02',position,name))return;
+  studioInspectorMode('properties');
+  status(name+' etiketi HMI nesnesine bağlandı.');
+});
+find('studio-collapse-dock').onclick=e=>{
+  const closed=mount.classList.toggle('studio-dock-collapsed');
+  e.currentTarget.setAttribute('aria-expanded',String(!closed));
+  e.currentTarget.textContent=closed?'▴':'▾';
+};
+const studioSplits={
+  left:{css:'--studio-tree-w',size:()=>find('tp-nav').closest('aside').offsetWidth,min:175,max:390,axis:'clientX',sign:1},
+  right:{css:'--studio-tool-w',size:()=>mount.querySelector('.studio-right-dock').offsetWidth,min:180,max:380,axis:'clientX',sign:-1},
+  details:{css:'--studio-details-h',size:()=>mount.querySelector('.studio-tag-dock').offsetHeight,min:100,max:340,axis:'clientY',sign:-1},
+  bottom:{css:'--studio-bottom-h',size:()=>mount.querySelector('.studio-bottom').offsetHeight,min:145,max:360,axis:'clientY',sign:-1}
+};
+for(const splitter of mount.querySelectorAll('[data-split]')){
+  const config=studioSplits[splitter.dataset.split];
+  const resize=n=>mount.style.setProperty(config.css,bounded(n,config.min,config.max)+'px');
+  let drag=null;
+  splitter.onpointerdown=e=>{
+    if(e.button!==0)return;e.preventDefault();
+    drag={point:e[config.axis],size:config.size()};splitter.setPointerCapture(e.pointerId);
+  };
+  splitter.onpointermove=e=>{if(drag)resize(drag.size+(e[config.axis]-drag.point)*config.sign);};
+  splitter.onlostpointercapture=()=>{drag=null;};
+  splitter.onkeydown=e=>{
+    const keys=config.axis==='clientX'?['ArrowLeft','ArrowRight']:['ArrowUp','ArrowDown'];
+    const direction=keys.indexOf(e.key);if(direction<0)return;
+    e.preventDefault();resize(config.size()+(direction?16:-16)*config.sign);
+  };
+}
+
+const fpFields=tagTypes;
+const fpTemplate=o=>(project.faceplates??[]).find(f=>f.name===o.faceplate.type);
+const fpBounds=f=>({w:Math.max(...f.objects.map(o=>o.x+o.w)),h:Math.max(...f.objects.map(o=>o.y+o.h))});
+let fpSource=null,fpWindows=new Map(),fpZ=20;
+function fpPorts(f){
+  const tags=allTags();
+  return f.ports??faceBindings(f.objects).map(key=>({key,label:key,type:tags.find(t=>t.name.toUpperCase()===key.toUpperCase())?.type??'REAL',write:false}));
+}
+function fpMap(o){
+  const cfg=o.faceplate;
+  const alternate=cfg.selector&&Boolean(mem[cfg.selector.toUpperCase()]);
+  return {bindings:alternate?cfg.alternate:cfg.bindings,color:alternate?cfg.altColor:cfg.color};
+}
+function fpAssetShape(o){
+  const f=fpTemplate(o);
+  if(!f)return '<text x="10" y="20">Faceplate türü bulunamadı</text>';
+  const {w,h}=fpBounds(f),cfg=fpMap(o);
+  return `<rect width="${o.w}" height="${o.h}" rx="8" fill="${cfg.color}"/><text x="12" y="21" style="font-weight:bold">${html(o.name)}</text><svg x="8" y="30" width="${Math.max(1,o.w-16)}" height="${Math.max(1,o.h-38)}" viewBox="0 0 ${w} ${h}">${fpChildren(f,cfg,o.id)}</svg>`;
+}
+function fpChildren(f,cfg,prefix){
+  return f.objects.map((o,i)=>{
+    const key=cfg.bindings[o.tag]??'';
+    return `<g transform="translate(${o.x} ${o.y})">${screenShape({...o,id:prefix+'-fp-'+i,tag:key},mem[key.toUpperCase()])}</g>`;
+  }).join('');
+}
+function validateFaceplateData(p,nested){
+  const templates=p.faceplates??[];
+  if(!nested)for(const f of templates){
+    if(f.objects.some(o=>o.type==='faceplate'))throw Error('Faceplate içine başka faceplate eklenemez.');
+    if(f.ports!==undefined){
+      const keys=faceBindings(f.objects);
+      if(!Array.isArray(f.ports)||f.ports.length!==keys.length||new Set(f.ports.map(x=>x?.key)).size!==keys.length||f.ports.some(x=>!x||!keys.includes(x.key)||!fpFields.includes(x.type)||typeof x.label!=='string'||!x.label.trim()||x.label.length>48||typeof x.write!=='boolean'))throw Error('Faceplate etiket arayüzü geçersiz.');
+    }
+  }
+  const color=v=>typeof v==='string'&&/^#[\da-f]{6}$/i.test(v);
+  const binding=v=>typeof v==='string'&&/^(?:[A-Z_]\w{0,47})?$/i.test(v);
+  for(const o of p.objects.filter(o=>o.type==='faceplate')){
+    const d=o.faceplate,f=templates.find(f=>f.name===d?.type);
+    if(nested||!f||!binding(d.selector)||!color(d.color)||!color(d.altColor)||typeof d.closeOnPage!=='boolean')throw Error('Faceplate örnek ayarları geçersiz.');
+    const keys=faceBindings(f.objects);
+    if([d.bindings,d.alternate].some(m=>!m||typeof m!=='object'||Array.isArray(m)||Object.keys(m).length!==keys.length||keys.some(k=>!Object.hasOwn(m,k)||!binding(m[k]))))throw Error('Faceplate eşlemeleri geçersiz.');
+  }
+}
+const fpEdit=find('fp-edit'),fpForm=find('fp-form');
+function fpSelectedTemplate(){return (project.faceplates??[]).find(f=>f.name===find('tp-face-list').value);}
+function fpBuildTemplate(objects,name){
+  const x=Math.min(...objects.map(o=>o.x)),y=Math.min(...objects.map(o=>o.y));
+  return {name,objects:structuredClone(objects).map(o=>({...o,x:o.x-x,y:o.y-y,page:0,targetPage:undefined,actionLists:withoutHmiPageActions(o.actionLists)}))};
+}
+function editFpType(objects=null,template=null){
+  if(running)return;
+  if(!template&&!objects?.length)return status('Önce HMI tuvalinden nesne seçin.',true);
+  if(objects?.some(o=>o.type==='faceplate'))return status('Şablon oluştururken normal HMI nesnelerini seçin.',true);
+  if(!template&&project.faceplates?.length>=24)return status('24 faceplate sınırına ulaşıldı.',true);
+  const draft=template??fpBuildTemplate(objects,'');
+  fpSource={mode:'type',draft,template};
+  fpForm.innerHTML=`<h2>${template?'Faceplate türü · '+html(template.name):'Yeni faceplate türü'}</h2><label>Tür adı<input name="name" required maxlength="48" value="${html(draft.name)}" ${template?'readonly':''}></label>
+  <h3>Etiket arayüzü</h3><table><thead><tr><th>Şablon etiketi</th><th>Arayüz adı</th><th>Tip</th><th>Yazılabilir</th></tr></thead><tbody>${fpPorts(draft).map((p,i)=>`<tr><td>${html(p.key)}</td><td><input name="label${i}" maxlength="48" required value="${html(p.label)}"></td><td><select name="type${i}">${choices(fpFields,p.type)}</select></td><td><input aria-label="${html(p.key)} yazılabilir" type="checkbox" name="write${i}" ${p.write?'checked':''}></td></tr>`).join('')}</tbody></table>`+fpFooter();
+  fpEdit.showModal();
+}
+function fpFooter(){return '<p role="status"></p><div class="alarm-tools"><button type="button" data-fp-cancel>Vazgeç</button><button>Kaydet</button></div>';}
+function editFpInstance(f,o=null){
+  if(!f||running)return;
+  const ports=fpPorts(f),tags=allTags();
+  const cfg=o?.faceplate??{bindings:Object.fromEntries(ports.map(p=>[p.key,tags.find(t=>t.name===p.key&&t.type===p.type)?.name??''])),alternate:{},selector:'',color:'#223952',altColor:'#2a5962',closeOnPage:true};
+  fpSource={mode:'instance',f,o};
+  const select=(name,values,v)=>`<select name="${name}">${choices(['',...values],v??'')}</select>`;
+  fpForm.innerHTML=`<h2>${html(f.name)} · Faceplate örneği</h2><label>Örnek adı<input name="name" maxlength="48" required value="${html(o?.name??f.name)}"></label>
+  <h3>Etiket arayüzü</h3><table><thead><tr><th>Arayüz</th><th>A bağlantısı</th><th>B bağlantısı</th></tr></thead><tbody>${ports.map((p,i)=>{
+    const values=tags.filter(t=>t.type===p.type).map(t=>t.name);
+    return `<tr><td>${html(p.label)} · ${p.type}</td><td>${select('a'+i,values,cfg.bindings[p.key])}</td><td>${select('b'+i,values,cfg.alternate[p.key]??cfg.bindings[p.key])}</td></tr>`;
+  }).join('')}</tbody></table><h3>Özellik arayüzü</h3>
+  <div class="alarm-tools"><label>A rengi <input name="color" type="color" value="${cfg.color}"></label><label>B rengi <input name="altColor" type="color" value="${cfg.altColor}"></label></div>
+  <label>A/B seçici etiketi (BOOL, 0=A / 1=B)${select('selector',tags.filter(t=>t.type==='BOOL').map(t=>t.name),cfg.selector)}</label>
+  <label><input type="checkbox" name="closeOnPage" ${cfg.closeOnPage?'checked':''}> Sayfa değişince açılır pencereyi kapat</label>`+fpFooter();
+  fpEdit.showModal();
+}
+fpForm.onclick=e=>{if(e.target.closest('[data-fp-cancel]'))fpEdit.close();};
+fpForm.onsubmit=e=>{
+  e.preventDefault();const f=new FormData(fpForm),name=String(f.get('name')).trim();
+  if(!name)return;
+  try{
+    if(fpSource.mode==='type'){
+      const {draft,template}=fpSource;
+      if(!template&&project.faceplates?.some(f=>f.name===name))throw Error('Bu faceplate türü zaten var.');
+      const ports=fpPorts(draft).map((p,i)=>({key:p.key,label:String(f.get('label'+i)).trim(),type:f.get('type'+i),write:f.has('write'+i)}));
+      if(ports.some(p=>!p.label))throw Error('Arayüz adı boş kalamaz.');
+      if(template){
+        const prior=fpPorts(template);
+        if(project.objects.some(o=>o.faceplate?.type===name)&&ports.some((p,i)=>p.type!==prior[i].type))throw Error('Kullanımdaki türün etiket veri tipi değiştirilemez.');
+        template.ports=ports;
+      }else{project.faceplates??=[];project.faceplates.push({...draft,name,ports});}
+    }else{
+      const {f:template,o}=fpSource;
+      if(!o&&project.objects.length>=100)throw Error('100 HMI nesnesi sınırına ulaşıldı.');
+      const ports=fpPorts(template),bindings=Object.fromEntries(ports.map((p,i)=>[p.key,f.get('a'+i)])),alternate=Object.fromEntries(ports.map((p,i)=>[p.key,f.get('b'+i)]));
+      const faceplate={type:template.name,bindings,alternate,color:f.get('color'),altColor:f.get('altColor'),selector:f.get('selector'),closeOnPage:f.has('closeOnPage')};
+      const bounds=fpBounds(template),w=Math.min(860,Math.max(175,bounds.w+16)),h=Math.min(520,Math.max(100,bounds.h+38));
+      const n=pageObjects().filter(o=>o.type==='faceplate').length;
+      const instance=o??{id:id(),type:'faceplate',tag:'',page:activeHmiPage,w,h,x:Math.min(24+n*(w+18),860-w),y:Math.min(52,520-h)};
+      Object.assign(instance,{name,faceplate});if(!o)project.objects.push(instance);
+      setHmiSelection([instance.id]);
+    }
+    change();fpEdit.close();render();
+    if(fpSource.mode==='type')find('tp-face-list').value=name;
+  }catch(error){fpForm.querySelector('[role=status]').textContent=error.message;}
+};
+find('tp-face-save').onclick=()=>editFpType(selectedHmiObjects());
+find('tp-face-edit').onclick=()=>{const f=fpSelectedTemplate();if(f)editFpType(null,f);};
+find('tp-face-insert').onclick=()=>editFpInstance(fpSelectedTemplate());
+find('tp-face-replace').onclick=()=>{
+  const f=fpSelectedTemplate(),objects=selectedHmiObjects();if(!f||running||!objects.length||objects.some(o=>o.type==='faceplate'))return;
+  if(!confirm('Seçili nesnelerle faceplate türünün görünümü güncellensin mi?'))return;
+  const next=fpBuildTemplate(objects,f.name);
+  if(JSON.stringify(faceBindings(next.objects).sort())!==JSON.stringify(faceBindings(f.objects).sort()))return status('Türü güncellerken aynı arayüz etiketleri kullanılmalı.',true);
+  f.objects=next.objects;change();render();
+};
+function fpInstanceProps(o){
+  if(o.type!=='faceplate')return '';
+  return '<p>Faceplate türü · '+html(o.faceplate.type)+'</p><button type="button" data-fp-instance-edit>Etiket ve özellik arayüzü</button>';
+}
+find('tp-props').addEventListener('click',e=>{
+  if(!e.target.closest('[data-fp-instance-edit]'))return;
+  const o=project.objects.find(o=>o.id===selected&&o.type==='faceplate');
+  if(o)editFpInstance(fpTemplate(o),o);
+});
+function closeFpWindow(key){fpWindows.get(key)?.panel.remove();fpWindows.delete(key);}
+function updateFpWindows(){
+  for(const [key,item] of fpWindows){
+    const o=project.objects.find(o=>o.id===key);
+    if(!running||!o||item.page!==activeHmiPage&&o.faceplate.closeOnPage){closeFpWindow(key);continue;}
+    const f=fpTemplate(o),cfg=fpMap(o),panel=item.panel;
+    panel.querySelector('svg').innerHTML=fpChildren(f,cfg,'popup-'+o.id);
+    panel.style.setProperty('--fp-color',cfg.color);
+    for(const [i,port] of fpPorts(f).entries()){
+      const tag=cfg.bindings[port.key],value=mem[tag?.toUpperCase()];
+      const output=panel.querySelector('[data-fp-value="'+i+'"]');
+      output.textContent=tag?tag+' · '+formatValue(value):'Bağlı değil';
+      const control=panel.querySelector('[data-fp-write="'+i+'"]');
+      if(!control)continue;
+      control.disabled=!tag||compiled?.tags[tag.toUpperCase()]?.type!==port.type||scadaFollowing;
+      if(control.type==='checkbox')control.checked=value===true;
+      else if(document.activeElement!==control)control.value=Number.isFinite(value)?value:'';
+    }
+  }
+}
+function openFpWindow(o){
+  const existing=fpWindows.get(o.id);if(existing){existing.panel.style.zIndex=++fpZ;return;}
+  const f=fpTemplate(o);if(!f)return;
+  const {w,h}=fpBounds(f),panel=document.createElement('section'),index=fpWindows.size;
+  panel.className='fp-window';panel.setAttribute('aria-label',o.name+' faceplate penceresi');
+  panel.style.left=Math.max(4,Math.min(innerWidth-310,30+index*330))+'px';
+  panel.style.top=Math.max(4,Math.min(innerHeight-160,95+index*34))+'px';
+  panel.style.zIndex=++fpZ;
+  panel.innerHTML=`<header><strong>${html(o.name)}</strong><button data-fp-close aria-label="Kapat">×</button></header><div class="fp-window-content"><svg viewBox="0 0 ${w} ${h}" aria-hidden="true"></svg>
+  ${fpPorts(f).map((p,i)=>`<label><b>${html(p.label)}</b><output data-fp-value="${i}"></output>${p.write?`<input aria-label="${html(p.label)}" data-fp-write="${i}" type="${p.type==='BOOL'?'checkbox':'number'}" step="any">`:''}</label>`).join('')}</div>`;
+  const header=panel.querySelector('header');
+  let moving=null;
+  header.onpointerdown=e=>{
+    if(e.button!==0||e.target.closest('button'))return;
+    header.setPointerCapture(e.pointerId);moving={x:e.clientX-panel.offsetLeft,y:e.clientY-panel.offsetTop};
+  };
+  header.onpointermove=e=>{if(moving){panel.style.left=bounded(e.clientX-moving.x,0,Math.max(0,innerWidth-panel.offsetWidth))+'px';panel.style.top=bounded(e.clientY-moving.y,0,Math.max(0,innerHeight-34))+'px';}};
+  header.onlostpointercapture=()=>{moving=null;};
+  panel.addEventListener('pointerdown',()=>{panel.style.zIndex=++fpZ;});
+  panel.querySelector('[data-fp-close]').onclick=()=>closeFpWindow(o.id);
+  panel.onchange=e=>{
+    if(!e.target.matches('[data-fp-write]')||e.target.disabled)return;
+    const port=fpPorts(f)[Number(e.target.dataset.fpWrite)],tag=fpMap(o).bindings[port.key];
+    const value=e.target.type==='checkbox'?e.target.checked:e.target.valueAsNumber;
+    if(!tag||typeof value!=='boolean'&&!Number.isFinite(value))return;
+    try{writeInput(tag.toUpperCase(),value);}catch(error){status(error.message,true);}
+  };
+  find('fp-windows').append(panel);fpWindows.set(o.id,{panel,page:activeHmiPage});updateFpWindows();
+}
+
+const hydroSignals={gate:'KAPAK_YUZDE',flow:'DEBI_M3S',rpm:'TURBIN_RPM',power:'GUC_MW',sync:'SEBEKE_BAGLI',alarm:'SICAKLIK_TEST'};
+function hydroSignal(o,key){return o.hydroTags?.[key]??hydroSignals[key];}
+function hydroProps(o){
+  if(o.type!=='hydroDiagram')return '';
+  const labels={gate:'Kapak (%)',flow:'Debi',rpm:'Devir',power:'Aktif güç',sync:'Şebeke durumu',alarm:'Arıza durumu'};
+  return '<details open><summary>HES proses etiketleri</summary>'+Object.keys(hydroSignals).map(key=>
+    '<label>'+labels[key]+'<select data-hydro-signal="'+key+'">'+tagChoices(hydroSignal(o,key),allTags().filter(t=>['sync','alarm'].includes(key)?t.type==='BOOL':t.type!=='BOOL'))+'</select></label>'
+  ).join('')+'</details>';
+}
+find('tp-props').addEventListener('change',e=>{
+  const key=e.target.dataset.hydroSignal,o=project.objects.find(item=>item.id===selected);
+  if(!key||running||o?.type!=='hydroDiagram')return;
+  o.hydroTags={...o.hydroTags,[key]:e.target.value};change();drawScreen();
+});
+const hydroAngles=new WeakMap();
+function hydroShape(o){
+  const key=k=>hydroSignal(o,k).toUpperCase();
+  const n=k=>Number(mem[key(k)])||0;
+  const gate=n('gate'),flow=n('flow'),rpm=n('rpm'),power=n('power');
+  const sync=mem[key('sync')]===true,alarm=mem[key('alarm')]===true;
+  const ink=alarm?'#ff9a8b':'#78e0bf';
+  const metal='hydrom-'+o.id,water='hydrow-'+o.id;
+  const last=hydroAngles.get(o)??{angle:0,at:cycle};
+  if(running&&cycle!==last.at){last.angle=(last.angle+Math.max(0,Math.min(cycle-last.at,1))*rpm*0.12)%360;last.at=cycle;}
+  hydroAngles.set(o,last);const rotor=last.angle;
+  const label=(x,y,s,fill='#c6dce7',size=11)=>`<text x="${x}" y="${y}" text-anchor="middle" style="fill:${fill};font-size:${size}px;font-weight:700">${s}</text>`;
+  return `<svg width="${o.w}" height="${o.h}" viewBox="0 0 660 276" pointer-events="none">
+  <defs><linearGradient id="${metal}" x2="0" y2="1"><stop stop-color="#c2d8e4"/><stop offset=".45" stop-color="#506b82"/><stop offset="1" stop-color="#263e56"/></linearGradient>
+  <linearGradient id="${water}" x2="0" y2="1"><stop stop-color="#214f69"/><stop offset="1" stop-color="#122c45"/></linearGradient></defs>
+  <rect x=".5" y=".5" width="659" height="275" rx="9" fill="#0d2133" stroke="#38586c"/>
+  <path d="M19 231H641" stroke="#28465b" stroke-dasharray="4 6"/>
+  ${label(83,29,'REZERVUAR')}${label(230,29,'CEBRİ BORU')}${label(367,29,'TÜRBİN')}${label(480,29,'JENERATÖR')}${label(602,29,'ŞEBEKE')}
+  <path d="M24 64v139h107V64M24 203h106" fill="#152b3d" stroke="#90a9bb" stroke-width="4"/>
+  <path d="M27 107q13 -7 26 0t26 0t26 0t23 0v93H27z" fill="url(#${water})"/>
+  <path d="M29 106q13 -7 26 0t26 0t26 0t21 0" fill="none" stroke="#54d4e7" stroke-width="3"/>
+  <path d="M115 152h38l32 -23h139m45 44v30l42 29h25" fill="none" stroke="#53778c" stroke-width="25" stroke-linejoin="round"/>
+  <path d="M115 152h38l32 -23h139m45 44v30l42 29h25" fill="none" stroke="#183c56" stroke-width="17" stroke-linejoin="round"/>
+  <path d="M115 152h38l32 -23h139m45 44v30l42 29h25" fill="none" stroke="${flow>1?'#64e0f0':'#31566a'}" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 12" stroke-dashoffset="${-(cycle*3)%19}"/>
+  <path d="M220 96v14m-12 -17h24" stroke="#9bb7c8" stroke-width="3"/>
+  <rect x="205" y="111" width="30" height="36" rx="4" fill="#182d40" stroke="#adc3d4"/>
+  <rect x="216" y="${112+(100-gate)*.23}" width="8" height="11" rx="2" fill="#efc773"/>
+  ${label(220,169,'KAPAK')}${label(220,186,formatValue(gate)+' %','#efc773')}
+  <circle cx="368" cy="130" r="48" fill="url(#${metal})" stroke="#abc6d8" stroke-width="2"/>
+  <circle cx="368" cy="130" r="36" fill="#102a40" stroke="#60869a" stroke-width="2"/>
+  <g transform="rotate(${rotor} 368 130)" fill="#71d3de" stroke="#a7e3ee" stroke-width=".8">
+  ${[0,60,120,180,240,300].map(a=>`<path transform="rotate(${a} 368 130)" d="M368 127c9 -9 15 -14 20 -16c-2 9 -6 15 -16 21z"/>`).join('')}
+  </g><circle cx="368" cy="130" r="8" fill="#d4e3eb"/>
+  <path d="M415 130h35" stroke="#aec8d8" stroke-width="11"/>
+  <rect x="448" y="93" width="83" height="74" rx="8" fill="url(#${metal})" stroke="#9db5c8"/>
+  <rect x="458" y="103" width="63" height="54" rx="4" fill="#203548"/>
+  ${[0,1,2,3,4].map(i=>`<rect x="${464+i*11}" y="108" width="7" height="44" rx="2" fill="#bc8156"/>`).join('')}
+  <path d="M531 130h45m29 0h28" stroke="${sync?'#7fe0b4':'#65798a'}" stroke-width="4"/>
+  <circle cx="577" cy="130" r="3" fill="#d7e7ed"/><circle cx="605" cy="130" r="3" fill="#d7e7ed"/><path d="M577 130l28 ${sync?0:-14}" stroke="${sync?'#7fe0b4':'#efc773'}" stroke-width="3"/>
+  <path d="M634 107v48m-8 -35h16m-21 12h26" stroke="#90b0c5" stroke-width="2"/>
+  ${label(602,169,sync?'BAĞLI':'AYRI',sync?'#7fe0b4':'#efc773')}
+  ${label(486,190,formatValue(power)+' MW',ink,15)}${label(366,188,formatValue(rpm)+' rpm','#b2e4f3')}
+  ${label(69,254,'SU ALMA')}${label(242,254,formatValue(flow)+' m³/s','#79e3ec',14)}${label(417,254,'KUYRUK SUYU')}${label(563,254,alarm?'SICAKLIK TESTİ':'ÜNİTE 01',ink)}
+  </svg>`;
+}
+
+const hydroTemplate={"format":"turko-studio-project-v1","name":"Hidroelektrik Santrali · HES-01","language":"ST","plant":false,"st":"PROGRAM MAIN\nIF URETIM_ISTEK AND NOT SICAKLIK_TEST THEN\n  KAPAK_YUZDE := KAPAK_YUZDE + (KAPAK_SET - KAPAK_YUZDE) * 0.18;\n  SEBEKE_BAGLI := TRUE;\n  UNITE_MODU := 1;\nELSE\n  KAPAK_YUZDE := KAPAK_YUZDE * 0.82;\n  SEBEKE_BAGLI := FALSE;\n  UNITE_MODU := 0;\nEND_IF;\nDEBI_M3S := KAPAK_YUZDE * 0.94;\nIF SEBEKE_BAGLI THEN\n  TURBIN_RPM := 300.0;\n  FREKANS_HZ := 50.0;\n  GUC_MW := DEBI_M3S * DUSU_M * 0.0088;\nELSE\n  TURBIN_RPM := TURBIN_RPM * 0.87;\n  FREKANS_HZ := 0.0;\n  GUC_MW := 0.0;\nEND_IF;\nIF SICAKLIK_TEST THEN\n  UNITE_MODU := 2;\n  GEN_SICAKLIK := 92.0;\nELSE\n  GEN_SICAKLIK := GEN_SICAKLIK + (28.0 + GUC_MW * 0.7 - GEN_SICAKLIK) * 0.12;\nEND_IF;\nENERJI_MWH := ENERJI_MWH + GUC_MW / 18000.0;\nEND_PROGRAM","rungs":[],"objects":[{"type":"text","name":"HİDROELEKTRİK SANTRALİ","tag":"","page":0,"x":14,"y":13,"w":620,"h":50,"fontSize":24,"fontBold":true,"color":"#d4effa"},{"type":"text","name":"HES-01  /  ÜNİTE 01  /  YEREL SİMÜLASYON","tag":"","page":0,"x":16,"y":50,"w":610,"h":50,"fontSize":12,"fontBold":true,"color":"#8dbace"},{"type":"value","name":"Brüt düşü · m","tag":"DUSU_M","page":0,"x":20,"y":84,"w":146,"h":69,"color":"#67d4e2"},{"type":"value","name":"Su debisi · m³/s","tag":"DEBI_M3S","page":0,"x":181,"y":84,"w":146,"h":69,"color":"#67d4e2"},{"type":"value","name":"Aktif güç · MW","tag":"GUC_MW","page":0,"x":342,"y":84,"w":146,"h":69,"color":"#6cdbaf"},{"type":"value","name":"Jeneratör · °C","tag":"GEN_SICAKLIK","page":0,"x":503,"y":84,"w":146,"h":69,"color":"#eab371"},{"type":"hydroDiagram","name":"HES proses şeması","tag":"","page":0,"x":17,"y":164,"w":642,"h":267},{"type":"multiText","name":"Ünite durumu","tag":"UNITE_MODU","page":0,"x":20,"y":445,"w":632,"h":54,"fontSize":17,"textStates":[{"value":0,"label":"ÜNİTE BEKLEMEDE"},{"value":1,"label":"ÜRETİMDE · ŞEBEKEYE BAĞLI"},{"value":2,"label":"JENERATÖR SICAKLIK TESTİ · ÜNİTE AYRILDI"}],"color":"#65e6bd"},{"type":"text","name":"OPERATÖR","tag":"","page":0,"x":680,"y":35,"w":165,"h":50,"fontSize":15,"fontBold":true,"color":"#d4effa"},{"type":"button","name":"GENEL BAKIŞ","tag":"","page":0,"x":683,"y":84,"w":155,"h":50,"actionLists":{"click":[{"action":"page","page":0}]},"color":"#235071"},{"type":"button","name":"ÜNİTE KUMANDA","tag":"","page":0,"x":683,"y":144,"w":155,"h":50,"actionLists":{"click":[{"action":"page","page":1}]},"color":"#235071"},{"type":"button","name":"TREND VE ALARM","tag":"","page":0,"x":683,"y":204,"w":155,"h":50,"actionLists":{"click":[{"action":"page","page":2}]},"color":"#235071"},{"type":"button","name":"SICAKLIK TESTİ","tag":"","page":0,"x":683,"y":289,"w":155,"h":50,"actionLists":{"click":[{"action":"set","tag":"SICAKLIK_TEST"}]},"color":"#773d48"},{"type":"button","name":"TESTİ SIFIRLA","tag":"","page":0,"x":683,"y":349,"w":155,"h":50,"actionLists":{"click":[{"action":"reset","tag":"SICAKLIK_TEST"}]},"color":"#23635d"},{"type":"button","name":"ÜNİTE AÇ / KAPAT","tag":"","page":0,"x":683,"y":409,"w":155,"h":50,"actionLists":{"click":[{"action":"toggle","tag":"URETIM_ISTEK"}]},"color":"#235071"},{"type":"text","name":"ÜNİTE KUMANDA","tag":"","page":1,"x":20,"y":14,"w":780,"h":50,"fontSize":24,"fontBold":true,"color":"#d4effa"},{"type":"text","name":"Kılavuz kanat açıklığı ve türbin ölçümleri","tag":"","page":1,"x":22,"y":52,"w":720,"h":50,"fontSize":14,"fontBold":true,"color":"#8dbace"},{"type":"hmi_numeric_05","name":"Kapak seti · %","tag":"KAPAK_SET","page":1,"x":24,"y":110,"w":140,"h":261,"min":0,"max":100,"unit":"%","color":"#79e2cc"},{"type":"value","name":"Kılavuz kanat · %","tag":"KAPAK_YUZDE","page":1,"x":195,"y":110,"w":295,"h":69,"color":"#67d4e2"},{"type":"value","name":"Türbin hızı · rpm","tag":"TURBIN_RPM","page":1,"x":515,"y":110,"w":300,"h":69,"color":"#67d4e2"},{"type":"value","name":"Frekans · Hz","tag":"FREKANS_HZ","page":1,"x":195,"y":196,"w":295,"h":69,"color":"#67d4e2"},{"type":"value","name":"Üretilen enerji · MWh","tag":"ENERJI_MWH","page":1,"x":515,"y":196,"w":300,"h":69,"color":"#67d4e2"},{"type":"value","name":"Jeneratör · °C","tag":"GEN_SICAKLIK","page":1,"x":195,"y":282,"w":295,"h":69,"color":"#eab371"},{"type":"value","name":"Aktif güç · MW","tag":"GUC_MW","page":1,"x":515,"y":282,"w":300,"h":69,"color":"#6cdbaf"},{"type":"button","name":"GENEL BAKIŞ","tag":"","page":1,"x":24,"y":430,"w":207,"h":50,"actionLists":{"click":[{"action":"page","page":0}]},"color":"#235071"},{"type":"button","name":"TREND VE ALARM","tag":"","page":1,"x":250,"y":430,"w":220,"h":50,"actionLists":{"click":[{"action":"page","page":2}]},"color":"#235071"},{"type":"button","name":"ÜNİTE AÇ / KAPAT","tag":"","page":1,"x":500,"y":430,"w":220,"h":50,"actionLists":{"click":[{"action":"toggle","tag":"URETIM_ISTEK"}]},"color":"#235071"},{"type":"text","name":"TREND VE ALARM","tag":"","page":2,"x":20,"y":14,"w":780,"h":50,"fontSize":24,"fontBold":true,"color":"#d4effa"},{"type":"processTrend","name":"Aktif güç / debi · MW / m³/s","tag":"","page":2,"x":22,"y":75,"w":808,"h":172,"trendRange":15,"trendSeries":[{"tag":"GUC_MW","source":"live","color":"#68e3bd"},{"tag":"DEBI_M3S","source":"archive","group":"hes-proses","color":"#67bbff"}]},{"type":"alarmTable","name":"Aktif alarmlar","tag":"","page":2,"x":22,"y":266,"w":808,"h":139,"alarmColumns":["state","on","priority","message"],"color":"#eab371"},{"type":"button","name":"GENEL BAKIŞ","tag":"","page":2,"x":24,"y":431,"w":207,"h":50,"actionLists":{"click":[{"action":"page","page":0}]},"color":"#235071"},{"type":"button","name":"ÜNİTE KUMANDA","tag":"","page":2,"x":250,"y":431,"w":220,"h":50,"actionLists":{"click":[{"action":"page","page":1}]},"color":"#235071"}],"hmiPages":["Genel Bakış","Ünite Kumanda","Trend ve Alarm"],"hmiHome":0,"tags":[{"name":"URETIM_ISTEK","type":"BOOL","initial":true},{"name":"SICAKLIK_TEST","type":"BOOL","initial":false},{"name":"SEBEKE_BAGLI","type":"BOOL","initial":true},{"name":"KAPAK_SET","type":"REAL","initial":65},{"name":"KAPAK_YUZDE","type":"REAL","initial":65},{"name":"DEBI_M3S","type":"REAL","initial":61.1},{"name":"DUSU_M","type":"REAL","initial":88},{"name":"GUC_MW","type":"REAL","initial":47.32},{"name":"TURBIN_RPM","type":"REAL","initial":300},{"name":"FREKANS_HZ","type":"REAL","initial":50},{"name":"GEN_SICAKLIK","type":"REAL","initial":61},{"name":"ENERJI_MWH","type":"REAL","initial":0},{"name":"UNITE_MODU","type":"INT","initial":1}],"hmiLogId":"hes-01-demo","hmiLogs":[{"id":"hes-proses","name":"HES proses arşivi","mode":"cycle","interval":1000,"tags":["GUC_MW","DEBI_M3S","GEN_SICAKLIK","ENERJI_MWH"]}],"hmiAlarms":[{"id":"hes-gen-temp","name":"Jeneratör sıcaklığı","message":"Jeneratör sıcaklık testi · ünite üretimden ayrıldı.","tag":"SICAKLIK_TEST","op":"eq","value":1,"priority":"high","mode":"alarm","logged":true}]};
+function makeHydroProject(){return validateProject(structuredClone(hydroTemplate));}
+function openHydroRuntime(){
+  open(makeHydroProject());stash();savedList();studioNavigatePage(0);startWizardPreview();
+  find('wizard-preview-controls')?.remove();
+}
+if(location.hash==='#hidro'){openHydroRuntime();}else if(location.hash==='#dolum'){open(validateProject(fillingTemplate));view('filling');}else if(!location.hash){open(blank('Yeni Proje'));view('applications');}
 window.addEventListener('beforeunload',e=>{if(unsavedProjects.size){e.preventDefault();e.returnValue='';}});
 
 })();

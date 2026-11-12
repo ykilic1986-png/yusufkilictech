@@ -1,0 +1,638 @@
+{
+  "format": "turko-studio-project-v1",
+  "name": "Hidroelektrik Santrali · HES-01",
+  "language": "ST",
+  "plant": false,
+  "st": "PROGRAM MAIN\nIF URETIM_ISTEK AND NOT SICAKLIK_TEST THEN\n  KAPAK_YUZDE := KAPAK_YUZDE + (KAPAK_SET - KAPAK_YUZDE) * 0.18;\n  SEBEKE_BAGLI := TRUE;\n  UNITE_MODU := 1;\nELSE\n  KAPAK_YUZDE := KAPAK_YUZDE * 0.82;\n  SEBEKE_BAGLI := FALSE;\n  UNITE_MODU := 0;\nEND_IF;\nDEBI_M3S := KAPAK_YUZDE * 0.94;\nIF SEBEKE_BAGLI THEN\n  TURBIN_RPM := 300.0;\n  FREKANS_HZ := 50.0;\n  GUC_MW := DEBI_M3S * DUSU_M * 0.0088;\nELSE\n  TURBIN_RPM := TURBIN_RPM * 0.87;\n  FREKANS_HZ := 0.0;\n  GUC_MW := 0.0;\nEND_IF;\nIF SICAKLIK_TEST THEN\n  UNITE_MODU := 2;\n  GEN_SICAKLIK := 92.0;\nELSE\n  GEN_SICAKLIK := GEN_SICAKLIK + (28.0 + GUC_MW * 0.7 - GEN_SICAKLIK) * 0.12;\nEND_IF;\nENERJI_MWH := ENERJI_MWH + GUC_MW / 18000.0;\nEND_PROGRAM",
+  "rungs": [],
+  "objects": [
+    {
+      "type": "text",
+      "name": "HİDROELEKTRİK SANTRALİ",
+      "tag": "",
+      "page": 0,
+      "x": 14,
+      "y": 13,
+      "w": 620,
+      "h": 50,
+      "fontSize": 24,
+      "fontBold": true,
+      "color": "#d4effa",
+      "id": "9d9f77c2-0909-43b9-90cf-8ec4d9766fb8"
+    },
+    {
+      "type": "text",
+      "name": "HES-01  /  ÜNİTE 01  /  YEREL SİMÜLASYON",
+      "tag": "",
+      "page": 0,
+      "x": 16,
+      "y": 50,
+      "w": 610,
+      "h": 50,
+      "fontSize": 12,
+      "fontBold": true,
+      "color": "#8dbace",
+      "id": "9c759e9a-9b8e-4df7-a21d-de87df2b0c74"
+    },
+    {
+      "type": "value",
+      "name": "Brüt düşü · m",
+      "tag": "DUSU_M",
+      "page": 0,
+      "x": 20,
+      "y": 84,
+      "w": 146,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "50939be7-e06d-44cd-9ef4-4610139cea28"
+    },
+    {
+      "type": "value",
+      "name": "Su debisi · m³/s",
+      "tag": "DEBI_M3S",
+      "page": 0,
+      "x": 181,
+      "y": 84,
+      "w": 146,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "1f27eeb5-8292-479d-8046-f85ed6885163"
+    },
+    {
+      "type": "value",
+      "name": "Aktif güç · MW",
+      "tag": "GUC_MW",
+      "page": 0,
+      "x": 342,
+      "y": 84,
+      "w": 146,
+      "h": 69,
+      "color": "#6cdbaf",
+      "id": "70540b7d-8179-4dae-8b0c-8a80fde435b9"
+    },
+    {
+      "type": "value",
+      "name": "Jeneratör · °C",
+      "tag": "GEN_SICAKLIK",
+      "page": 0,
+      "x": 503,
+      "y": 84,
+      "w": 146,
+      "h": 69,
+      "color": "#eab371",
+      "id": "df5eee44-9a08-42c8-b933-c8d837adc598"
+    },
+    {
+      "type": "hydroDiagram",
+      "name": "HES proses şeması",
+      "tag": "",
+      "page": 0,
+      "x": 17,
+      "y": 164,
+      "w": 642,
+      "h": 267,
+      "id": "037ff17d-4229-466c-a5bc-30577b8436b8"
+    },
+    {
+      "type": "multiText",
+      "name": "Ünite durumu",
+      "tag": "UNITE_MODU",
+      "page": 0,
+      "x": 20,
+      "y": 445,
+      "w": 632,
+      "h": 54,
+      "fontSize": 17,
+      "textStates": [
+        {
+          "value": 0,
+          "label": "ÜNİTE BEKLEMEDE"
+        },
+        {
+          "value": 1,
+          "label": "ÜRETİMDE · ŞEBEKEYE BAĞLI"
+        },
+        {
+          "value": 2,
+          "label": "JENERATÖR SICAKLIK TESTİ · ÜNİTE AYRILDI"
+        }
+      ],
+      "color": "#65e6bd",
+      "id": "d8ef36b9-3068-4dd8-b809-67a47b1f06de"
+    },
+    {
+      "type": "text",
+      "name": "OPERATÖR",
+      "tag": "",
+      "page": 0,
+      "x": 680,
+      "y": 35,
+      "w": 165,
+      "h": 50,
+      "fontSize": 15,
+      "fontBold": true,
+      "color": "#d4effa",
+      "id": "217dc910-f91c-42c8-bd62-227956dad278"
+    },
+    {
+      "type": "button",
+      "name": "GENEL BAKIŞ",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 84,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 0
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "1fff1cac-b82c-4f01-8f9b-e8ae7355961d"
+    },
+    {
+      "type": "button",
+      "name": "ÜNİTE KUMANDA",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 144,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 1
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "7cb75769-525e-40e3-ba0e-f798b8f76144"
+    },
+    {
+      "type": "button",
+      "name": "TREND VE ALARM",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 204,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 2
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "e630a58a-5472-484a-84a0-0e916ee45112"
+    },
+    {
+      "type": "button",
+      "name": "SICAKLIK TESTİ",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 289,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "set",
+            "tag": "SICAKLIK_TEST"
+          }
+        ]
+      },
+      "color": "#773d48",
+      "id": "9fa92e45-732a-47c3-8fce-a76752ca3f6a"
+    },
+    {
+      "type": "button",
+      "name": "TESTİ SIFIRLA",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 349,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "reset",
+            "tag": "SICAKLIK_TEST"
+          }
+        ]
+      },
+      "color": "#23635d",
+      "id": "0810180a-ca7b-4769-b8c6-6e0d7e949bdf"
+    },
+    {
+      "type": "button",
+      "name": "ÜNİTE AÇ / KAPAT",
+      "tag": "",
+      "page": 0,
+      "x": 683,
+      "y": 409,
+      "w": 155,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "toggle",
+            "tag": "URETIM_ISTEK"
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "ace91701-e9b5-4ae4-b097-01ff9bddb9aa"
+    },
+    {
+      "type": "text",
+      "name": "ÜNİTE KUMANDA",
+      "tag": "",
+      "page": 1,
+      "x": 20,
+      "y": 14,
+      "w": 780,
+      "h": 50,
+      "fontSize": 24,
+      "fontBold": true,
+      "color": "#d4effa",
+      "id": "82fd5772-21f6-4708-a162-33afbc5fa4b9"
+    },
+    {
+      "type": "text",
+      "name": "Kılavuz kanat açıklığı ve türbin ölçümleri",
+      "tag": "",
+      "page": 1,
+      "x": 22,
+      "y": 52,
+      "w": 720,
+      "h": 50,
+      "fontSize": 14,
+      "fontBold": true,
+      "color": "#8dbace",
+      "id": "2ab47a67-b918-49b1-86ce-382dedaddebd"
+    },
+    {
+      "type": "hmi_numeric_05",
+      "name": "Kapak seti · %",
+      "tag": "KAPAK_SET",
+      "page": 1,
+      "x": 24,
+      "y": 110,
+      "w": 140,
+      "h": 261,
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "color": "#79e2cc",
+      "id": "d9a622e6-5029-417e-910c-64952e15e2a7"
+    },
+    {
+      "type": "value",
+      "name": "Kılavuz kanat · %",
+      "tag": "KAPAK_YUZDE",
+      "page": 1,
+      "x": 195,
+      "y": 110,
+      "w": 295,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "f2fff390-7114-4cff-b68b-c597d4354803"
+    },
+    {
+      "type": "value",
+      "name": "Türbin hızı · rpm",
+      "tag": "TURBIN_RPM",
+      "page": 1,
+      "x": 515,
+      "y": 110,
+      "w": 300,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "79fa3fe6-c4c9-4492-aa7a-4c1a40e1f768"
+    },
+    {
+      "type": "value",
+      "name": "Frekans · Hz",
+      "tag": "FREKANS_HZ",
+      "page": 1,
+      "x": 195,
+      "y": 196,
+      "w": 295,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "7a9f4444-948c-4cf1-b5ef-9baa82ecee53"
+    },
+    {
+      "type": "value",
+      "name": "Üretilen enerji · MWh",
+      "tag": "ENERJI_MWH",
+      "page": 1,
+      "x": 515,
+      "y": 196,
+      "w": 300,
+      "h": 69,
+      "color": "#67d4e2",
+      "id": "f27bfea1-e980-4a5c-9a59-16ac909cc830"
+    },
+    {
+      "type": "value",
+      "name": "Jeneratör · °C",
+      "tag": "GEN_SICAKLIK",
+      "page": 1,
+      "x": 195,
+      "y": 282,
+      "w": 295,
+      "h": 69,
+      "color": "#eab371",
+      "id": "ad8bfbe8-5bda-45ea-ab45-a3b88739aeb6"
+    },
+    {
+      "type": "value",
+      "name": "Aktif güç · MW",
+      "tag": "GUC_MW",
+      "page": 1,
+      "x": 515,
+      "y": 282,
+      "w": 300,
+      "h": 69,
+      "color": "#6cdbaf",
+      "id": "3de31a58-0908-4207-b811-773d3f23574f"
+    },
+    {
+      "type": "button",
+      "name": "GENEL BAKIŞ",
+      "tag": "",
+      "page": 1,
+      "x": 24,
+      "y": 430,
+      "w": 207,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 0
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "a33d2e2f-88c1-4e53-ba8a-70da0a1997b5"
+    },
+    {
+      "type": "button",
+      "name": "TREND VE ALARM",
+      "tag": "",
+      "page": 1,
+      "x": 250,
+      "y": 430,
+      "w": 220,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 2
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "c63fea30-abd7-4543-8d12-db9fc0574217"
+    },
+    {
+      "type": "button",
+      "name": "ÜNİTE AÇ / KAPAT",
+      "tag": "",
+      "page": 1,
+      "x": 500,
+      "y": 430,
+      "w": 220,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "toggle",
+            "tag": "URETIM_ISTEK"
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "0ec5d088-c8ce-442d-86df-05e174f4e4e9"
+    },
+    {
+      "type": "text",
+      "name": "TREND VE ALARM",
+      "tag": "",
+      "page": 2,
+      "x": 20,
+      "y": 14,
+      "w": 780,
+      "h": 50,
+      "fontSize": 24,
+      "fontBold": true,
+      "color": "#d4effa",
+      "id": "8d970378-a982-4502-b66b-c41b581e7d9a"
+    },
+    {
+      "type": "processTrend",
+      "name": "Aktif güç / debi · MW / m³/s",
+      "tag": "",
+      "page": 2,
+      "x": 22,
+      "y": 75,
+      "w": 808,
+      "h": 172,
+      "trendRange": 15,
+      "trendSeries": [
+        {
+          "tag": "GUC_MW",
+          "source": "live",
+          "color": "#68e3bd"
+        },
+        {
+          "tag": "DEBI_M3S",
+          "source": "archive",
+          "group": "hes-proses",
+          "color": "#67bbff"
+        }
+      ],
+      "id": "a341fb59-64fb-4b7e-a437-70e905b7d9a4"
+    },
+    {
+      "type": "alarmTable",
+      "name": "Aktif alarmlar",
+      "tag": "",
+      "page": 2,
+      "x": 22,
+      "y": 266,
+      "w": 808,
+      "h": 139,
+      "alarmColumns": [
+        "state",
+        "on",
+        "priority",
+        "message"
+      ],
+      "color": "#eab371",
+      "id": "53d54194-6533-47e4-8eb7-90a2b3c6e5bb"
+    },
+    {
+      "type": "button",
+      "name": "GENEL BAKIŞ",
+      "tag": "",
+      "page": 2,
+      "x": 24,
+      "y": 431,
+      "w": 207,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 0
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "7e4b5ef1-3d0c-441f-9e19-ddc8fa8f9c74"
+    },
+    {
+      "type": "button",
+      "name": "ÜNİTE KUMANDA",
+      "tag": "",
+      "page": 2,
+      "x": 250,
+      "y": 431,
+      "w": 220,
+      "h": 50,
+      "actionLists": {
+        "click": [
+          {
+            "action": "page",
+            "page": 1
+          }
+        ]
+      },
+      "color": "#235071",
+      "id": "0bf3113a-36ee-440c-8a1d-97a33b029c1a"
+    }
+  ],
+  "hmiPages": [
+    "Genel Bakış",
+    "Ünite Kumanda",
+    "Trend ve Alarm"
+  ],
+  "hmiHome": 0,
+  "tags": [
+    {
+      "name": "URETIM_ISTEK",
+      "type": "BOOL",
+      "initial": true
+    },
+    {
+      "name": "SICAKLIK_TEST",
+      "type": "BOOL",
+      "initial": false
+    },
+    {
+      "name": "SEBEKE_BAGLI",
+      "type": "BOOL",
+      "initial": true
+    },
+    {
+      "name": "KAPAK_SET",
+      "type": "REAL",
+      "initial": 65
+    },
+    {
+      "name": "KAPAK_YUZDE",
+      "type": "REAL",
+      "initial": 65
+    },
+    {
+      "name": "DEBI_M3S",
+      "type": "REAL",
+      "initial": 61.1
+    },
+    {
+      "name": "DUSU_M",
+      "type": "REAL",
+      "initial": 88
+    },
+    {
+      "name": "GUC_MW",
+      "type": "REAL",
+      "initial": 47.32
+    },
+    {
+      "name": "TURBIN_RPM",
+      "type": "REAL",
+      "initial": 300
+    },
+    {
+      "name": "FREKANS_HZ",
+      "type": "REAL",
+      "initial": 50
+    },
+    {
+      "name": "GEN_SICAKLIK",
+      "type": "REAL",
+      "initial": 61
+    },
+    {
+      "name": "ENERJI_MWH",
+      "type": "REAL",
+      "initial": 0
+    },
+    {
+      "name": "UNITE_MODU",
+      "type": "INT",
+      "initial": 1
+    }
+  ],
+  "hmiLogId": "hes-01-demo",
+  "hmiLogs": [
+    {
+      "id": "hes-proses",
+      "name": "HES proses arşivi",
+      "mode": "cycle",
+      "interval": 1000,
+      "tags": [
+        "GUC_MW",
+        "DEBI_M3S",
+        "GEN_SICAKLIK",
+        "ENERJI_MWH"
+      ]
+    }
+  ],
+  "hmiAlarms": [
+    {
+      "id": "hes-gen-temp",
+      "name": "Jeneratör sıcaklığı",
+      "message": "Jeneratör sıcaklık testi · ünite üretimden ayrıldı.",
+      "tag": "SICAKLIK_TEST",
+      "op": "eq",
+      "value": 1,
+      "priority": "high",
+      "mode": "alarm",
+      "logged": true
+    }
+  ],
+  "id": "6fcfffc3-2924-4152-b908-fb9294e103e5",
+  "application": {
+    "target": "desktop",
+    "description": "Rezervuar, türbin, jeneratör ve şebeke izleme simülasyonu.",
+    "author": "",
+    "devices": []
+  }
+}
