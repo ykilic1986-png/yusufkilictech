@@ -1,0 +1,30 @@
+#tp-nav .studio-group{margin:10px 0;border:1px solid #284957;border-radius:6px}
+#tp-nav .studio-group summary{padding:8px 9px;color:#b8dbdd;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.03em}
+#tp-nav .studio-group button{margin:0 0 3px 8px;width:calc(100% - 16px);text-align:left}
+.studio-pane{max-width:1120px;padding:6px 0 26px}
+.studio-pane h2{margin:10px 0 4px}
+.studio-pane h3{margin:0 0 10px;color:#d9eeef;font-size:14px}
+.studio-pane p{color:#abc4ce}
+.studio-card{background:#102733;border:1px solid #2b4d5d;border-radius:9px;padding:14px;margin:12px 0;overflow:auto}
+.studio-form{display:flex;gap:9px;flex-wrap:wrap;align-items:end}
+.studio-form label{display:grid;gap:5px;min-width:115px}
+.studio-form input,.studio-form select{min-height:32px;max-width:100%}
+.studio-form label:has(input[type=checkbox]){display:flex;align-items:center;min-height:30px}
+.studio-form input[type=checkbox]{min-height:auto}
+.studio-mapping{display:grid;grid-template-columns:1fr 1.5fr 1fr 120px auto;gap:6px;align-items:end;margin:7px 0;min-width:610px}
+.studio-mapping label{display:grid;gap:4px}
+.studio-mapping input{width:100%;min-height:31px}
+.studio-pane table{border-collapse:collapse;width:100%;margin:6px 0;font-size:12px}
+.studio-pane td,.studio-pane th{border-bottom:1px solid #2a4653;padding:7px 8px;text-align:left;white-space:nowrap}
+.studio-pane th{color:#a5cbd0;background:#142e3b}
+.studio-pane .studio-good{color:#7af3bd;font-weight:700}
+.studio-pane .studio-bad{color:#ffd382}
+.studio-pane .studio-message{margin:8px 0;min-height:20px}
+.studio-pane .studio-message.error{color:#ffb8ad}
+.studio-pane .studio-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:8px 0}
+.studio-pane .studio-actions a{color:#a3edee;text-decoration:underline;padding:5px 8px}
+.studio-pane svg{display:block;max-height:265px;width:100%;background:#0e202c;border-radius:7px}
+.studio-pane code{color:#a9ece2}
+@media(max-width:650px){.studio-mapping{min-width:530px}}
+.studio-3d{height:360px;overflow:hidden;border-radius:8px}
+.studio-3d canvas{display:block}

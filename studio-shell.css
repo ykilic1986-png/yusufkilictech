@@ -1,0 +1,358 @@
+#turko-project-workspace{--desk:#14263e;--panel:#101e31;--panel-hi:#273950;--edge:#38516f;--cyan:#5ca8ff;--studio-zoom:85%;background:var(--desk);color:#f1f1f1;font:13px 'Segoe UI',Arial,sans-serif}
+#turko-project-workspace [hidden]{display:none!important}
+#turko-project-workspace button,#turko-project-workspace input,#turko-project-workspace select{border-radius:2px;border-color:var(--edge);background:#263b55;color:#f7f7f7}
+#turko-project-workspace button:hover{background:#365577}
+#turko-project-workspace button:focus-visible,#turko-project-workspace summary:focus-visible{outline:2px solid #85c5ff;outline-offset:-2px}
+#turko-project-workspace button.on,#turko-project-workspace .tp-primary{background:#215ba4;border-color:#64aafa;color:#fff}
+#turko-project-workspace button:disabled{opacity:.45}
+#turko-project-workspace p,#turko-project-workspace label{color:#b9d5f2}
+#turko-project-workspace .tp-head{display:block;padding:0;border-color:#0a1523;background:#101e32}
+#turko-project-workspace .tp-head>div{margin:0}
+.studio-menubar,.studio-toolbar{display:flex;align-items:center;gap:4px;padding:2px 8px;min-height:30px}
+.studio-menubar strong{font-size:12px;font-weight:700;padding:0 11px 0 5px;white-space:nowrap}
+.studio-menubar details{position:relative}
+.studio-menubar summary{list-style:none;cursor:pointer;padding:5px 8px}
+.studio-menubar summary::-webkit-details-marker{display:none}
+.studio-menubar details[open] summary,.studio-menubar summary:hover{background:#334860}
+.studio-menubar details>div{position:absolute;top:100%;left:0;z-index:30;display:grid;width:max-content;min-width:155px;background:#142741;border:1px solid #3a5778;box-shadow:0 6px 20px #0006;padding:3px}
+#turko-project-workspace .studio-menubar button{padding:3px 7px;text-align:left;border-color:transparent}
+#tp-active-project{margin-left:auto;color:#b6d3f6;padding-right:9px}
+.studio-toolbar{background:#1c304b;border-top:1px solid #2b4564;min-height:34px}
+#turko-project-workspace .studio-toolbar button{border-color:transparent;padding:3px 7px;min-width:27px;min-height:25px;font-size:14px}
+.studio-toolbar button span{font-size:11px}
+.studio-toolbar i{display:inline-block;align-self:stretch;width:1px;background:#3b5675;margin:4px 5px}
+.studio-object-tools{display:flex;align-items:center;gap:2px}
+#turko-project-workspace .tp-layout{grid-template-columns:205px minmax(0,1fr)}
+#turko-project-workspace .tp-side{background:#12243c;padding:0 5px 8px;border-right:2px solid #36516d}
+#turko-project-workspace .tp-side>label{padding:6px 4px;font-size:11px}
+#turko-project-workspace .tp-side>label input{height:24px;margin-top:3px}
+#turko-project-workspace .tp-side>h3{margin:0 -5px 3px;padding:4px 8px;background:#204d87;color:white;font-size:11px;letter-spacing:0}
+#turko-project-workspace #tp-nav .studio-group,#turko-project-workspace .tp-side>.studio-group{margin:0;border:0;border-radius:0;border-bottom:1px solid #2d455f}
+#turko-project-workspace #tp-nav summary,#turko-project-workspace .tp-side>.studio-group>summary{padding:5px 5px;font-size:12px;font-weight:600;color:#eee;cursor:pointer;background:#14263e}
+#turko-project-workspace .tp-side button{font-size:12px;min-height:24px;margin:0;border:0;border-bottom:1px solid #294563;padding:3px 7px;background:#152941}
+#turko-project-workspace .tp-side .studio-group button{margin:0;width:100%;padding-left:16px}
+#turko-project-workspace .tp-side button:hover{background:#294563}
+#turko-project-workspace .tp-side button.on{background:#235994}
+#turko-project-workspace #studio-tree-validate{background:#214f88;color:white;margin-top:7px}
+#turko-project-workspace .tp-main{padding:0 9px 8px;background:#182d48}
+#studio-tabs{display:flex;align-items:end;gap:2px;min-height:28px;overflow:auto;background:#172b43;margin:0 -9px 4px;padding:3px 4px 0;position:sticky;top:0;z-index:10}
+#studio-tabs>span{display:flex;align-items:stretch;background:#3a4a60;border:1px solid #55667b;border-bottom:0;white-space:nowrap}
+#turko-project-workspace #studio-tabs button{border:0;background:transparent;padding:3px 7px;min-height:22px;font-size:11px}
+#studio-tabs>span.current{background:#36516d;border-top:2px solid #79b6ff}
+#turko-project-workspace .tp-tools{margin:4px 0;padding:2px 0;border-color:#2d455f}
+#turko-project-workspace[data-studio-view=pages] .tp-tools,#turko-project-workspace[data-studio-view=hmi] .tp-tools{display:none}
+#turko-project-workspace #tp-status{min-height:22px;padding:3px 1px;font-size:11px;color:#9dc9f8}
+#turko-project-workspace #tp-status:empty{display:none}
+.studio-section-head,.studio-hmi-command{display:flex;justify-content:space-between;align-items:center;background:#334860;border:1px solid #3c5878;padding:3px 6px;gap:6px}
+.studio-section-head>div{display:flex;gap:4px;flex-wrap:wrap}
+#turko-project-workspace .studio-section-head button,#turko-project-workspace .studio-hmi-command button{min-height:23px;padding:2px 6px;font-size:11px}
+#studio-page-list{padding:10px 2px}
+.studio-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(182px,1fr));gap:9px}
+#turko-project-workspace .studio-page-card{display:block;padding:3px;background:#172b43;text-align:left}
+.studio-page-card svg{display:block;width:100%;background:#151e23;aspect-ratio:860/520}
+.studio-page-card svg text{fill:#e8f6f9;font:13px system-ui}
+.studio-page-card span{display:block;padding:6px}
+#turko-project-workspace .studio-page-selected{outline:2px solid #5ca8ff;outline-offset:-2px;background:#284c77}
+#studio-page-list table,#studio-validation table{width:100%;border-collapse:collapse}
+#studio-page-list th,#studio-page-list td,#studio-validation td,#studio-validation th{text-align:left;padding:6px 8px;border:1px solid #375373}
+#studio-page-list th,#studio-validation th{background:#101e32}
+#studio-page-list tbody tr:nth-child(even){background:#223a56}
+#turko-project-workspace [data-page=hmi] > p{display:none}
+#turko-project-workspace [data-page=hmi] > .tp-row,#turko-project-workspace .hmi-quick{margin:3px 0}
+#turko-project-workspace #tp-page-form{display:none}
+#turko-project-workspace .tp-hmi,#turko-project-workspace .tp-hmi.hmi-runtime{display:grid;grid-template-columns:minmax(0,1fr) 235px 27px;gap:2px;margin-top:4px;min-height:385px}
+#turko-project-workspace #tp-canvas{grid-column:1;grid-row:1;min-height:375px;align-self:stretch;overflow:auto;border:1px solid #3c5978;border-radius:0;background:#2a4464}
+.studio-ruler{height:16px;background:repeating-linear-gradient(90deg,transparent 0 9px,#91b2d6 9px 10px) bottom left/100% 6px no-repeat,#263d57;border-bottom:1px solid #3c5978;position:sticky;top:0}
+.studio-stage{padding:28px 17px;min-height:330px;display:flex;align-items:flex-start;justify-content:center}
+#turko-project-workspace #tp-screen{width:var(--studio-zoom);flex:0 0 var(--studio-zoom);margin:auto;background:#101e32;box-shadow:0 1px 12px #0006;border:1px solid #222}
+#turko-project-workspace #tp-props,#turko-project-workspace .hmi-library,#turko-project-workspace #studio-object-tree{display:none;grid-row:1;grid-column:2;align-self:stretch;overflow:auto;max-height:70vh;padding:7px;background:#162940;border:1px solid #3c5878;border-radius:0}
+#turko-project-workspace[data-inspector=properties] #tp-props,#turko-project-workspace[data-inspector=events] #tp-props,#turko-project-workspace[data-inspector=objects] #studio-object-tree,#turko-project-workspace[data-inspector=library] .hmi-library{display:block}
+#turko-project-workspace[data-inspector=events] #tp-props>*:not(.hmi-events){display:none}
+#turko-project-workspace[data-inspector=properties] #tp-props .hmi-events{display:none}
+#turko-project-workspace #tp-props::before{content:'Özellikler';display:block;margin:-7px -7px 7px;padding:4px 6px;background:#204d87;color:white;font-size:11px}
+#turko-project-workspace[data-inspector=events] #tp-props::before{content:'Olaylar'}
+#turko-project-workspace .studio-inspector-tabs{grid-column:3;grid-row:1;display:flex;flex-direction:column;align-items:stretch;gap:3px;background:#3a4a60}
+#turko-project-workspace .studio-inspector-tabs button{padding:2px;min-height:25px}
+#studio-object-tree button{display:block;width:100%;text-align:left;margin-bottom:3px}
+#turko-project-workspace #studio-validation{margin-top:7px;background:#172b45;border:1px solid #3c5978}
+#studio-validation .studio-section-head{background:#23558e;color:white;border-color:#23558e}
+.studio-statusbar{display:flex;align-items:center;justify-content:space-between;background:#102037;border-top:1px solid #324d6e;padding:2px 8px;font-size:11px;gap:12px}
+#turko-project-workspace .studio-statusbar label{display:flex;align-items:center;gap:6px}
+#studio-zoom{height:14px;accent-color:#74b9ff}
+#turko-project-workspace #studio-page-dialog{background:#182e49;color:white;border:1px solid #3c5978;padding:13px;min-width:260px}
+#turko-project-workspace .studio-pane{max-width:none;padding:4px 0}
+#turko-project-workspace .studio-card{background:#182e49;border:1px solid #3c5878;border-radius:0;padding:9px;margin:7px 0}
+#turko-project-workspace .studio-card h3{background:#2e4461;color:white;letter-spacing:0;margin:-9px -9px 8px;padding:5px 8px}
+#turko-project-workspace .studio-pane th{background:#101e32;color:#f4f4f4}
+#turko-project-workspace .studio-pane td,#turko-project-workspace .studio-pane th{border-color:#38516f}
+#turko-project-workspace .studio-pane tr:nth-child(even){background:#1c304b}
+@media(max-width:850px){
+#turko-project-workspace .tp-layout{grid-template-columns:160px minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+#turko-project-workspace .tp-side{max-height:none}
+#turko-project-workspace .tp-side #tp-nav,#turko-project-workspace .tp-side #tp-list{display:block}
+#turko-project-workspace .tp-hmi,#turko-project-workspace .tp-hmi.hmi-runtime{grid-template-columns:minmax(0,1fr) 170px 26px}
+}
+@media(max-width:570px){
+#turko-project-workspace .tp-layout{grid-template-columns:1fr;grid-template-rows:125px minmax(0,1fr)}
+.studio-menubar,.studio-toolbar{flex-wrap:wrap}
+#turko-project-workspace .tp-hmi,#turko-project-workspace .tp-hmi.hmi-runtime{grid-template-columns:minmax(0,1fr) 26px}
+#turko-project-workspace #tp-props,#turko-project-workspace .hmi-library,#turko-project-workspace #studio-object-tree{grid-column:1;grid-row:2}
+#turko-project-workspace .studio-inspector-tabs{grid-column:2}
+}
+#turko-project-workspace .studio-background-setting{padding:5px;border-top:1px solid #3c5878;display:flex;align-items:center;gap:8px}
+#turko-project-workspace #studio-import-pages{background:#182e49;color:#fff;border:1px solid #3c5978;padding:13px;min-width:280px}
+#studio-import-options{max-height:45vh;overflow:auto;margin:8px 0}
+#studio-import-options label{padding:4px}
+#turko-project-workspace[data-inspector=layers] #studio-object-tree{display:block}
+#turko-project-workspace .studio-inspector-tabs{width:27px;min-width:27px;padding:2px}
+#turko-project-workspace .studio-inspector-tabs button{min-width:0;width:100%;box-sizing:border-box;font:15px Arial,sans-serif;line-height:22px;padding:0;overflow:visible}
+.studio-layer-controls{display:flex;gap:3px;margin-bottom:5px}
+#turko-project-workspace.fill-focus-mode .studio-statusbar,#turko-project-workspace.fill-focus-mode #studio-tabs{display:none}
+#turko-project-workspace #studio-validation{position:sticky;bottom:0;z-index:11}
+#studio-validation-list{max-height:120px;overflow:auto}
+#turko-project-workspace{color:#d8eaff}
+#turko-project-workspace .tp-head{box-shadow:0 2px 9px #08122066}
+.studio-menubar strong,#turko-project-workspace .studio-section-head strong{color:#a8d1ff}
+#turko-project-workspace #studio-tabs>span{background:#3b4656;border-color:#566578}
+#turko-project-workspace #studio-tabs>span.current{background:#535f70;border-top-color:#7eb9ff}
+#turko-project-workspace #studio-tabs button{color:#e4effc}
+#turko-project-workspace .tp-side button{color:#c5ddf9}
+#turko-project-workspace #tp-screen{aspect-ratio:var(--studio-target-ratio,860 / 520);height:auto}
+#turko-project-workspace #tp-create,#turko-project-workspace #studio-tag-dialog{width:min(740px,94vw);max-height:94vh;overflow:auto;background:#11233c;color:#d9ebff;border:1px solid #5277a4;border-radius:8px;padding:0;box-shadow:0 25px 95px #060e1fc9}
+#turko-project-workspace #studio-tag-dialog{width:min(530px,94vw)}
+#studio-tag-dialog::backdrop{background:#030b16ae}
+.wizard-heading{padding:13px 20px;background:#1c3a62;display:flex;align-items:center;justify-content:space-between}
+#turko-project-workspace .wizard-heading h2,#turko-project-workspace #studio-tag-dialog h2{color:#afd5ff;margin:0}
+#turko-project-workspace #studio-tag-dialog h2{padding:13px 18px;background:#1c3a62}
+#wizard-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;list-style:none;padding:0 18px;margin:13px 0 0;counter-reset:step}
+#wizard-steps li{counter-increment:step;border-bottom:2px solid #394e68;color:#aac4df;padding:6px 3px;font-size:12px}
+#wizard-steps li::before{content:counter(step) ' · '}
+#wizard-steps li.active{border-color:#6ab7ff;color:#d9edff;font-weight:700}
+#wizard-steps li.done{border-color:#326aaa}
+.wizard-content{padding:10px 20px;min-height:235px}
+#turko-project-workspace .wizard-content h3{margin:6px 0 11px;color:#a4cfff;letter-spacing:0;font-size:15px}
+#turko-project-workspace .wizard-content input,#turko-project-workspace .wizard-content textarea,#turko-project-workspace .wizard-content select{background:#1b3250;border:1px solid #46658a;color:#e2f0ff;border-radius:3px;display:block;width:100%;padding:6px 8px;margin:4px 0 8px}
+#turko-project-workspace .wizard-content input[type=radio]{display:inline;width:auto;margin:0 4px 0 0;accent-color:#6ab7ff}
+#wizard-targets{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+#turko-project-workspace #wizard-targets label{border:1px solid #456284;background:#192f4b;padding:10px;border-radius:4px;margin:0;cursor:pointer}
+#turko-project-workspace #wizard-targets label:has(input:checked){border-color:#78bcff;background:#244976}
+#wizard-targets span{display:block;margin:7px 0 0 20px;color:#b4d3f5}
+#wizard-target-preview{display:block;margin-top:13px;color:#9cc9fb}
+.wizard-device-grid{display:grid;grid-template-columns:minmax(145px,1fr) 2fr;gap:14px}
+#wizard-devices button{width:100%;text-align:left;margin-bottom:5px}
+#wizard-device-form{border:1px solid #405e82;padding:7px 10px}
+#wizard-device-parameters{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px}
+#wizard-error,#studio-tag-error{min-height:16px;color:#ffc0aa!important;margin:0 20px 7px!important}
+.wizard-footer{display:flex;align-items:center;gap:7px;justify-content:flex-end;padding:8px 20px;background:#192f4c;border-top:1px solid #416081}
+.wizard-footer span{flex:1}
+#turko-project-workspace #wizard-next{background:#245eab;border-color:#7bb6f0;font-weight:700}
+#wizard-summary dl{display:grid;grid-template-columns:100px 1fr;gap:9px}
+#wizard-summary dd{margin:0}
+#wizard-project-devices table{width:100%;border-collapse:collapse}
+#wizard-project-devices th,#wizard-project-devices td{border-bottom:1px solid #446082;text-align:left;padding:7px}
+#wizard-project-devices th{background:#142741}
+#turko-project-workspace.wizard-preview .tp-head,#turko-project-workspace.wizard-preview .tp-side,#turko-project-workspace.wizard-preview #studio-tabs,#turko-project-workspace.wizard-preview #tp-status,#turko-project-workspace.wizard-preview .studio-statusbar,#turko-project-workspace.wizard-preview #studio-validation{display:none!important}
+#turko-project-workspace.wizard-preview .tp-layout{display:block}
+#turko-project-workspace.wizard-preview .tp-main{height:100%;padding:0}
+#turko-project-workspace.wizard-preview [data-page=hmi]>.tp-row,#turko-project-workspace.wizard-preview .hmi-quick,#turko-project-workspace.wizard-preview .studio-inspector-tabs,#turko-project-workspace.wizard-preview #hmi-mode-toggle{display:none!important}
+#turko-project-workspace.wizard-preview .tp-hmi{display:block}
+#turko-project-workspace.wizard-preview #tp-canvas{border:0;background:#11233b}
+#turko-project-workspace.wizard-preview .studio-ruler{display:none}
+#turko-project-workspace.wizard-preview .studio-stage{padding:10px;min-height:0}
+#turko-project-workspace.wizard-preview #tp-screen{width:min(88vw,calc((100dvh - 126px) * 1.6));max-height:calc(100dvh - 125px);flex:0 1 auto}
+#wizard-preview-controls{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:8px}
+#turko-project-workspace #wizard-preview-controls label{display:flex;gap:6px;align-items:center}
+#wizard-preview-controls input[type=number]{width:76px}
+#turko-project-workspace[data-studio-view=applications] .tp-tools{display:none}
+#studio-applications{max-width:1020px;margin:15px auto}
+.app-hub-head{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+#studio-hub-projects table{width:100%;border-collapse:collapse}
+#studio-hub-projects td,#studio-hub-projects th{text-align:left;padding:8px;border-bottom:1px solid #3d5776}
+#studio-hub-projects th{background:#142b48}
+.studio-example-list{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0}
+#hmi-arrange{display:flex;gap:5px;align-items:center;margin-left:auto}
+#hmi-arrange select{padding:3px;max-width:155px}
+#turko-project-workspace #tp-props .hmi-action-row{background:#1a304d;border:1px solid #42648c;padding:5px;margin-bottom:6px}
+.hmi-action-row-tools{display:flex;gap:3px}
+#turko-project-workspace #tp-props .hmi-action-row-tools button{min-height:22px;padding:2px 5px}
+#turko-project-workspace #tp-props input[type=checkbox]{width:auto}
+#turko-project-workspace #hmi-recipe-runtime,#turko-project-workspace #hmi-user-login{background:#132840;color:#ddecff;border:1px solid #537ca9;border-radius:6px;padding:0;max-height:90vh;overflow:auto}
+#hmi-recipe-runtime{width:min(860px,93vw)}
+#hmi-user-login{width:min(400px,93vw)}
+#hmi-recipe-runtime::backdrop,#hmi-user-login::backdrop{background:#050c17bb}
+#hmi-recipe-runtime-content,.recipe-parameters,.recipe-commands{padding:7px}
+.recipe-table-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:6px;overflow:auto}
+.recipe-table-grid table{width:100%;border-collapse:collapse}
+.recipe-table-grid td,.recipe-table-grid th{padding:5px;border-bottom:1px solid #426184;text-align:left}
+.recipe-table-grid th{background:#1c3a5b}
+.recipe-table-grid input{width:94px}
+#recipe-runtime-message{min-height:18px;margin:5px 8px}
+@media(max-width:630px){.recipe-table-grid{grid-template-columns:1fr}}
+
+.alarm-tools{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.alarm-scroll{overflow:auto;max-height:55vh;margin-top:.75rem}
+.alarm-scroll table{width:100%;border-collapse:collapse}
+.alarm-scroll td,.alarm-scroll th{text-align:left;padding:.55rem .65rem;border-bottom:1px solid #415a73;vertical-align:top}
+.alarm-scroll th{position:sticky;top:0;background:#233f58;color:#eff7ff}
+.hmi-alarm-dialog{width:min(920px,92vw);color:#eaf4ff;background:#132739;border:1px solid #486884;border-radius:8px}
+.hmi-alarm-dialog::backdrop{background:#071423aa}
+#hmi-alarm-edit{width:min(470px,92vw)}
+#hmi-alarm-form label{display:block;margin:.55rem 0}
+#hmi-alarm-form input:not([type=checkbox]),#hmi-alarm-form select{display:block;width:100%}
+.alarm-column{display:flex;justify-content:space-between;align-items:center;gap:.35rem}
+.alarm-scroll tr[data-alarm-priority=critical] td:first-child{border-left:3px solid #ff7d85}
+.alarm-scroll tr[data-alarm-priority=high] td:first-child{border-left:3px solid #ffbf6c}
+
+#hmi-log-edit{width:min(560px,92vw)}
+#hmi-log-form>label{display:block;margin:.65rem 0}
+#hmi-log-form>label>input,#hmi-log-form>label>select{display:block;width:100%}
+.log-tag-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));max-height:28vh;overflow:auto;gap:.35rem;border:1px solid #486884}
+#hmi-trend-dialog #trend-plot{width:100%;height:auto;background:#102538;border:1px solid #3a5774;cursor:crosshair}
+#trend-window,#trend-cursor{color:#c5dbef;font-size:.85rem}
+#trend-legend{display:flex;gap:.75rem;flex-wrap:wrap;margin:.5rem 0}
+#trend-legend span{display:inline-flex;align-items:center;gap:.4rem}
+#trend-legend i{display:inline-block;width:.8rem;height:.22rem}
+#trend-rows{max-height:24vh}
+#turko-project-workspace #tp-props fieldset{min-width:0;border:1px solid #415a73;margin:6px 0}
+#tp-screen [data-hmi-resize]{cursor:nwse-resize}
+
+/* Docked engineering workspace */
+#turko-project-workspace{--studio-tree-w:238px;--studio-tool-w:250px;--studio-details-h:208px;--studio-bottom-h:192px;--dock-edge:#a3aebb;--dock-ink:#1c2b3f;--dock-paper:#edf0f3}
+#turko-project-workspace:not(.wizard-preview) .tp-layout{grid-template-columns:var(--studio-tree-w) 6px minmax(0,1fr);grid-template-rows:minmax(0,1fr);background:#a8b2bd}
+#turko-project-workspace .tp-side{display:grid;grid-template-rows:25px minmax(0,1fr) 6px var(--studio-details-h);padding:0;overflow:hidden;border:0;background:var(--dock-paper);color:var(--dock-ink)}
+.studio-dock-heading{padding:4px 8px;background:#324760;color:#f5f8fd;font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.studio-tree-scroll{overflow:auto;padding:5px 5px 7px}
+#turko-project-workspace .studio-tree-scroll>label{font-size:11px;padding:0 3px 4px}
+#turko-project-workspace .studio-tree-scroll>label input{height:23px;margin-top:3px}
+#turko-project-workspace .studio-tree-scroll>h3{margin:2px 0;padding:2px 4px;color:#506078;letter-spacing:0}
+#turko-project-workspace .tp-side :is(button,summary,input){background:transparent;color:var(--dock-ink);border-color:#bbc5cf}
+#turko-project-workspace .tp-side summary{padding:4px 4px;color:#344359;background:#e2e7ec}
+#turko-project-workspace .tp-side button{min-height:22px;border-bottom:1px solid #d7dfe6}
+#turko-project-workspace .tp-side button:is(.on,:hover){background:#cbddef;color:#153e68}
+#turko-project-workspace .tp-side button.on{box-shadow:inset 3px 0 #347ebc}
+#turko-project-workspace .tp-side label,#turko-project-workspace .tp-side p{color:#47566a}
+.studio-tag-dock{min-height:0;display:grid;grid-template-rows:25px minmax(0,1fr)}
+#studio-drag-tags{overflow:auto}
+#studio-drag-tags>div{display:flex;justify-content:space-between;align-items:center;gap:4px;padding:5px 8px;border-bottom:1px solid #d1d9e3;cursor:grab;font-size:11px}
+#studio-drag-tags>div:nth-child(even){background:#e1e7ee}
+#studio-drag-tags>div:hover{background:#cbddef}
+#studio-drag-tags>div b{overflow:hidden;text-overflow:ellipsis}
+#studio-drag-tags>div span{color:#52667c}
+#studio-drag-tags>p{margin:9px;font-size:11px}
+.studio-splitter{background:#acb7c3;outline-offset:-2px;touch-action:none}
+.studio-splitter[aria-orientation=vertical]{cursor:col-resize}
+.studio-splitter[aria-orientation=horizontal]{cursor:row-resize}
+.studio-splitter:is(:hover,:focus-visible){background:#4289c6}
+#turko-project-workspace:not(.wizard-preview) .tp-main{display:grid;grid-template-rows:30px minmax(0,1fr) 6px var(--studio-bottom-h);padding:0;overflow:hidden}
+#turko-project-workspace.studio-dock-collapsed:not(.wizard-preview) .tp-main{grid-template-rows:30px minmax(0,1fr) 0 29px}
+.studio-editor{min-height:0;overflow:auto;padding:0 8px 8px}
+#turko-project-workspace #studio-tabs{min-width:0;margin:0;padding:4px 6px 0;background:#2b3f58;position:static;overflow-x:auto;overflow-y:hidden}
+#turko-project-workspace #studio-tabs>span{flex:none;border-color:#667991;background:#45576e;color:#f5f8fb}
+#turko-project-workspace #studio-tabs>span.current{background:#eef1f4;border-color:#5792c3}
+#turko-project-workspace #studio-tabs>span.current button{color:#203852}
+#turko-project-workspace #studio-tabs>span:not(.current) button{color:#f5f8fb}
+#turko-project-workspace #studio-tabs button{min-height:22px}
+.studio-bottom{display:grid;grid-template-rows:29px minmax(0,1fr);min-height:0;background:#edf0f3;color:var(--dock-ink);overflow:hidden}
+.studio-bottom-tabs{display:flex;align-items:stretch;gap:2px;padding:3px 5px 0;background:#c8d0d8}
+#turko-project-workspace :is(.studio-bottom-tabs,.studio-right-dock .studio-inspector-tabs) button{background:#e1e7ed;color:#26364a;border:1px solid #aab6c4;font-size:11px;min-height:21px;padding:1px 7px;width:auto}
+#turko-project-workspace :is(.studio-bottom-tabs,.studio-right-dock .studio-inspector-tabs) button.on{background:#f6f8fa;color:#195389;border-color:#4f8abe}
+#studio-collapse-dock{margin-left:auto}
+.studio-bottom-body{overflow:auto;min-height:0}
+#turko-project-workspace .studio-bottom-body #tp-props{height:auto;max-height:none;margin:0;border:0;padding:7px 10px;background:#edf0f3;color:var(--dock-ink)}
+#turko-project-workspace .studio-bottom-body #tp-props::before{display:none}
+#turko-project-workspace .studio-bottom-body :is(#tp-props label,#tp-props p,#studio-diagnostics p){color:#354960}
+#turko-project-workspace .studio-bottom-body #tp-props :is(button,input,select,textarea){background:#fafbfd;color:#1b3048;border:1px solid #a8b6c7}
+#turko-project-workspace .studio-bottom-body #tp-props :is(input,select,textarea){padding:3px 6px}
+#turko-project-workspace .studio-bottom-body #tp-props .hmi-action-row{background:#e0e8ef;border-color:#aab8c6}
+#turko-project-workspace[data-inspector=properties][data-studio-view=hmi] .studio-bottom-body #tp-props{display:grid;grid-template-columns:repeat(4,minmax(110px,1fr));align-items:start;gap:4px 12px}
+#turko-project-workspace .studio-bottom-body #tp-props>strong{grid-column:1/-1}
+#turko-project-workspace .studio-bottom-body #tp-props .tp-dim{grid-column:span 2;grid-template-columns:repeat(4,minmax(0,1fr))}
+#turko-project-workspace .studio-bottom-body #tp-props .tp-dim input{width:100%}
+#turko-project-workspace .studio-bottom-body #tp-props details{grid-column:1/-1}
+#turko-project-workspace .studio-bottom-body #tp-props label{margin:0}
+#studio-diagnostics{padding:5px 9px}
+#turko-project-workspace[data-studio-view=hmi]:is([data-inspector=properties],[data-inspector=events]) #studio-diagnostics{display:none}
+#turko-project-workspace:not([data-studio-view=hmi]) #tp-props,#turko-project-workspace[data-inspector=diagnostics] #tp-props{display:none}
+#turko-project-workspace:not(.wizard-preview) .tp-hmi{grid-template-columns:minmax(0,1fr) 6px var(--studio-tool-w);gap:0;min-height:0;align-items:stretch}
+#turko-project-workspace .studio-right-dock{grid-column:3;grid-row:1;min-width:0;min-height:0;display:grid;grid-template-rows:28px minmax(0,1fr);overflow:hidden;background:#e5eaf0;color:var(--dock-ink)}
+#turko-project-workspace .tp-hmi>[data-split=right]{grid-column:2;grid-row:1}
+#turko-project-workspace .studio-right-dock .studio-inspector-tabs{display:flex;flex-direction:row;width:auto;padding:3px;gap:2px;background:#c8d0d8}
+#turko-project-workspace .studio-right-dock :is(.hmi-library,#studio-object-tree){display:none;grid-area:auto;min-width:0;max-height:none;overflow:auto;margin:0;background:#e7edf2;color:var(--dock-ink);border-color:#b4c1cf}
+#turko-project-workspace[data-right-dock=library] .studio-right-dock .hmi-library,#turko-project-workspace:is([data-right-dock=objects],[data-right-dock=layers]) .studio-right-dock #studio-object-tree{display:block}
+#turko-project-workspace .studio-right-dock h3{color:#334d68;margin:2px 0 6px;letter-spacing:0}
+#turko-project-workspace .studio-right-dock :is(button,input,select){background:#f6f8fa;color:#203750;border-color:#aebccc}
+#turko-project-workspace .studio-right-dock #hmi-asset-count{color:#4a6076}
+#turko-project-workspace .studio-right-dock .hmi-thumb{background:#203a52}
+#turko-project-workspace .studio-right-dock .hmi-asset-label{color:#29445e}
+#turko-project-workspace:not(.wizard-preview) #tp-canvas{min-height:0;background:#8995a3;border-color:#5e6d80}
+#turko-project-workspace:not(.wizard-preview) .studio-stage{min-height:0;padding:12px 10px}
+#turko-project-workspace:not(.wizard-preview) .studio-ruler{background-color:#d0d6de;border-color:#8e9aaa}
+#turko-project-workspace:not(.wizard-preview) .studio-editor:has(>[data-page=hmi]:not([hidden])){display:flex;flex-direction:column;padding:0 4px 4px}
+#turko-project-workspace:not(.wizard-preview) [data-page=hmi]:not([hidden]){display:flex;flex-direction:column;min-height:0;flex:1}
+#turko-project-workspace:not(.wizard-preview) [data-page=hmi] .tp-hmi{flex:1}
+#turko-project-workspace .studio-hmi-command{background:#435570}
+#turko-project-workspace.wizard-preview :is(.studio-right-dock,.studio-splitter,.studio-bottom){display:none!important}
+#turko-project-workspace.wizard-preview .studio-editor{padding:0}
+#turko-project-workspace.fill-focus-mode .tp-main{display:block;overflow:auto}
+#turko-project-workspace.fill-focus-mode :is(.studio-bottom,[data-split=bottom]){display:none}
+@media(max-width:950px){
+  #turko-project-workspace:not(.wizard-preview) .tp-layout{grid-template-columns:min(22vw,var(--studio-tree-w)) 6px minmax(0,1fr)}
+  #turko-project-workspace:not(.wizard-preview) .tp-hmi{grid-template-columns:minmax(0,1fr) 6px min(23vw,var(--studio-tool-w))}
+  #turko-project-workspace[data-inspector=properties][data-studio-view=hmi] .studio-bottom-body #tp-props{grid-template-columns:repeat(2,minmax(100px,1fr))}
+}
+@media(max-width:640px){
+  #turko-project-workspace:not(.wizard-preview) .tp-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:130px minmax(0,1fr)}
+  #turko-project-workspace:not(.wizard-preview) .tp-hmi{grid-template-columns:minmax(0,1fr) min(33vw,170px)}
+  #turko-project-workspace .studio-right-dock{grid-column:2}
+  #turko-project-workspace :is(.studio-tag-dock,[data-split=left],[data-split=details],[data-split=right]){display:none}
+  #turko-project-workspace .tp-side{grid-template-rows:25px minmax(0,1fr)}
+  #turko-project-workspace:not(.wizard-preview) .tp-main{grid-template-rows:30px minmax(0,1fr) 6px min(27dvh,var(--studio-bottom-h))}
+  #turko-project-workspace.studio-dock-collapsed:not(.wizard-preview) .tp-main{grid-template-rows:30px minmax(0,1fr) 0 29px}
+}
+#turko-project-workspace .tp-main>.studio-right-dock,#turko-project-workspace .tp-main>[data-split=right]{display:none}
+#turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main{grid-template-columns:minmax(0,1fr) 6px var(--studio-tool-w)}
+#turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main>.studio-right-dock{display:grid;grid-column:3;grid-row:2/-1}
+#turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main>[data-split=right]{display:block;grid-column:2;grid-row:2/-1}
+#turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) #studio-tabs{grid-column:1/-1}
+#turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main>:is(.studio-editor,.studio-bottom,[data-split=bottom]){grid-column:1}
+#turko-project-workspace:not(.wizard-preview) .tp-hmi{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+#turko-project-workspace .studio-right-dock .studio-inspector-tabs{grid-column:1;grid-row:1;min-height:0;width:100%;align-items:stretch}
+#turko-project-workspace .studio-right-dock :is(.hmi-library,#studio-object-tree){grid-column:1;grid-row:2}
+@media(max-width:950px){
+ #turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main{grid-template-columns:minmax(0,1fr) 6px min(23vw,var(--studio-tool-w))}
+ #turko-project-workspace:not(.wizard-preview) .tp-hmi{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+ #turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main{grid-template-columns:minmax(0,1fr) min(33vw,170px)}
+ #turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main>.studio-right-dock{grid-column:2}
+ #turko-project-workspace[data-studio-view=hmi]:not(.wizard-preview) .tp-main>[data-split=right]{display:none}
+}
+#turko-project-workspace[data-right-dock=library] .studio-right-dock .hmi-library{display:block!important}
+#turko-project-workspace:is([data-right-dock=objects],[data-right-dock=layers]) .studio-right-dock #studio-object-tree{display:block!important}
+#turko-project-workspace .studio-right-dock .studio-inspector-tabs{height:28px;min-height:0;position:static}
+#turko-project-workspace:not(.wizard-preview) #tp-canvas{container-type:size}
+#turko-project-workspace:not(.wizard-preview) #tp-screen{width:min(var(--studio-zoom),max(220px,calc((100cqh - 42px) * 1.654)));flex:0 0 auto}
+#turko-project-workspace .studio-right-dock #hmi-gallery button{background:#f3f6f9;border-color:#aebccc}
+#turko-project-workspace .studio-right-dock #hmi-gallery button:hover{background:#d5e4f1;border-color:#5993bf}
+#fp-edit{width:min(720px,94vw)}
+#fp-form table{width:100%;border-collapse:collapse;margin:9px 0 14px}
+#fp-form th,#fp-form td{padding:5px 7px;text-align:left;border-bottom:1px solid #49627a}
+#fp-form td :is(input:not([type=checkbox]),select){width:100%}
+#fp-form>label{margin:.6rem 0}
+#fp-windows{position:absolute;inset:0;pointer-events:none;z-index:45}
+.fp-window{position:absolute;pointer-events:auto;width:min(305px,95vw);max-height:calc(100dvh - 40px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #7293b5;border-radius:6px;background:var(--fp-color,#223952);color:#edf6ff;box-shadow:0 12px 30px #0008}
+.fp-window header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 7px;background:#111f33;cursor:move;touch-action:none}
+#turko-project-workspace .fp-window header button{min-height:24px;padding:0 8px}
+.fp-window-content{overflow:auto;padding:8px}
+.fp-window svg{width:100%;max-height:190px;display:block;margin-bottom:5px}
+.fp-window svg text{fill:#edf6ff;font:13px system-ui}
+#turko-project-workspace .fp-window label{display:grid;grid-template-columns:1fr auto;gap:2px 6px;align-items:center;padding:5px 3px;border-top:1px solid #829ab35c}
+.fp-window label b{grid-column:1/-1;font-size:12px}
+.fp-window output{font-size:11px;overflow-wrap:anywhere}
+#turko-project-workspace .fp-window input[type=number]{width:78px;padding:3px 5px}
+
+#turko-project-workspace[data-studio-view=wind-fleet]:not(.wizard-preview) .tp-main{grid-template-rows:30px minmax(0,1fr)}
+#turko-project-workspace[data-studio-view=wind-fleet] .tp-main :is(.studio-bottom,[data-split=bottom],.tp-tools,#tp-status){display:none}
+#turko-project-workspace[data-studio-view=wind-fleet] .studio-editor{display:flex;flex-direction:column;overflow:hidden;padding:0}
+#studio-wind-fleet{display:flex;flex:1;min-height:0;flex-direction:column}
+#studio-wind-frame{flex:1;width:100%;min-height:0;border:0;background:#0b1a27}
