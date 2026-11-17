@@ -17,6 +17,13 @@ const search=byId('search'), line=byId('line'), type=byId('type');
 const list=new Map();
 let page=1;
 const productTypes=[...new Set(products.flatMap(p=>p.types))];
+const pageSize=12;
+// Rotate the unfiltered category order before applying the visitor's search or series filter.
+const firstPromotedIndex={'I/O modülü':2*pageSize,CPU:pageSize};
+const orderedCategories=new Map(Object.entries(firstPromotedIndex).map(([category,index])=>{
+  const items=products.filter(product=>product.types.includes(category));
+  return [category,[...items.slice(index),...items.slice(0,index)]];
+}));
 const series=[...new Set(products.map(p=>p.line))];
 for(const [select,values] of [[line,series],[type,productTypes]]) {
   for(const value of values.sort((a,b)=>a.localeCompare(b,'tr'))) select.add(new Option(value,value));
@@ -65,13 +72,13 @@ function render() {
     chip.setAttribute('aria-pressed',String(type.value===chip.dataset.type));
   }
   const query=normalized(search.value);
-  const selected=products.filter(p=>(!line.value||p.line===line.value)&&(!type.value||p.types.includes(type.value))&&normalized(p.name+' '+p.types.join(' ')).includes(query));
+  const selected=(orderedCategories.get(type.value)??products).filter(p=>(!line.value||p.line===line.value)&&(!type.value||p.types.includes(type.value))&&normalized(p.name+' '+p.types.join(' ')).includes(query));
   byId('total').textContent=selected.length+' ürün';
-  byId('grid').replaceChildren(...selected.slice((page-1)*12,page*12).map(card));
+  byId('grid').replaceChildren(...selected.slice((page-1)*pageSize,page*pageSize).map(card));
   if(!selected.length) byId('grid').append(element('p','Aramanıza uygun ürün bulunamadı.'));
   const nav=byId('pages');
   nav.replaceChildren();
-  for(let n=1;n<=Math.ceil(selected.length/12);n++){
+  for(let n=1;n<=Math.ceil(selected.length/pageSize);n++){
     const item=button(String(n),()=>{page=n;render();byId('total').scrollIntoView({block:'start'});});
     if(page===n)item.setAttribute('aria-current','page');
     nav.append(item);
