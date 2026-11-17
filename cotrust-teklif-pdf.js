@@ -469,7 +469,7 @@ async function catalogProductImage(src) {
   context.drawImage(img,0,0,canvas.width,canvas.height);
   return {data:canvas.toDataURL('image/jpeg',0.87),ratio:canvas.width/canvas.height};
 }
-async function catalogQuotePdf(rows, logoSource) {
+async function catalogQuotePdf(rows, logoSource, productUrl) {
   const pdf=new jspdf.jsPDF({format:'a4',unit:'mm',compress:true,putOnlyUsedFonts:true});
   for(const [style,font] of Object.entries(quoteFonts)){
     pdf.addFileToVFS(style+'.ttf',font);
@@ -506,7 +506,9 @@ async function catalogQuotePdf(rows, logoSource) {
     const w=Math.min(36,28*picture.ratio), h=w/picture.ratio;
     pdf.addImage(picture.data,'JPEG',19+(36-w)/2,y+(height-h)/2,w,h);
     pdf.setFont('QuoteSans','bold').setFontSize(11).setTextColor('#182744');
-    pdf.text(product.name,descriptionsX,y+8);
+    pdf.setTextColor('#1b34c4');
+    pdf.textWithLink(product.name,descriptionsX,y+8,{url:productUrl(product.id)});
+    pdf.setTextColor('#182744');
     pdf.text(String(quantity),188,y+8,{align:'right'});
     pdf.setFont('QuoteSans','normal').setFontSize(8.5).setTextColor('#506483');
     pdf.text(product.types.join(' · '),descriptionsX,y+13);
