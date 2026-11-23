@@ -1,0 +1,27 @@
+{
+  "version": "2026.11.23",
+  "base_repository": "ykilic1986-png/yusufkilictech",
+  "base_studio_sha256": "dfe70b60d45b58cbd41e1003ee009d9652568f337e8852db8689e96f43181289",
+  "simulation": "browser-only",
+  "files": {
+    "GITHUB_YUKLEME_UCAN_TESTERE.txt": "45443550fff00f9e7175e6b46645c11f78e06513bd3dad1d19660e9c9d6e7311",
+    "Ucan_Testere.turko.json": "54b4f16f8c654829c9690b7ecef4f6d6b9c80e910ae90c81bd0cd715f89681e3",
+    "studio-shell.css": "9d34e29e77f192338b71d7429b76a95f8462e943b31c28906e07ebd253970115",
+    "studio-ucan-testere.css": "ae4f66bb44ecc9fa84f69016c67d85fcdad9e37db6fcd19bcbdb3536983bec03",
+    "studio-workspace.css": "8cae03f906830e60f0a23b812306b0754075744a2b1d0c9ee39fb6ff52738735",
+    "studio-workspace.js": "731b19eada9936d88a30414c47861faee2d28a57d125142480e2545363beab4c",
+    "turko-studio.html": "e962ebe06ff5907ee071420b9c0d2704d6e3ded8d3b5f7cefbf6682196373069",
+    "turko-ucan-testere/Ucan_Testere_Codesys_Taslak.st": "8b59a3021ce84873b450cda53d64487eed371f25d2815f04a03155b8480aebc0",
+    "turko-ucan-testere/app.mjs": "de3abf3c37b1126832354d20d51db8a9a829f7335d7865b4b4614f9d15dc5cb5",
+    "turko-ucan-testere/assets/base.png": "6b8409c507cce9c1ea16a7e49ccd77fbb50a85858bd245d295cbc38ccdbb8dc2",
+    "turko-ucan-testere/assets/head.png": "1725a9173da9d5ac530f7380c2f2930f9f5632f0e7f898bfcfd6865c2f87f4ef",
+    "turko-ucan-testere/assets/motor.png": "7aa07be68bb73329f2756f8c7312ad9f418c982fdb30baf7470f00da92664816",
+    "turko-ucan-testere/assets/tower.png": "b17fdfb4765b2765e6b61e9de5d1b4b0e0c28277e67fca0c937959504bd5b347",
+    "turko-ucan-testere/assets/turko-logo.png": "2573a5ddeb855b1d4fef0828c005d66a3655a7a9f14497352efd5000b8ea1ef8",
+    "turko-ucan-testere/engine.mjs": "43c91e92baeceef0f08467c2d7113af63a258f0bddba7290aea386ea186b721c",
+    "turko-ucan-testere/machine.mjs": "3da3078f326dbb8f7be54a8f9407e8aed8d75d6557ea9e240cc01ed72b9300ac",
+    "turko-ucan-testere/style.css": "218efe492d3d4b77617d34ec61e5b2c2d115ff460fbe014d3fbf30c8a53c3280",
+    "turko-ucan-testere/tests/engine.test.mjs": "713d4e0e839050cbafc9c82f106484d00ed434b434a3c105d80013e2f2deab39",
+    "turko-ucan-testere.html": "c4a258bcb2063264ef9700cfd760089bd5a9588c62af3ca4e2e9595b753ceb35"
+  }
+}

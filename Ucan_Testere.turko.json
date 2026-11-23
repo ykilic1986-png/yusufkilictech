@@ -1,0 +1,62 @@
+{
+  "format": "turko-flying-saw-v1",
+  "version": 1,
+  "name": "Uçan Testere · Elektronik Kam",
+  "feed": 100,
+  "deceleration": 200,
+  "sawSpeed": 48,
+  "scanMs": 20,
+  "cam": [
+    {
+      "x": 0,
+      "y": 0,
+      "type": "Accel"
+    },
+    {
+      "x": 100,
+      "y": 50,
+      "type": "Line"
+    },
+    {
+      "x": 500,
+      "y": 450,
+      "type": "Decel"
+    },
+    {
+      "x": 550,
+      "y": 475,
+      "type": "Return"
+    },
+    {
+      "x": 800,
+      "y": 0,
+      "type": "Dwell"
+    },
+    {
+      "x": 1000,
+      "y": 0,
+      "type": "End"
+    }
+  ],
+  "program": {
+    "power": true,
+    "table": true,
+    "cam": true,
+    "cut": true,
+    "clamp": true,
+    "contacts": [
+      "Cam.InSync",
+      "SyncZone",
+      "ClampClosed",
+      "CutZone"
+    ]
+  },
+  "zones": {
+    "clampOn": 170,
+    "downOn": 200,
+    "upOn": 360,
+    "release": 470,
+    "returnAt": 550
+  },
+  "notes": "Tarayıcıda çalışan sanal PLC / makine modeli. Gerçek CODESYS runtime veya donanım sürücüsü değildir."
+}

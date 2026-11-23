@@ -1,0 +1,68 @@
+TURKO STUDIO — UÇAN TESTERE / ELEKTRONİK KAM
+GitHub Pages güncelleme paketi — 23 Kasım 2026
+
+YÜKLEME
+1. ZIP dosyasını bilgisayarında aç.
+2. İçindeki dosya ve turko-ucan-testere klasörünü, mevcut yusufkilictech deposunun ANA DİZİNİNE yükle. Klasör yapısını koru.
+3. turko-studio.html ve paketteki ortak Studio dosyaları sorulduğunda mevcut dosyaların üzerine yaz. Commit changes yap.
+4. GitHub Pages yayını tamamlandıktan sonra siteyi Ctrl+F5 ile yenile.
+5. TURKO Portal → Studio → Uygulamalar → Uçan Testere · PLCopen / Elektronik Kam → Aç.
+6. Başlat düğmesine bas. İstersen Testere sesi kutusunu işaretle.
+
+Bu bir MEVCUT DEPOYA UYGULANAN güncellemedir. Ana sitenin index.html ve CNAME dosyalarını değiştirmez. Deponun diğer dosyalarını silme. ZIP'in kendisini yüklemek yerine içeriğini yükle. GitHub dosya seçicisi klasörü seçtirmiyorsa ZIP'ten çıkarılmış klasörü yükleme alanına sürükle; klasörün içindeki dosyaları köke dağıtma.
+
+DOSYALAR
+- turko-studio.html: GitHub'daki mevcut editör + Uçan Testere proje bağlantıları.
+- studio-workspace.css, studio-shell.css, studio-workspace.js: mevcut editörün aynı sürümdeki ortak dosyaları.
+- studio-ucan-testere.css: yalnızca yeni projenin görünümüne uygulanan düzen.
+- turko-ucan-testere.html: HMI, Ladder ve kam uygulaması.
+- turko-ucan-testere/: sanal PLC motoru, arayüz, makine katmanları, ST uyarlama taslağı ve motor testi.
+- Ucan_Testere.turko.json: açılabilir, düzenlenebilir örnek proje.
+
+KULLANIM
+Başlat: 20 ms sabit tarama ile master enkoder, kam ve makine çalışır.
+Durdur: master kontrollü yavaşlar; kam onu izler, konum korunur. Başlat kaldığı konumdan devam eder.
+Tek tarama: bir adet 20 ms tarama işler. Tekrar basarak adım adım izlenebilir.
+Acil durdur: arıza kilitlenir ve hareket kesilir. Simülasyonu sıfırla ile sanal makine başlangıca alınır.
+Sekme arka plana alınırsa veya başka proje görünümüne geçilirse simülasyon durdurulur; otomatik yeniden başlamaz.
+Tam ekran: uygulamanın kendi tam ekran düğmesi. Tarayıcı engellerse F11 kullanılabilir.
+
+Makine altında Cam table + eğri, PLC etiketleri, Trace/kayıt ve Olaylar sekmeleri vardır.
+Sağda PLC_PRG / Ladder, Program-izinler ve ST taslağı bulunur.
+Siyah/mavi kutulardaki durumlar ve HMI değerleri aynı sanal PLC nesnesinden gelir; MP4 oynatılmaz.
+Geri dönüşü MC_CamIn kamın azalan Y segmenti ile yapar. Bu projede MC_MoveAbsolute dönüş komutu yoktur.
+InSync tüm kam takibinde açık kalır. Hız eşitliği yalnızca SyncZone bölgesinde geçerlidir.
+Testere üst konuma gelmeden veya mengene açılmadan geri dönüşe geçilirse model arıza verir.
+Kesim çıkışı PLC rung'una, kam bölgesine ve mengene onayına bağlıdır.
+Kesilen parça çıkış ruloları üzerinde ilerler; yere düşen parça efekti yoktur.
+
+PROGRAM VE KAM DÜZENLEME
+Program / izinler: Power, Table, Cam, Clamp, Cut izinleri ve kesim kontaklarının JSON tanımı sanal runtime'ın gerçekten kullandığı programdır. Desteklenmeyen kontaklar reddedilir. Dururken Doğrula ve uygula ile yüklenir.
+Cam tablosu: X-Y noktalarını ve proses bölgelerini dururken değiştir. Altı noktalı bu uygulamada segment türleri sabittir. Kesim segmentinde ΔY=ΔX ve komşu segmentlerde hız sürekliliği korunmalıdır. Hatalı veri mevcut projeyi değiştirmez.
+Uygulama cam değişikliğinde sanal makineyi sıfırlar. Başlangıç ve geri dönüş Y=0'dır.
+V=dY/dX ve A=d²Y/dX² kam türevleridir; A düğümün sağındaki segmenti gösterir. Bu eğitim profili parça polinomlarından oluşur; düğümlerde ivme süreksizlikleri vardır.
+Hat hızı 10–150 mm/s arasında dururken değiştirilebilir. Fazla hızda testere üst konum süresi yetişmezse dönüş onayı hatası görülebilir; bu modelin işlem kilididir.
+
+KAYDET / AÇ
+Kaydet, .turko.json proje dosyası indirir. Projeler localStorage'a yazılmaz, sayfa yeniden açıldığında eski kullanıcı projesi kendiliğinden gelmez.
+Devam etmek için Studio üst menüsünden Proje Aç ile Ucan_Testere.turko.json dosyanı seç. Uçan Testere ekranının kendi Proje Aç düğmesi de kullanılabilir.
+Trace sekmesinden en fazla 5000 örneklik CSV veri kaydı indirilebilir. Proje dosyası programı ve kam ayarlarını saklar; trace verileri ayrı CSV'dir.
+
+PLC / CODESYS KAPSAMI
+Bu paket tarayıcıda çalışan bir SANAL PLC ve proses modelidir. Gerçek bir IEC 61131-3/ST derleyicisi, CODESYS SoftMotion runtime'ı, fiziksel kamera veya EtherCAT sürücüsü değildir.
+MC_Power, MC_CamTableSelect ve MC_CamIn davranışlarını bu uygulamanın desteklediği biçimde yürütür. Genel amaçlı PLCopen kütüphanesi olduğunu iddia etmez.
+Ucan_Testere_Codesys_Taslak.st dosyası hedef PLC'ye uyarlama taslağıdır; tarayıcıdaki motor bu metni derlemez. Gerçek hedefte E1_Encoder, X_Servo, MC_CAM_REF, fiziksel I/O, referans, limitler ve güvenlik yapılandırmaları ayrıca yapılmalıdır.
+Yeni özellik için harici sunucu, internetten kütüphane indirme veya video üretim kredisi gerekmez. Mevcut Studio'nun sunucu isteyen diğer özellikleri bu paketten bağımsızdır.
+
+YEREL DENEME
+Modül dosyaları nedeniyle HTML'ye dosya gezgininde çift tıklamak yerine HTTP sunucusu kullan:
+  python -m http.server 8000
+Sonra tarayıcıda http://localhost:8000/turko-studio.html adresini aç.
+GitHub Pages'te ek kurulum gerekmez.
+
+DOĞRULAMA
+Motor testi:
+  node turko-ucan-testere/tests/engine.test.mjs
+Kam noktaları/türevler, iki kesim çevrimi, geri dönüş kilitleri, durdur/devam, acil durdur/reset, hatalı profil, kesim izni ve arıza algılama kontrolleri geçti.
+DOM testleri: HMI komutları, tek tarama, program düzenleme, hatalı kamın atomik reddi, proje indirme, Studio uygulama kaydı, iframe bağlantısı, menü yönlendirme, normal projeye dönüş ve dosyadan Uçan Testere açılışı geçti.
+Görsel tarayıcı önizlemesi: bu oturumdaki uzak tarayıcı yerel sunucuya bağlanamadığı için tamamlanamadı. DOM testleri gerçek tarayıcı görsel testi yerine geçmez.

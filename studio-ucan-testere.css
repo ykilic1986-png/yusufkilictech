@@ -1,0 +1,7 @@
+/* Scoped integration; existing Studio project views retain their original layout. */
+#turko-project-workspace[data-studio-view=flying-saw]:not(.wizard-preview) .tp-main{grid-template-rows:30px minmax(0,1fr)}
+#turko-project-workspace[data-studio-view=flying-saw] .tp-main :is(.studio-bottom,[data-split=bottom],.tp-tools,#tp-status){display:none}
+#turko-project-workspace[data-studio-view=flying-saw] .studio-editor{display:flex;flex-direction:column;overflow:hidden;padding:0}
+#studio-saw-page{display:flex;flex:1;min-height:0;flex-direction:column}
+#studio-saw-page[hidden]{display:none!important}
+#studio-saw-frame{flex:1;width:100%;height:100%!important;min-height:0!important;border:0;background:#e4eaf0}
