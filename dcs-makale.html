@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DCS nedir? Saha I/O, kontrolör, operatör istasyonu, PLC + SCADA farkı ve DCS seçimi. Genel bir endüstriyel tesis örneği üzerinden teknik rehber.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Bir tesisi DCS nasıl yönetir?">
+  <meta property="og:description" content="Sahadan kontrol odasına DCS mimarisi, tesis uygulamaları ve platform seçim kriterleri.">
+  <meta property="og:url" content="https://www.ykotomasyon.com.tr/dcs-makale.html">
+  <meta property="og:image" content="https://www.ykotomasyon.com.tr/dcs-tesis.webp">
+  <meta property="og:image:alt" content="Operatör istasyonu, dağıtılmış kontrolör panoları ve saha enstrümanlarını gösteren temsili endüstriyel tesis kesiti">
+  <title>Bir tesisi DCS nasıl yönetir? | YK Otomasyon Teknik Blog</title>
+  <link rel="stylesheet" href="dcs-makale.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="frame header-inner"><span>YK Otomasyon</span><span>Teknik Blog</span></div>
+  </header>
+
+  <main class="frame">
+    <article>
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="category">Proses otomasyonu</p>
+          <h1>Bir tesisi <em>DCS</em> nasıl yönetir?</h1>
+          <p class="lede">Sahadaki sensörden operatör ekranına uzanan kontrol zinciri, DCS ile PLC + SCADA arasındaki fark ve bir tesis için doğru platformu seçmenin ölçütleri.</p>
+        </div>
+        <figure>
+          <img src="dcs-tesis.webp" width="1122" height="1402" alt="Operatör istasyonu, ayrı DCS panoları ve saha enstrümanlarını gösteren temsili tesis kesiti">
+          <figcaption>Dağıtılmış kontrol mimarisi · Temsili tesis kesiti</figcaption>
+        </figure>
+      </header>
+
+      <div class="layout">
+        <nav aria-label="Makale içeriği">
+          <h2>İçindekiler</h2>
+          <ul>
+            <li><a href="#mimari">DCS mimarisi</a></li>
+            <li><a href="#ornek">Tank seviyesi örneği</a></li>
+            <li><a href="#karsilastirma">DCS ve PLC + SCADA</a></li>
+            <li><a href="#devreye-alma">Proje ve devreye alma</a></li>
+            <li><a href="#secim">DCS seçim kriterleri</a></li>
+            <li><a href="#trendler">Güncel eğilimler</a></li>
+            <li><a href="#kaynaklar">Kaynaklar</a></li>
+          </ul>
+        </nav>
+
+        <div class="body-copy">
+          <section id="mimari">
+            <h2>DCS nedir?</h2>
+            <p>Dağıtılmış Kontrol Sistemi (DCS), bir tesisin proses kontrolünü ağa bağlı birden fazla kontrolör arasında paylaştıran bütünleşik bir otomasyon mimarisidir. Örneğin, bir kontrolör depolama tanklarını yönetirken bir diğeri karıştırma hattının debi döngülerini, üçüncüsü de ısı transfer ünitesini kontrol edebilir. Operatör istasyonları, bu ünitelerin ölçümlerini ve alarmlarını ortak bir çalışma ortamında toplar.</p>
+            <dl>
+              <dt>Saha enstrümanları ve I/O</dt>
+              <dd>Transmitterler sıcaklık, basınç, seviye ve debi gibi değerleri ölçer. I/O modülleri, kontrolör ile saha cihazları arasındaki giriş ve çıkış sinyallerini taşır. I/O, mimariye göre kontrol panosunda veya sahaya yakın uzak I/O istasyonlarında yer alabilir.</dd>
+              <dt>Kontrolörler ve kontrol ağı</dt>
+              <dd>Kontrolörler PID döngülerini, sıralı işlemleri ve proses kilitlemelerini yürütür. Kontrol ağı, operatör istasyonları, sunucular ve kontrolörler arasında veri alışverişi sağlar.</dd>
+              <dt>Operatör ve mühendislik yazılımları</dt>
+              <dd>Operatörler proses ekranlarından ünitenin durumunu izler, alarmları değerlendirir ve yetkili oldukları hedef değerleri değiştirir. Mühendislik ortamında kontrol mantığı, saha sinyalleri ve operatör ekranları yapılandırılır.</dd>
+            </dl>
+          </section>
+
+          <section id="ornek">
+            <h2>Bir tankın seviyesi nasıl kontrol edilir?</h2>
+            <p>Operatörün tank seviyesi için %60 hedef girdiğini düşünelim. Tank çıkışındaki tüketim artınca seviye %55'e düşüyor. Saha transmitteri ölçümü gönderiyor, kontrolör farkı hesaplıyor ve giriş vanasını daha fazla açıyor. Tanka giren debi artınca seviye yeniden hedefe yaklaşıyor. Aynı anda başka bir kontrolör, tesisteki eşanjörün sıcaklık döngüsünü yürütmeye devam edebiliyor.</p>
+            <ol>
+              <li>Seviye transmitteri ölçümü saha I/O modülüne iletir.</li>
+              <li>Kontrolör, ölçümü hedef değerle karşılaştırır ve PID hesabıyla vana komutunu belirler.</li>
+              <li>Çıkış sinyali vanaya ulaşır. Değişen debi tank seviyesini etkiler ve yeni ölçüm döngüyü tamamlar.</li>
+            </ol>
+            <p>Operatör ekranındaki trend, seviye ile vana komutunun zaman içindeki değişimini birlikte incelemeyi sağlar. Bu görünüm, örneğin vana komutu değiştiği hâlde seviyenin neden beklenen tepkiyi vermediğini araştırırken işe yarar.</p>
+          </section>
+
+          <section id="karsilastirma">
+            <h2>DCS ve PLC + SCADA nerede ayrışır?</h2>
+            <p>PLC + SCADA mimarisinde PLC’ler kontrol mantığını yürütür. SCADA tarafı izleme, operatör kumandası, alarm ve veri kaydı işlevlerini üstlenir. Bu mimariyle de dağıtılmış kontrol ve yedeklilik kurulabilir. DCS, özellikle çok sayıda analog döngüye sahip sürekli veya kesikli proseslerde bu işlevleri ortak bir mühendislik ve işletme platformunda toplamayı kolaylaştırır.</p>
+            <p>Seçimi tesisin ölçeği kadar bakım modeli de etkiler. Bağımsız makinelerin ağırlıkta olduğu bir tesiste paket makineler kendi PLC’leriyle çalışabilir. Proses ünitelerinin yoğun biçimde birbirine bağlı olduğu tesiste ortak alarm yaklaşımı, standart operatör ekranları ve kontrol yapılandırması daha fazla değer kazanabilir. Bir tesiste iki mimari birlikte de kullanılabilir.</p>
+          </section>
+
+          <section id="devreye-alma">
+            <h2>DCS projesi sahada nasıl devreye alınır?</h2>
+            <p>Örnek bir proses tesisinde hammadde tanklarını, karıştırma ünitesini ve ısı transfer hattını düşünelim. Mühendislik ekibi ilk olarak P&amp;ID üzerinden hangi ölçümün hangi kontrolöre gideceğini, hangi vanayı etkilediğini ve operatör ekranında nerede gösterileceğini belirler. Örneğin, tank seviyesinin pompayı durdurması gerekiyorsa iki ünite arasındaki kilitleme mantığı tasarım aşamasında açıkça tanımlanır.</p>
+            <p>Fabrika kabul testinde (FAT) saha sinyalleri simüle edilir. Ekip, düşük seviye alarmının tetiklenmesini, ilgili trendin görüntülenmesini ve kontrol mantığının beklenen tepkiyi vermesini doğrular. Yedeklilik tasarlandıysa, kabul senaryolarına hangi bileşenin devre dışı bırakılacağı ve yedeğin hangi koşullarda devralacağı da yazılır.</p>
+            <p>Saha kabul testinde (SAT) transmitterden I/O modülüne ve operatör ekranına kadar gerçek sinyal zinciri doğrulanır. Çıkış tarafında kontrolör komutunun doğru vanaya ulaştığı ve varsa vana konum geri bildiriminin ekranda gösterildiği kontrol edilir. Mevcut bir tesiste geçiş sırası, duruş penceresi ve geri dönüş kararının verileceği nokta devreye alma planına eklenir.</p>
+          </section>
+
+          <section id="secim">
+            <h2>DCS seçerken neye bakılır?</h2>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th scope="col">Ölçüt</th><th scope="col">Şartnameye girecek soru</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Proses kapsamı</th><td>Kaç I/O noktası ve kontrol döngüsü var? Sürekli kontrol, reçete, sıralı çalışma ve kapasite artışı nasıl karşılanacak?</td></tr>
+                  <tr><th scope="row">Yedeklilik</th><td>Kontrolör, ağ veya sunucu arızasında prosesin kabul edebileceği davranış nedir? Yedek devralma nasıl test edilecek?</td></tr>
+                  <tr><th scope="row">Operatör deneyimi</th><td>Bir arıza sırasında alarm önceliği, olay sırası ve ilgili trendler operatöre nasıl gösterilecek?</td></tr>
+                  <tr><th scope="row">Entegrasyon</th><td>Mevcut paket makineler, sürücüler, saha cihazları ve üst seviye sistemlerle hangi veriler alışverişe girecek?</td></tr>
+                  <tr><th scope="row">Yaşam döngüsü</th><td>Yerel servis, yedek parça, lisans, sürüm yönetimi ve güvenlik güncellemelerinin uzun vadeli koşulları neler?</td></tr>
+                  <tr><th scope="row">Modernizasyon</th><td>Geçiş için ne kadar duruş ayrılabilir? Fabrika ve saha kabul testleri ile geri dönüş planı nasıl hazırlanacak?</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Emerson DeltaV, Yokogawa CENTUM ve Honeywell Experion PKS</strong>, dünya pazarında öne çıkan platformlardan bazılarıdır. Teklifleri karşılaştırırken aynı proses senaryosunu ve aynı kabul testlerini kullanmak, ürün listesinden daha somut bir karşılaştırma sağlar.</p>
+          </section>
+
+          <section id="trendler">
+            <h2>Güncel eğilimler · Yazılım tanımlı kontrol ve kalite tahmini</h2>
+            <p>Yazılım tanımlı otomasyon, kontrol yazılımının donanımla bağını azaltmayı ve sistemleri kademeli olarak yenilemeyi hedefliyor. Schneider Electric’in Foxboro SDA yaklaşımı buna bir örnek. Projede bunun karşılığını görmek için hangi bileşenlerin taşınabildiği, mevcut saha cihazlarının nasıl korunacağı ve geçişin ne kadar duruş gerektirdiği netleştirilmeli.</p>
+            <p>Yokogawa’nın CENTUM R7.02 sürümünde sunduğu tahmin işlevi, mevcut proses verilerinden ürün kalitesi ve çalışma koşulları hakkında tahmin üretmeyi amaçlıyor. Örneğin bir karıştırma prosesinde sıcaklık, debi ve karıştırma süresi kullanılarak ürün viskozitesindeki olası sapma tahmin edilebilir. Kabul testinde tahminin laboratuvar ölçümleriyle ne kadar uyuştuğu, sapmayı ne kadar erken işaret ettiği ve kaç yanlış uyarı ürettiği değerlendirilebilir.</p>
+            <p><strong>Bir DCS yatırımının teknik karşılığı</strong>, normal üretimin yanında arıza, bakım ve modernizasyon sırasında prosesin nasıl davranacağının baştan tanımlanması ve kabul testlerinde doğrulanmasıdır.</p>
+          </section>
+
+          <section id="kaynaklar" class="sources">
+            <h2>Kaynaklar</h2>
+            <ul>
+
+              <li><a href="https://www.yokogawa.com/solutions/products-and-services/control/control-and-safety-system/distributed-control-systems-dcs/centum-vp">Yokogawa · CENTUM mimarisi</a></li>
+              <li><a href="https://www.emerson.com/en/automation-systems/distributed-control-systems-dcs/deltav-distributed-control-system">Emerson · DeltaV DCS</a></li>
+              <li><a href="https://www.yokogawa.com/news/press-releases/2026/2026-11-17/">Yokogawa · CENTUM R7.02 duyurusu</a></li>
+              <li><a href="https://www.globenewswire.com/news-release/2026/11/22/3407944/0/en/schneider-electric-turns-industrial-intelligence-into-action-at-sps-2026.html">Schneider Electric · Foxboro SDA ve yazılım tanımlı otomasyon</a></li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="frame">YK Endüstriyel Otomasyon ve Dijital Dönüşüm</div></footer>
+</body>
+</html>
