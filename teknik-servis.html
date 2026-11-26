@@ -346,6 +346,39 @@ html{scroll-padding-top:94px}
 </style>
 <style id="yk-original-turko-menu-logo">.yk-site-header .yk-site-links a.yk-portal-logo{background:#faf6f1!important;padding:7px 10px!important;min-height:42px;line-height:0;border-radius:7px}.yk-site-header .yk-site-links a.yk-portal-logo img{display:block;width:105px!important;height:26px!important;object-fit:contain!important;background:transparent!important;border-radius:0!important;padding:0!important;flex-shrink:0}.yk-site-header .yk-site-links a.yk-portal-logo:hover{background:#fff!important}</style><link rel="icon" type="image/png" href="yk-logo-simge.png">
 <link rel="stylesheet" href="yk-kurumsal.css">
+<style>
+.service-video {
+  padding: clamp(32px, 6vw, 64px) 0;
+  background: #fffaf0;
+  border-bottom: 1px solid #e8e4dc;
+}
+.service-video .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+}
+.service-video h2 {
+  margin: 0 0 12px;
+  color: #141414;
+  font-size: clamp(24px, 4vw, 36px);
+  line-height: 1.2;
+}
+.service-video p { margin: 0; color: #50483c; }
+.service-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  background: #141414;
+  outline: 1px solid #e8d5ad;
+}
+.service-video video:focus-visible { outline: 2px solid #9c6800; }
+@media (max-width: 760px) {
+  .service-video .wrap { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
 </head><body>
 <div class="top-contact-bar"><div class="top-contact-inner"><span data-en="◷ Monday - Friday 08:00-18:00" data-tr="◷ Pazartesi - Cuma 08:00-18:00">◷ Pazartesi - Cuma 08:00-18:00</span><div class="top-contact-links"><a aria-label="Telefon: 0501 577 22 49" href="tel:+905015772249">☎ 0501 577 22 49</a><a aria-label="E-posta: info@ykotomasyon.com.tr" href="mailto:info@ykotomasyon.com.tr">✉ info@ykotomasyon.com.tr</a></div></div></div>
 <header class="yk-site-header"><div class="yk-site-bar"><a class="yk-site-brand" href="index.html"><img alt="YK Otomasyon logosu" src="yk-logo-simge.png"/><span class="yk-brand-name">YK OTOMASYON<small>Endüstriyel Otomasyon ve Dijital Dönüşüm</small></span></a><button aria-expanded="false" aria-label="Menüyü aç veya kapat" class="yk-site-menu" onclick="const n=this.nextElementSibling;n.classList.toggle('open');this.setAttribute('aria-expanded',String(n.classList.contains('open')))" type="button">☰</button><nav aria-label="Ana menü" class="yk-site-links">
@@ -365,6 +398,19 @@ html{scroll-padding-top:94px}
 <p data-en="Technical service for all industrial brands and models. Complete the service request form for free fault diagnosis." data-tr="Tüm endüstriyel marka ve modeller için teknik servisimizle hizmetinizdeyiz. Ücretsiz arıza tespiti için servis talep formunu doldurun.">Tüm endüstriyel marka ve modeller için teknik servisimizle hizmetinizdeyiz. Ücretsiz arıza tespiti için servis talep formunu doldurun.</p>
 <a class="btn" data-en="Complete the Service Request Form →" data-tr="Teknik Servis Formunu Doldurun →" href="#servis-formu">Teknik Servis Formunu Doldurun →</a>
 </div></section>
+<section class="service-video" aria-labelledby="servis-video-baslik">
+  <div class="wrap">
+    <div>
+      <h2 id="servis-video-baslik" data-en="Technical Service and Repair" data-tr="Teknik Servis ve Tamir">Teknik Servis ve Tamir</h2>
+      <p data-en="Watch our introduction to device inspection, electronic board checks and testing." data-tr="Cihaz inceleme, elektronik kart kontrolü ve test adımlarını tanıtım videomuzda izleyin.">Cihaz inceleme, elektronik kart kontrolü ve test adımlarını tanıtım videomuzda izleyin.</p>
+    </div>
+    <video controls playsinline preload="none" width="1280" height="720"
+      poster="yk-teknik-servis-kapak.webp" aria-labelledby="servis-video-baslik">
+      <source src="yk-teknik-servis-tamir.mp4" type="video/mp4">
+      <a href="yk-teknik-servis-tamir.mp4" data-en="Download the repair video" data-tr="Tamir videosunu indir">Tamir videosunu indir</a>
+    </video>
+  </div>
+</section>
 <section id="servis-formu"><div class="wrap service-grid">
 <div class="service-form"><h2 data-en="Technical Service Request Form" data-tr="Teknik Servis Talep Formu">Teknik Servis Talep Formu</h2>
 <p data-en="Share the device details and the issue. We will contact you to review your request. Fields marked * are required." data-tr="Cihaz bilgilerini ve yaşadığınız sorunu paylaşın. Talebinizi değerlendirmek için sizinle iletişime geçelim. * işaretli alanlar zorunludur.">Cihaz bilgilerini ve yaşadığınız sorunu paylaşın. Talebinizi değerlendirmek için sizinle iletişime geçelim. * işaretli alanlar zorunludur.</p>
