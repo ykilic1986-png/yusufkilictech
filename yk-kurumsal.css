@@ -1,0 +1,56 @@
+:root {
+  --yk-gold: #f5ad09;
+  --yk-charcoal: #141414;
+  --yk-warm-white: #fffaf0;
+}
+
+.yk-site-header .yk-brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.yk-site-header .yk-brand-name small {
+  display: block;
+  margin-top: 4px;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.yk-site-header .yk-site-brand img[src="yk-logo-simge.png"] {
+  width: 50px !important;
+  height: 48px !important;
+  padding: 4px !important;
+  object-fit: contain !important;
+  background: #fff !important;
+}
+
+.yk-site-header .yk-site-links a[aria-current="page"],
+.yk-site-header .yk-site-links a.active {
+  box-shadow: inset 0 -2px var(--yk-gold);
+}
+
+.hero a.btn:not(.alt) {
+  background: var(--yk-gold) !important;
+  color: var(--yk-charcoal) !important;
+  border-color: var(--yk-gold) !important;
+}
+
+.hero a.btn:not(.alt):hover {
+  background: #ffbf37 !important;
+}
+
+:focus-visible {
+  outline: 2px solid #9c6800;
+  outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  .yk-site-header .yk-brand-name small {
+    white-space: normal;
+    max-width: 145px;
+  }
+}

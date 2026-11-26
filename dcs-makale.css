@@ -1,19 +1,19 @@
 :root {
   color-scheme: light;
-  --ink: #132039;
-  --muted: #485773;
-  --brand: #1744bf;
-  --line: #dce3ed;
-  --paper: #f7f8fb;
+  --ink: #22201d;
+  --muted: #63553d;
+  --brand: #6d490b;
+  --line: #e9e2d5;
+  --paper: #faf8f5;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; color: var(--ink); background: var(--paper); font: 17px/1.7 system-ui, sans-serif; }
 .frame { width: min(1152px, calc(100% - 48px)); margin-inline: auto; }
-.site-header { background: #132039; color: white; }
+.site-header { background: #22201d; color: white; }
 .header-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 15px; font-weight: 650; }
-.header-inner span:last-child { color: #bfcef9; }
+.header-inner span:last-child { color: #f5c87a; }
 .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(30px, 6vw, 88px); align-items: center; padding-block: 48px; }
 .category { color: var(--brand); text-transform: uppercase; letter-spacing: .09em; font-size: .82rem; font-weight: 750; }
 h1 { font-size: clamp(2.7rem, 7vw, 5.5rem); line-height: 1.04; letter-spacing: -.052em; margin: .17em 0 .28em; }
@@ -39,7 +39,7 @@ li + li { margin-top: 8px; }
 table { border-collapse: collapse; width: 100%; background: white; font-size: .94rem; line-height: 1.55; }
 th, td { padding: 11px 13px; text-align: left; vertical-align: top; border: 1px solid var(--line); }
 th { font-weight: 700; }
-thead { background: #eaf0ff; }
+thead { background: #f5efe5; }
 tbody th { width: 27%; overflow-wrap: anywhere; }
 .sources { border-top: 1px solid var(--line); padding-top: 25px; }
 .site-footer { padding-block: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
